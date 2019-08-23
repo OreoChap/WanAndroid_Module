@@ -54,7 +54,7 @@ public class WanAndroidPresenter implements WanAndroidContract.Presenter{
                     @Override
                     public void onNext(Article data) {
                         mView.showArticle(data, isUpdate);
-                        Log.d(TAG, "onNext: " + mDate.toString());
+                        Log.d(TAG, "onNext: " + data.toString());
                     }
 
                     @Override

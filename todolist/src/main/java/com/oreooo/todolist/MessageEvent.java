@@ -1,0 +1,17 @@
+package com.oreooo.todolist;
+
+/**
+ * @author Oreo https://github.com/OreoChap
+ * @date 2018/11/27
+ */
+
+public class MessageEvent {
+
+    public static class DoneFragmentUpdateUIEvent {
+        String message;
+
+        public DoneFragmentUpdateUIEvent(String event) {
+            this.message = event;
+        }
+    }
+}

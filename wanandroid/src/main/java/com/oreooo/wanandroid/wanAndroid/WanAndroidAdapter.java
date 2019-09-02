@@ -1,10 +1,9 @@
 package com.oreooo.wanandroid.wanAndroid;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.text.Html;
 import android.widget.TextView;
-
-import androidx.annotation.Nullable;
 
 import com.oreooo.wanandroid.R;
 import com.oreooo.wanandroid.pojo.ArticleDatas;

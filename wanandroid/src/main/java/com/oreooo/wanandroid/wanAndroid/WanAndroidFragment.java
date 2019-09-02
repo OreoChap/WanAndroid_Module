@@ -1,9 +1,8 @@
 package com.oreooo.wanandroid.wanAndroid;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.oreooo.baselibrary.RoutePath.WanAndroidRoutePath;

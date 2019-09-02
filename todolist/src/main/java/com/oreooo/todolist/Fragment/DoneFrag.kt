@@ -1,14 +1,14 @@
 package com.example.oreooo.todoforstudy.Fragment
 
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.oreooo.todoforstudy.Adapter.DoneFragRVA
 import com.oreooo.library.ListBase.BaseRecyclerAdapter
 import com.oreooo.todolist.LItePalDB.LitePalHelper
@@ -44,7 +44,7 @@ class DoneFrag : Fragment() {
     }
 
     private fun update(time: String) {
-        rV.adapter = (DoneFragRVA(mContext!!, LitePalHelper.getInstance().getDoneProjectsByToday(time),
+        rV.adapter = (DoneFragRVA(mContext!!, LitePalHelper.instance.getDoneProjectsByToday(time),
                 R.layout.list_item_donefragment, BaseRecyclerAdapter.OnViewHolderClickListener { _, _ -> }))
         timeTxt.text = time
     }

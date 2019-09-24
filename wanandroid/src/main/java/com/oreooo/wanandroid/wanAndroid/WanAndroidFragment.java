@@ -1,5 +1,6 @@
 package com.oreooo.wanandroid.wanAndroid;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.oreooo.wanandroid.R;
 import com.oreooo.wanandroid.pojo.Article;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
 import com.oreooo.wanandroid.test.TRecyclerViewAdapter;
+import com.oreooo.wanandroid.wanAndroid.webView.WebViewActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -82,9 +84,12 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
                         data.getData().getDatas(), R.layout.list_item_article, new TRecyclerViewAdapter.OnViewHolderClickListener() {
                     @Override
                     public void onClick(int position) {
-                        ARouter.getInstance().build(WanAndroidRoutePath.WEBVIEW_ACTIVITY)
-                                .withString("webUrl",  mAdapter.mData.get(position).getLink())
-                                .navigation();
+//                        ARouter.getInstance().build(WanAndroidRoutePath.WANANDROID_ACTIVITY)
+//                                .withString("webUrl",  mAdapter.mData.get(position).getLink())
+//                                .navigation();
+                        Intent i = new Intent(getActivity(), WebViewActivity.class);
+                        i.putExtra("webUrl", mAdapter.mData.get(position).getLink());
+                        startActivity(i);
                     }
                 });
                 mRecyclerView.setAdapter(mAdapter);
@@ -118,9 +123,12 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
                     .setOnBannerListener(new OnBannerListener() {
                         @Override
                         public void OnBannerClick(int position) {
-                            ARouter.getInstance().build(WanAndroidRoutePath.WEBVIEW_ACTIVITY)
-                                    .withString("webUrl", list.get(position).getUrl())
-                                    .navigation();
+//                            ARouter.getInstance().build(WanAndroidRoutePath.WEBVIEW_ACTIVITY)
+//                                    .withString("webUrl", list.get(position).getUrl())
+//                                    .navigation();
+                            Intent i = new Intent(getActivity(), WebViewActivity.class);
+                            i.putExtra("webUrl", list.get(position).getUrl());
+                            startActivity(i);
                         }
                     })
                     .setBannerAnimation(Transformer.DepthPage)

@@ -4,7 +4,7 @@ public class WanAndroidRoutePath {
 
     private static final String PREFIX = "/wanAndroid/";
 
-    public static final String WANANDROID_ACTIVITY = PREFIX+"WanAndroidActivity";
+    public static final String WANANDROID_ACTIVITY = PREFIX + "WanAndroidActivity";
 
-    public static final String WEBVIEW_ACTIVITY = PREFIX+"WebViewActivity";
+    public static final String WEBVIEW_ACTIVITY = PREFIX + "WebViewActivity";
 }

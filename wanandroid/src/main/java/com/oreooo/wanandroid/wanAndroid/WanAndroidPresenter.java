@@ -48,23 +48,24 @@ public class WanAndroidPresenter implements WanAndroidContract.Presenter{
                 .subscribe(new Observer<Article>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Log.d(TAG, "onSubscribe: called");
+                        Log.d(TAG, "getArticles: 发起请求");
                     }
 
                     @Override
                     public void onNext(Article data) {
                         mView.showArticle(data, isUpdate);
-                        Log.d(TAG, "onNext: success!");
+                        Log.d(TAG, "getArticles: 请求回调");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d(TAG, "onError: called");
+                        Log.d(TAG, "getArticles: 请求失败");
+                        e.printStackTrace();
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d(TAG, "onComplete: called");
+                        Log.d(TAG, "getArticles: 请求完结");
                     }
                 });
     }

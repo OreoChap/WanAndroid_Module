@@ -7,6 +7,7 @@ import java.util.List;
  * @date 2019/4/29
  */
 public class ArticleDatas {
+    private Integer audit;
     private String apkLink;
     private String author;
     private String chapterId;
@@ -19,6 +20,7 @@ public class ArticleDatas {
     private String id;
     private String link;
     private String niceDate;
+    private String niceShareDate;
     private String origin;
     private String prefix;
     private String projectLink;
@@ -31,6 +33,40 @@ public class ArticleDatas {
     private String userId;
     private String visible;
     private String zan;
+    private Long shareDate;
+    private String shareUser;
+
+    public String getShareUser() {
+        return shareUser;
+    }
+
+    public void setShareUser(String shareUser) {
+        this.shareUser = shareUser;
+    }
+
+    public Long getShareDate() {
+        return shareDate;
+    }
+
+    public void setShareDate(Long shareDate) {
+        this.shareDate = shareDate;
+    }
+
+    public String getNiceShareDate() {
+        return niceShareDate;
+    }
+
+    public void setNiceShareDate(String niceShareDate) {
+        this.niceShareDate = niceShareDate;
+    }
+
+    public Integer getAudit() {
+        return audit;
+    }
+
+    public void setAudit(Integer audit) {
+        this.audit = audit;
+    }
 
     public String getApkLink() {
         return apkLink;

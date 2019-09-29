@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/my_dialog_bg">
+
+    <LinearLayout
+        android:id="@+id/Tip_Dialog_Title"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="left|center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tip_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:text="温馨提示"
+            android:textColor="#222222"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/Tip_Dialog_Content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/Tip_Dialog_Title"
+        android:background="@color/cardview_light_background"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tip_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单据尚未保存，确定退出吗？"
+            android:textColor="#444444"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    <!--  android:elevation="8dp" 设置控件阴影效果-->
+    <LinearLayout
+        android:id="@+id/Tip_Dialog_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Tip_Dialog_Content"
+        android:background="@drawable/my_dialog_buttonbg"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp">
+
+            <TextView
+                android:id="@+id/tip_cancel"
+                android:layout_width="88dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/cancelshapechange"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@drawable/cancelbuttontext" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp">
+
+            <TextView
+                android:id="@+id/tip_confirm"
+                android:layout_width="88dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/searchshapechange"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@drawable/searchbuttontext" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

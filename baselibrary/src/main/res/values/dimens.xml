@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- textSize -->
+    <dimen name="text_size_4">4sp</dimen>
+    <dimen name="text_size_6">6sp</dimen>
+
+    <!-- height -->
+    <dimen name="height_1">1dp</dimen>
+    <dimen name="height_2">2dp</dimen>
+    <dimen name="height_9">9dp</dimen>
+    <dimen name="height_10">10dp</dimen>
+    <dimen name="height_12">12dp</dimen>
+    <dimen name="height_18">18dp</dimen>
+    <dimen name="height_20">20dp</dimen>
+    <dimen name="height_22">22dp</dimen>
+    <dimen name="height_25">25dp</dimen>
+    <dimen name="height_30">30dp</dimen>
+    <dimen name="height_32">32dp</dimen>
+    <dimen name="height_35">35dp</dimen>
+
+    <!-- margin -->
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
+
+    <!-- 按照UI设计师数据转换的安卓距离单位 -->
+    <dimen name="px0dp">0.0dp</dimen>
+    <dimen name="px2dp">1.089dp</dimen>
+    <dimen name="px4dp">2.178dp</dimen>
+    <dimen name="px6dp">3.268dp</dimen>
+    <dimen name="px8dp">4.357dp</dimen>
+    <dimen name="px10dp">5.447dp</dimen>
+    <dimen name="px12dp">6.536dp</dimen>
+    <dimen name="px14dp">7.626dp</dimen>
+    <dimen name="px16dp">8.715dp</dimen>
+    <dimen name="px18dp">9.805dp</dimen>
+    <dimen name="px20dp">10.894dp</dimen>
+    <dimen name="px22dp">11.984dp</dimen>
+    <dimen name="px24dp">13.073dp</dimen>
+    <dimen name="px26dp">14.163dp</dimen>
+    <dimen name="px28dp">15.252dp</dimen>
+    <dimen name="px30dp">16.342dp</dimen>
+    <dimen name="px32dp">17.431dp</dimen>
+    <dimen name="px34dp">18.520dp</dimen>
+    <dimen name="px36dp">19.610dp</dimen>
+    <dimen name="px38dp">20.699dp</dimen>
+    <dimen name="px40dp">21.789dp</dimen>
+    <dimen name="px42dp">22.878dp</dimen>
+    <dimen name="px44dp">23.968dp</dimen>
+    <dimen name="px46dp">25.057dp</dimen>
+    <dimen name="px50dp">27.236dp</dimen>
+    <dimen name="px52dp">28.326dp</dimen>
+    <dimen name="px56dp">30.505dp</dimen>
+    <dimen name="px58dp">31.594dp</dimen>
+    <dimen name="px60dp">32.684dp</dimen>
+    <dimen name="px64dp">34.863dp</dimen>
+    <dimen name="px66dp">35.952dp</dimen>
+    <dimen name="px68dp">37.041dp</dimen>
+    <dimen name="px70dp">38.131dp</dimen>
+    <dimen name="px74dp">40.310dp</dimen>
+    <dimen name="px86dp">46.847dp</dimen>
+    <dimen name="px96dp">52.294dp</dimen>
+    <dimen name="px100dp">54.473dp</dimen>
+    <dimen name="px102dp">55.562dp</dimen>
+    <dimen name="px112dp">61.010dp</dimen>
+    <dimen name="px140dp">76.262dp</dimen>
+    <dimen name="px148dp">80.620dp</dimen>
+    <dimen name="px162dp">88.247dp</dimen>
+    <dimen name="px270dp">147.078dp</dimen>
+    <dimen name="px276dp">150.346dp</dimen>
+    <dimen name="px288dp">156.883dp</dimen>
+    <dimen name="px324dp">176.494dp</dimen>
+    <dimen name="px620dp">337.735dp</dimen>
+    <dimen name="px680dp">370.419dp</dimen>
+    <dimen name="px720dp">392.208dp</dimen>
+</resources>

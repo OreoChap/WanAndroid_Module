@@ -99,5 +99,4 @@ public class WanAndroidPresenter implements WanAndroidContract.Presenter{
                     }
                 });
     }
-
 }

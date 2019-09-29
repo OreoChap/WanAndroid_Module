@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/px620dp"
+    android:layout_height="@dimen/px720dp">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px40dp"
+        android:layout_marginTop="@dimen/px28dp"
+        android:text="连接设置"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/px28dp"
+        android:background="@color/colorBlue"
+        app:layout_constraintTop_toBottomOf="@id/text_title" />
+
+    <TextView
+        android:id="@+id/txt_dizhi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="@dimen/px66dp"
+        android:layout_marginTop="@dimen/px64dp"
+        android:text="地    址："
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/line1" />
+
+    <TextView
+        android:id="@+id/txt_duankou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="端    口："
+        app:layout_constraintLeft_toLeftOf="@id/txt_dizhi"
+        app:layout_constraintRight_toRightOf="@id/txt_dizhi"
+        app:layout_constraintTop_toTopOf="@id/edit_duankou"
+        app:layout_constraintBottom_toBottomOf="@id/edit_duankou" />
+
+    <TextView
+        android:id="@+id/txt_ConnectPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连接密码："
+        app:layout_constraintLeft_toLeftOf="@id/txt_duankou"
+        app:layout_constraintRight_toRightOf="@id/txt_duankou"
+        app:layout_constraintTop_toTopOf="@id/edit_ConnectPassword"
+        app:layout_constraintBottom_toBottomOf="@id/edit_ConnectPassword" />
+
+    <TextView
+        android:id="@+id/txt_ConnectMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连接模式："
+        app:layout_constraintLeft_toLeftOf="@id/txt_ConnectPassword"
+        app:layout_constraintRight_toRightOf="@id/txt_ConnectPassword"
+        app:layout_constraintTop_toTopOf="@id/spinner_connect_mode"
+        app:layout_constraintBottom_toBottomOf="@id/spinner_connect_mode" />
+
+    <EditText
+        android:id="@+id/edit_dizhi"
+        android:layout_width="180dp"
+        android:layout_height="@dimen/px58dp"
+        android:background="@drawable/widget_rect_black_hollow"
+        android:layout_marginRight="@dimen/px66dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        app:layout_constraintTop_toTopOf="@id/txt_dizhi"
+        app:layout_constraintBottom_toBottomOf="@id/txt_dizhi"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_duankou"
+        android:layout_width="180dp"
+        android:layout_height="@dimen/px58dp"
+        android:background="@drawable/widget_rect_black_hollow"
+        android:layout_marginTop="@dimen/px56dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        app:layout_constraintTop_toBottomOf="@id/edit_dizhi"
+        app:layout_constraintRight_toRightOf="@id/edit_dizhi" />
+
+    <EditText
+        android:id="@+id/edit_ConnectPassword"
+        android:layout_width="180dp"
+        android:layout_height="@dimen/px58dp"
+        android:background="@drawable/widget_rect_black_hollow"
+        android:layout_marginTop="@dimen/px56dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@id/edit_duankou"
+        app:layout_constraintRight_toRightOf="@id/edit_dizhi" />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/spinner_connect_mode"
+        android:layout_width="180dp"
+        android:layout_height="@dimen/px58dp"
+        android:background="@drawable/widget_rect_black_hollow"
+        android:layout_marginTop="@dimen/px56dp"
+        app:layout_constraintTop_toBottomOf="@id/edit_ConnectPassword"
+        app:layout_constraintRight_toRightOf="@id/edit_dizhi" />
+
+    <Button
+        android:id="@+id/btn_connect_setting_cancel"
+        android:layout_width="@dimen/px148dp"
+        android:layout_height="@dimen/px58dp"
+        android:layout_marginLeft="@dimen/px112dp"
+        android:background="@drawable/widget_rect_blue_hollow"
+        android:text="取消"
+        android:textColor="@color/colorBlue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_connect_setting_confirm"
+        app:layout_constraintBottom_toBottomOf="@id/btn_connect_setting_confirm" />
+
+    <Button
+        android:id="@+id/btn_connect_setting_confirm"
+        android:layout_width="@dimen/px148dp"
+        android:layout_height="@dimen/px58dp"
+        android:layout_marginBottom="@dimen/px52dp"
+        android:layout_marginRight="@dimen/px112dp"
+        android:background="@drawable/widget_rect_blue_solid_btn_login"
+        android:text="确定"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="412dp" />
+</android.support.constraint.ConstraintLayout>

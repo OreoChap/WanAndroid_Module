@@ -1,10 +1,12 @@
 package com.oreooo.wanandroid.wanAndroid.webView;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.oreooo.library.MvpBase.BaseFragment;
+import com.oreooo.baselibrary.MvpBase.BaseFragment;
 import com.oreooo.wanandroid.R;
 
 public class WebViewFragment extends BaseFragment {
@@ -18,17 +20,10 @@ public class WebViewFragment extends BaseFragment {
     }
 
     @Override
-    public void initView(View view) {
-        if (getActivity() != null) {
-            WebView mWebView = view.findViewById(R.id.wanAndroid_webView);
-            mWebView.loadUrl(String.valueOf(getActivity().getIntent().getStringExtra("webUrl")));
-            mWebView.setWebViewClient(new WebViewClient());
-        }
-    }
-
-    @Override
-    public void initListener() {
-
+    public void init(View view, Bundle savedInstanceState) {
+        WebView mWebView = view.findViewById(R.id.wanAndroid_webView);
+        mWebView.loadUrl(String.valueOf(((Activity)getMyContext()).getIntent().getStringExtra("webUrl")));
+        mWebView.setWebViewClient(new WebViewClient());
     }
 
     @Override

@@ -1,13 +1,12 @@
 package com.oreooo.wanandroid.wanAndroid;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.oreooo.baselibrary.RoutePath.WanAndroidRoutePath;
-import com.oreooo.library.MvpBase.BaseFragment;
+import com.oreooo.baselibrary.MvpBase.BaseFragment;
 import com.oreooo.wanandroid.GlideImageLoader;
 import com.oreooo.wanandroid.R;
 import com.oreooo.wanandroid.pojo.Article;
@@ -30,7 +29,7 @@ import java.util.List;
  * @date 2018/12/13
  */
 
-public class WanAndroidFragment extends BaseFragment implements WanAndroidContract.View{
+public class WanAndroidFragment extends BaseFragment implements WanAndroidContract.View {
     public static WanAndroidFragment wanAndroidFragment;
     WanAndroidContract.Presenter mPresenter;
     WanAndroidAdapter mAdapter;
@@ -48,7 +47,7 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
     }
 
     @Override
-    public void initView(View view) {
+    public void init(View view, Bundle savedInstanceState) {
         RefreshLayout refreshLayout = view.findViewById(R.id.layout_refresh);
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
@@ -70,9 +69,6 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
             }
         });
     }
-
-    @Override
-    public void initListener() { }
 
     @Override
     public void showArticle(final Article data, boolean isUpdate) {
@@ -97,7 +93,7 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
             }
 
             if (mAdapter != null) {
-                if (mAdapter.getItemCount() <= 20 * ArticlePage){
+                if (mAdapter.getItemCount() <= 20 * ArticlePage) {
                     mAdapter.addData(data.getData().getDatas());
                     mAdapter.notifyItemChanged(mAdapter.mData.size());
                 }

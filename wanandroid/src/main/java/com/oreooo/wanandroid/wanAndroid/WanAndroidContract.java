@@ -1,6 +1,6 @@
 package com.oreooo.wanandroid.wanAndroid;
 
-import com.oreooo.library.MvpBase.BaseContract;
+import com.oreooo.baselibrary.MvpBase.BaseContract;
 import com.oreooo.wanandroid.pojo.Article;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
 

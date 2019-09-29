@@ -46,7 +46,6 @@ public abstract class TRecyclerViewAdapter<T> extends RecyclerView.Adapter<TRecy
         }
     }
 
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (mHeaderView != null && viewType == TYPE_HEADER) {

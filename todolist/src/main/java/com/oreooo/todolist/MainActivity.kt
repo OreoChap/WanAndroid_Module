@@ -11,6 +11,7 @@ import com.oreooo.library.MvpBase.BaseActivity
 import com.oreooo.todolist.MessageEvent
 import com.oreooo.todolist.ProjectDialog
 import com.oreooo.todolist.R
+import kotlinx.android.synthetic.main.todo_activity_main.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode

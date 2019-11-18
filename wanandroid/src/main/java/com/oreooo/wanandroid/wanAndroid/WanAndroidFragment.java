@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.oreooo.baselibrary.ListBase.BaseRecyclerAdapter;
 import com.oreooo.baselibrary.MvpBase.BaseFragment;
 import com.oreooo.wanandroid.GlideImageLoader;
 import com.oreooo.wanandroid.R;
@@ -77,12 +78,9 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
                 RecyclerView mRecyclerView = wanAndroidFragment.getView().findViewById(R.id.recycler_wanAndroid);
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 mAdapter = new WanAndroidAdapter(getActivity(),
-                        data.getData().getDatas(), R.layout.list_item_article, new TRecyclerViewAdapter.OnViewHolderClickListener() {
+                        data.getData().getDatas(), R.layout.list_item_article, new BaseRecyclerAdapter.OnViewHolderClickListener() {
                     @Override
-                    public void onClick(int position) {
-//                        ARouter.getInstance().build(WanAndroidRoutePath.WANANDROID_ACTIVITY)
-//                                .withString("webUrl",  mAdapter.mData.get(position).getLink())
-//                                .navigation();
+                    public void onClick(int position, View view) {
                         Intent i = new Intent(getActivity(), WebViewActivity.class);
                         i.putExtra("webUrl", mAdapter.mData.get(position).getLink());
                         startActivity(i);
@@ -91,45 +89,49 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
                 mRecyclerView.setAdapter(mAdapter);
                 ArticlePage = 0;
             }
-
-            if (mAdapter != null) {
-                if (mAdapter.getItemCount() <= 20 * ArticlePage) {
-                    mAdapter.addData(data.getData().getDatas());
-                    mAdapter.notifyItemChanged(mAdapter.mData.size());
-                }
+        }
+        if (mAdapter != null) {
+            if (mAdapter.getItemCount() <= 20 * ArticlePage) {
+                mAdapter.addData(data.getData().getDatas());
+                mAdapter.notifyItemChanged(mAdapter.mData.size());
             }
         }
     }
 
+    // todo 将banner放到recyclerView上面（headView）
     @Override
     public void showBanner(final List<BannerDetailData> list) {
         if (wanAndroidFragment.getView() != null) {
             Banner mBanner = wanAndroidFragment.getView().findViewById(R.id.banner_wanAndroid);
-            List<String> bannerUrl = new ArrayList<>();
-            List<String> titles = new ArrayList<>();
-            for (BannerDetailData item : list) {
-                bannerUrl.add(item.getImagePath());
-                titles.add(item.getTitle());
-            }
+            if (mAdapter!= null) {
+                List<String> bannerUrl = new ArrayList<>();
+                List<String> titles = new ArrayList<>();
+                for (BannerDetailData item : list) {
+                    bannerUrl.add(item.getImagePath());
+                    titles.add(item.getTitle());
+                }
 
-            mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
-                    .setImageLoader(new GlideImageLoader())
-                    .setImages(bannerUrl)
-                    .setBannerTitles(titles)
-                    .setOnBannerListener(new OnBannerListener() {
-                        @Override
-                        public void OnBannerClick(int position) {
+                mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
+                        .setImageLoader(new GlideImageLoader())
+                        .setImages(bannerUrl)
+                        .setBannerTitles(titles)
+                        .setOnBannerListener(new OnBannerListener() {
+                            @Override
+                            public void OnBannerClick(int position) {
 //                            ARouter.getInstance().build(WanAndroidRoutePath.WEBVIEW_ACTIVITY)
 //                                    .withString("webUrl", list.get(position).getUrl())
 //                                    .navigation();
-                            Intent i = new Intent(getActivity(), WebViewActivity.class);
-                            i.putExtra("webUrl", list.get(position).getUrl());
-                            startActivity(i);
-                        }
-                    })
-                    .setBannerAnimation(Transformer.DepthPage)
-                    .setDelayTime(1500)
-                    .start();
+                                Intent i = new Intent(getActivity(), WebViewActivity.class);
+                                i.putExtra("webUrl", list.get(position).getUrl());
+                                startActivity(i);
+                            }
+                        })
+                        .setBannerAnimation(Transformer.DepthPage)
+                        .setDelayTime(1500)
+                        .start();
+                mAdapter.setHeaderView(mBanner);
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 
@@ -155,8 +157,8 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
         this.mPresenter = WanAndroidPresenter.getInstance();
         mPresenter.setView(this);
         if (mAdapter == null) {
-            mPresenter.getBanner();
             mPresenter.getArticles("0", true);
+            mPresenter.getBanner();
         }
     }
 

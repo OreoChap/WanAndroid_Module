@@ -9,12 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
 import java.util.List;
 
 public abstract class TRecyclerViewAdapter<T> extends RecyclerView.Adapter<TRecyclerViewAdapter.ViewHolder> {
-
     private Context mContext;
     private List<T> mData;
     private int mLayoutId;
@@ -89,12 +86,8 @@ public abstract class TRecyclerViewAdapter<T> extends RecyclerView.Adapter<TRecy
     }
 
     protected abstract void bindHolder(ViewHolder holder, T item);
-
-    protected void bindHeaderHolder(ViewHolder holder) {
-    }
-
-    protected void bindFooterHolder(ViewHolder holder) {
-    }
+    protected void bindHeaderHolder(ViewHolder holder) {}
+    protected void bindFooterHolder(ViewHolder holder) {}
 
     @Override
     public int getItemViewType(int position) {

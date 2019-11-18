@@ -32,17 +32,6 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         this.mListener = listener;
     }
 
-    @Override
-    public int getItemCount() {
-        if(mHeaderView == null && mFooterView == null){
-            return mData.size();
-        }else if(mHeaderView == null || mFooterView == null){
-            return mData.size() + 1;
-        }else {
-            return mData.size() + 2;
-        }
-    }
-
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -92,6 +81,17 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
             return TYPE_FOOTER;
         }
         return TYPE_NORMAL;
+    }
+
+    @Override
+    public int getItemCount() {
+        if(mHeaderView == null && mFooterView == null){
+            return mData.size();
+        }else if(mHeaderView == null || mFooterView == null){
+            return mData.size() + 1;
+        }else {
+            return mData.size() + 2;
+        }
     }
 
     public void setOnViewHolderClickListener(OnViewHolderClickListener listener) {

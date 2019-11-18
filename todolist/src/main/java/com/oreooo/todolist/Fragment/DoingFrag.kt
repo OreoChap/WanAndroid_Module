@@ -1,4 +1,4 @@
-package com.example.oreooo.todoforstudy.Fragment
+package com.oreooo.todolist.Fragment
 
 import android.support.v4.app.Fragment
 import android.os.Bundle

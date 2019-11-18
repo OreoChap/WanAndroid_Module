@@ -35,6 +35,15 @@ public class ArticleDatas {
     private String zan;
     private Long shareDate;
     private String shareUser;
+    private int selfVisible;
+
+    public int getSelfVisible() {
+        return selfVisible;
+    }
+
+    public void setSelfVisible(int selfVisible) {
+        this.selfVisible = selfVisible;
+    }
 
     public String getShareUser() {
         return shareUser;

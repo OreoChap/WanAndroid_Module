@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.oreooo.baselibrary.ListBase.BaseRecyclerAdapter;
@@ -35,6 +36,7 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
     WanAndroidContract.Presenter mPresenter;
     WanAndroidAdapter mAdapter;
     int ArticlePage = 0;
+    RecyclerView mRecyclerView;
 
     public static WanAndroidFragment getInstance() {
         if (wanAndroidFragment == null) {
@@ -61,7 +63,7 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
                 ++ArticlePage;
-                if (mAdapter.getItemCount() <= 20 * ArticlePage) {
+                if (mAdapter.getItemCount() - 1 <= 20 * ArticlePage) {
                     mPresenter.getArticles(String.valueOf(ArticlePage), false);
                 } else {
                     --ArticlePage;
@@ -75,35 +77,38 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
     public void showArticle(final Article data, boolean isUpdate) {
         if (wanAndroidFragment.getView() != null) {
             if (mAdapter == null || isUpdate) {
-                RecyclerView mRecyclerView = wanAndroidFragment.getView().findViewById(R.id.recycler_wanAndroid);
+                mRecyclerView = wanAndroidFragment.getView().findViewById(R.id.recycler_wanAndroid);
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 mAdapter = new WanAndroidAdapter(getActivity(),
                         data.getData().getDatas(), R.layout.list_item_article, new BaseRecyclerAdapter.OnViewHolderClickListener() {
                     @Override
                     public void onClick(int position, View view) {
                         Intent i = new Intent(getActivity(), WebViewActivity.class);
-                        i.putExtra("webUrl", mAdapter.mData.get(position).getLink());
+                        i.putExtra("webUrl", mAdapter.mData.get(position - 1).getLink());
                         startActivity(i);
                     }
                 });
                 mRecyclerView.setAdapter(mAdapter);
                 ArticlePage = 0;
+                mPresenter.getBanner();
             }
         }
         if (mAdapter != null) {
-            if (mAdapter.getItemCount() <= 20 * ArticlePage) {
+            if (mAdapter.getItemCount() - 1 <= 20 * ArticlePage && data.getData().getDatas() != null) {
                 mAdapter.addData(data.getData().getDatas());
                 mAdapter.notifyItemChanged(mAdapter.mData.size());
+
             }
         }
     }
 
-    // todo 将banner放到recyclerView上面（headView）
     @Override
     public void showBanner(final List<BannerDetailData> list) {
         if (wanAndroidFragment.getView() != null) {
-            Banner mBanner = wanAndroidFragment.getView().findViewById(R.id.banner_wanAndroid);
-            if (mAdapter!= null) {
+            View view = LayoutInflater.from(getMyContext()).inflate(R.layout.view_banner,
+                    mRecyclerView, false);
+            Banner mBanner = view.findViewById(R.id.banner);
+            if (mAdapter != null) {
                 List<String> bannerUrl = new ArrayList<>();
                 List<String> titles = new ArrayList<>();
                 for (BannerDetailData item : list) {
@@ -118,18 +123,15 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
                         .setOnBannerListener(new OnBannerListener() {
                             @Override
                             public void OnBannerClick(int position) {
-//                            ARouter.getInstance().build(WanAndroidRoutePath.WEBVIEW_ACTIVITY)
-//                                    .withString("webUrl", list.get(position).getUrl())
-//                                    .navigation();
                                 Intent i = new Intent(getActivity(), WebViewActivity.class);
                                 i.putExtra("webUrl", list.get(position).getUrl());
                                 startActivity(i);
                             }
                         })
                         .setBannerAnimation(Transformer.DepthPage)
-                        .setDelayTime(1500)
+                        .setDelayTime(2000)
                         .start();
-                mAdapter.setHeaderView(mBanner);
+                mAdapter.setHeaderView(view);
                 mAdapter.notifyDataSetChanged();
             }
         }
@@ -158,7 +160,7 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
         mPresenter.setView(this);
         if (mAdapter == null) {
             mPresenter.getArticles("0", true);
-            mPresenter.getBanner();
+//            mPresenter.getBanner();
         }
     }
 

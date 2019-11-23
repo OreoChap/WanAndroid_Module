@@ -31,6 +31,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-28'
     implementation 'com.youth.banner:banner:1.4.10'
 

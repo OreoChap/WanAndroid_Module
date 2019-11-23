@@ -15,7 +15,7 @@ public class WebViewActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
-        ARouter.getInstance().inject(this);
+//        ARouter.getInstance().inject(this);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.webview_container_fragment, WebViewFragment.getInstance())
                 .commit();

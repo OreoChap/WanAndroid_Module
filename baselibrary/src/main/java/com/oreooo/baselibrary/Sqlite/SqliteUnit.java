@@ -1,7 +1,6 @@
 package com.oreooo.baselibrary.Sqlite;
 
 public class SqliteUnit {
-
     private String UserName;
     private String Feature;
     private String JsonValue;

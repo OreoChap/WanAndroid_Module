@@ -1,12 +1,14 @@
-package com.oreooo.wanandroid.wanAndroid;
+package com.oreooo.wanandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -14,14 +16,16 @@ import com.oreooo.baselibrary.MvpBase.BaseActivity;
 import com.oreooo.baselibrary.MvpBase.BaseFragment;
 import com.oreooo.baselibrary.RoutePath.WanAndroidRoutePath;
 import com.oreooo.wanandroid.R;
+import com.oreooo.wanandroid.wanAndroid.WanAndroidFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Route(path = WanAndroidRoutePath.WANANDROID_ACTIVITY)
-public class WanAndroidActivity extends BaseActivity {
+public class MainAct extends BaseActivity {
 
     List<BaseFragment> frags = new ArrayList<>();
+        BottomNavigationView mBottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class WanAndroidActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 //        ARouter.getInstance().inject(this);
         switchFrags(WanAndroidFragment.getInstance());
+        initView();
     }
 
     // todo 暂时直接返回到桌面，以后用账号密码登录后，再添加处理
@@ -47,5 +52,24 @@ public class WanAndroidActivity extends BaseActivity {
             frags.add(frag);
         }
         transaction.replace(R.id.main_container_fragment, frag).commit();
+    }
+
+    private void initView() {
+        mBottomNavigationView = findViewById(R.id.bottom_navigation_view);
+
+        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                if (id == R.id.item_bottom_1) {
+                    switchFrags(WanAndroidFragment.getInstance());
+                } else if (id == R.id.item_bottom_2) {
+
+                }
+                return true;
+            }
+        });
+
+        mBottomNavigationView.getMenu().getItem(0).setChecked(true);
     }
 }

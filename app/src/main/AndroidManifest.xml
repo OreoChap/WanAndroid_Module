@@ -21,7 +21,7 @@
 
         <activity android:name="com.oreooo.wanandroid.wanAndroid.webView.WebViewActivity" />
 
-        <activity android:name="com.oreooo.wanandroid.wanAndroid.WanAndroidActivity"/>
+        <activity android:name="com.oreooo.wanandroid.MainAct"/>
         
     </application>
 </manifest>

@@ -2,7 +2,7 @@ package com.oreooo.baselibrary.RoutePath;
 
 public class WanAndroidRoutePath {
 
-    private static final String PREFIX = "/wanAndroid/";
+    private static final String PREFIX = "/wanandroid/";
 
     public static final String WANANDROID_ACTIVITY = PREFIX + "WanAndroidActivity";
 

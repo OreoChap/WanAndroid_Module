@@ -4,18 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.oreooo.baselibrary.MvpBase.BaseActivity;
 import com.oreooo.baselibrary.MvpBase.BaseFragment;
 import com.oreooo.baselibrary.RoutePath.WanAndroidRoutePath;
-import com.oreooo.wanandroid.R;
 import com.oreooo.wanandroid.wanAndroid.WanAndroidFragment;
 
 import java.util.ArrayList;
@@ -25,12 +21,13 @@ import java.util.List;
 public class MainAct extends BaseActivity {
 
     List<BaseFragment> frags = new ArrayList<>();
-        BottomNavigationView mBottomNavigationView;
+    BottomNavigationView mBottomNavigationView;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.act_main);
 //        ARouter.getInstance().inject(this);
         switchFrags(WanAndroidFragment.getInstance());
         initView();
@@ -56,6 +53,11 @@ public class MainAct extends BaseActivity {
 
     private void initView() {
         mBottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        mToolbar = findViewById(R.id.toolbar_main);
+
+        setSupportActionBar(mToolbar);
+        if (getSupportActionBar()!= null)
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,5 +73,7 @@ public class MainAct extends BaseActivity {
         });
 
         mBottomNavigationView.getMenu().getItem(0).setChecked(true);
+
+
     }
 }

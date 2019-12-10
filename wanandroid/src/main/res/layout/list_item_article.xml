@@ -28,12 +28,28 @@
         android:layout_marginLeft="20dp"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:layout_marginTop="5dp"
-        android:hint="CN"
+        android:hint="as"
         android:background="@drawable/widget_rect_orange_hollow"
         app:layout_constraintTop_toBottomOf="@id/txt_article_name"
         app:layout_constraintLeft_toLeftOf="@id/txt_article_name"
+        />
 
+    <TextView
+        android:id="@+id/txt_chapter_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:hint="cN"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="@drawable/widget_rect_red_hollow"
+        app:layout_constraintTop_toTopOf="@id/txt_article_super_chapter_name"
+        app:layout_constraintLeft_toRightOf="@id/txt_article_super_chapter_name"
         />
 
     <TextView
@@ -44,9 +60,12 @@
         android:hint="Au"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:background="@drawable/widget_rect_blue_hollow"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="@id/txt_article_super_chapter_name"
-        app:layout_constraintLeft_toRightOf="@id/txt_article_super_chapter_name"
+        app:layout_constraintLeft_toRightOf="@id/txt_chapter_name"
         />
 
     <TextView

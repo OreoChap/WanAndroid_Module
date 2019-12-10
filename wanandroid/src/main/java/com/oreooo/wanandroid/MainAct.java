@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.oreooo.baselibrary.MvpBase.BaseActivity;
@@ -58,6 +60,13 @@ public class MainAct extends BaseActivity {
         setSupportActionBar(mToolbar);
         if (getSupportActionBar()!= null)
             getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        mToolbar.findViewById(R.id.toolbar_main_navigation).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((NavigationView)findViewById(R.id.view_nav)).requestFocus();
+            }
+        });
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

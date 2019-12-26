@@ -13,7 +13,6 @@ import com.oreooo.wanandroid.GlideImageLoader;
 import com.oreooo.wanandroid.R;
 import com.oreooo.wanandroid.pojo.Article;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
-import com.oreooo.wanandroid.test.TRecyclerViewAdapter;
 import com.oreooo.wanandroid.wanAndroid.webView.WebViewActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;

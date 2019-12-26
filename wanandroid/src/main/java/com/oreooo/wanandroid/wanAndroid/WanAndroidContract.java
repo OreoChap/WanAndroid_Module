@@ -20,4 +20,6 @@ public interface WanAndroidContract {
         void showBanner(List<BannerDetailData> list);
         void showArticle(Article data, boolean isUpdate);
     }
+
+
 }

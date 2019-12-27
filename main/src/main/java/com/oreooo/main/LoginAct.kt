@@ -1,5 +1,7 @@
 package com.oreooo.main
 
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.BindingAdapter
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.widget.Button
@@ -9,22 +11,24 @@ import com.oreooo.baselibrary.ButtonClickListener
 import com.oreooo.baselibrary.MvpBase.BaseActivity
 import com.oreooo.baselibrary.RoutePath.WanAndroidRoutePath
 import com.oreooo.main.databinding.ActLoginBinding
+import kotlinx.android.synthetic.main.act_login.*
 
 class LoginAct : BaseActivity() {
 
-    internal var btn_skipLogin: Button
-    internal var mActLoginBinding: ActLoginBinding
+    private val viewModel by lazy { ViewModelProviders.of(this).get(LoginModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //        setContentView(R.layout.act_login);
-        mActLoginBinding = DataBindingUtil.setContentView(this, R.layout.act_login)
+        val binding: ActLoginBinding = DataBindingUtil.setContentView(this, R.layout.act_login)
+        binding.lifecycleOwner = this
+        binding.model = viewModel
         ARouter.getInstance().inject(this)
         initView()
     }
 
     private fun initView() {
-        btn_skipLogin = findViewById(R.id.btn_skipLogin)
+
         btn_skipLogin.setOnClickListener(object : ButtonClickListener() {
             override fun onSingleClick() {
                 ARouter.getInstance().build(WanAndroidRoutePath.WANANDROID_ACTIVITY).navigation()

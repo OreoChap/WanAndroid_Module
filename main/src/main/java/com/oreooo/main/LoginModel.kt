@@ -5,24 +5,19 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.content.Context
 import android.databinding.ObservableField
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 
 class LoginModel : ViewModel() {
 
-    private lateinit var name: LiveData<String>
-    private lateinit var pwd: LiveData<String>
+    private val _name = MutableLiveData<String>()
+    private val _lastName = MutableLiveData<String>()
 
-    fun onNameChanged(s: CharSequence) {
-        name!!.set(s.toString())
+     var name: LiveData<String> = _name
+     var pwd: LiveData<String> = _lastName
 
-    }
-
-    fun onPwdChanged(s: CharSequence) {
-        pwd!!.set(s.toString())
-    }
-
-    fun login(view: View) {
-
+    fun login() {
+        Log.d("12345","66666")
     }
 }

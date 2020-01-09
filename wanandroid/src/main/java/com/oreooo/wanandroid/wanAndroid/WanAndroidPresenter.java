@@ -59,8 +59,7 @@ public class WanAndroidPresenter implements WanAndroidContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d(TAG, "getArticles: 请求失败");
-                        e.printStackTrace();
+                        Log.d(TAG, "getArticles: 请求失败" + e.toString());
                     }
 
                     @Override

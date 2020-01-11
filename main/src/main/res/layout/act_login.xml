@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="model"
             type="com.oreooo.main.LoginModel" />
+
         <variable
             name="en"
             type="Boolean" />
     </data>
 
-    <android.support.constraint.ConstraintLayout     android:layout_width="match_parent"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        >
+        android:background="@color/colorWhite">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_username"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="请输入用户名"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
             android:text="@={model.name}"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_password"
@@ -34,24 +38,26 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
             android:text="@={model.pwd}"
-            app:layout_constraintTop_toBottomOf="@id/edit_username"
             app:layout_constraintLeft_toLeftOf="@id/edit_username"
-            />
+            app:layout_constraintTop_toBottomOf="@id/edit_username" />
 
         <Button
             android:id="@+id/btn_confirmLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="登录"
             android:layout_marginTop="20dp"
+            android:alpha="@{model.loginAlpha}"
             android:background="@null"
             android:clickable="@{model.loginEnable}"
-            android:alpha="@{model.loginAlpha}"
-            app:layout_constraintTop_toBottomOf="@id/edit_password"
+            android:text="登录"
+
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/edit_password" />
 
         <Button
             android:id="@+id/btn_skipLogin"
@@ -61,8 +67,7 @@
             android:text="跳过"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            />
+            app:layout_constraintRight_toRightOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

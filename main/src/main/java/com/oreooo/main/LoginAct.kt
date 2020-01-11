@@ -19,7 +19,6 @@ class LoginAct : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //        setContentView(R.layout.act_login);
         val binding: ActLoginBinding = DataBindingUtil.setContentView(this, R.layout.act_login)
         binding.lifecycleOwner = this
         binding.model = viewModel

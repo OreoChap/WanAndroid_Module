@@ -19,7 +19,7 @@ import io.reactivex.schedulers.Schedulers;
  * @author Oreo https://github.com/OreoChap
  * @date 2018/12/17
  */
-public class WanAndroidPresenter implements WanAndroidContract.Presenter{
+public class WanAndroidPresenter implements WanAndroidContract.Presenter {
     private static final String TAG = "WanAndroidPresenter";
     private WanAndroidContract.View mView;
     private List<BannerDetailData> mDate;
@@ -28,15 +28,16 @@ public class WanAndroidPresenter implements WanAndroidContract.Presenter{
         return WanAndroidPresenterHolder.Instance;
     }
 
-    private static class  WanAndroidPresenterHolder {
+    private static class WanAndroidPresenterHolder {
         private static WanAndroidPresenter Instance = new WanAndroidPresenter();
     }
 
-    WanAndroidPresenter(){}
+    WanAndroidPresenter() {
+    }
 
     @Override
     public void setView(BaseContract.BaseView view) {
-        this.mView = (WanAndroidContract.View)view;
+        this.mView = (WanAndroidContract.View) view;
     }
 
 

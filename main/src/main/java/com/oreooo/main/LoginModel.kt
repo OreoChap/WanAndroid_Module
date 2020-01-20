@@ -37,6 +37,6 @@ class LoginModel : ViewModel() {
 
     //登录按钮的点击事件
     fun loginClickListener(view:View){
-
+        LoginPresenter.instance.login()
     }
 }

@@ -13,7 +13,7 @@ import com.oreooo.baselibrary.RoutePath.WanAndroidRoutePath
 import com.oreooo.main.databinding.ActLoginBinding
 import kotlinx.android.synthetic.main.act_login.*
 
-class LoginAct : BaseActivity() {
+class LoginAct : BaseActivity(), LoginContract.View{
 
     private val viewModel by lazy { ViewModelProviders.of(this).get(LoginModel::class.java) }
 
@@ -36,4 +36,15 @@ class LoginAct : BaseActivity() {
         })
     }
 
+    override fun loginResult() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun subscribe() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun unsubscribe() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

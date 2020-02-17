@@ -3,7 +3,7 @@ package com.example.oreooo.todoforstudy.LItePalDB
 import org.litepal.crud.LitePalSupport
 import java.util.*
 
-class Project(var addTime:String = "", var thePlan:String = "", var doneTime:String = "",
+data class Project(var addTime:String = "", var thePlan:String = "", var doneTime:String = "",
               var doneDate: String = "", var done:Boolean = false): LitePalSupport() {
     init {
 

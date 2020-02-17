@@ -1,84 +1,85 @@
-package com.example.oreooo.todoforstudy
+package com.oreooo.todolist
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.ViewPager
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import com.example.oreooo.todoforstudy.Fragment.DoneFrag
-import com.oreooo.library.MvpBase.BaseActivity
+import com.oreooo.baselibrary.MvpBase.BaseFragment
 import com.oreooo.todolist.Fragment.DoingFrag
-import com.oreooo.todolist.MessageEvent
-import com.oreooo.todolist.ProjectDialog
-import com.oreooo.todolist.R
-import kotlinx.android.synthetic.main.todo_activity_main.*
+import kotlinx.android.synthetic.main.todo_act.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.litepal.LitePal
 
-/**
- * @author Oreo https://github.com/OreoChap
- * @date 2019/8/4
- */
-class MainActivity : BaseActivity() {
-    private val pagers:MutableList<Fragment> = ArrayList<Fragment>()
-    private val doingFragment: DoingFrag = DoingFrag.instance
-    private var doneFragment: DoneFrag = DoneFrag.instance
-    private var mDialog: ProjectDialog = ProjectDialog.getInstance(this)
+class ToDoFrag : BaseFragment() {
+    private val pagers: MutableList<Fragment> = ArrayList<Fragment>()
+    private lateinit var doingFragment: DoingFrag
+    private lateinit var doneFragment: DoneFrag
+    private lateinit var mDialog:ProjectDialog
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.todo_activity_main)
-        LitePal.initialize(applicationContext)
-        init()
-        EventBus.getDefault().register(this)
+    companion object {
+        val instance: ToDoFrag by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
+            ToDoFrag()
+        }
+        var SHOW_DONE_PROJECT = true
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         EventBus.getDefault().unregister(this)
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        doneFragment.checkSysTime()
-        doneFragment.updateUI()
+    override fun onStart() {
+        super.onStart()
+        // TODO 需要找个地方，刷新doneFragment页面的时间显示
+//        doneFragment.checkSysTime()
+//        doneFragment.updateUI()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_main_activity, menu)
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater!!.inflate(R.menu.menu_main_activity, menu)
         val showDoneProjects = menu?.findItem(R.id.menu_item_show_done_project)
         if (SHOW_DONE_PROJECT) {
             showDoneProjects?.setTitle(R.string.hide_done_project)
         } else {
             showDoneProjects?.setTitle(R.string.show_done_project)
         }
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.menu_item_add_project -> {
+                mDialog =  ProjectDialog.dialogFactory.makeDialog(myContext)
                 mDialog.showDialog(SHOW_DONE_PROJECT)
                 return true
             }
             R.id.menu_item_show_done_project -> {
                 SHOW_DONE_PROJECT = !SHOW_DONE_PROJECT
                 doingFragment.showProjects(SHOW_DONE_PROJECT)
-                this.invalidateOptionsMenu()
+//                this.invalidateOptionsMenu()
                 return true
             }
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
+            else -> return super.onOptionsItemSelected(item!!)
+        }    }
 
-    private fun init() {
+    override fun init(view: View?, savedInstanceState: Bundle?) {
+        LitePal.initialize(this.myContext.applicationContext)
+
+        doingFragment = DoingFrag.instance
+        doneFragment = DoneFrag.instance
+
         pagers.add(doingFragment)
         pagers.add(doneFragment)
 
-        pager.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
+        view!!.findViewById<ViewPager>(R.id.pager).adapter = object : FragmentPagerAdapter(fragmentManager) {
             override fun getItem(position: Int): Fragment {
                 return pagers[position]
             }
@@ -99,7 +100,7 @@ class MainActivity : BaseActivity() {
         doneFragment.updateUI()
     }
 
-    companion object {
-        var SHOW_DONE_PROJECT = true
+    override fun setContentView(): Int {
+        return R.layout.frag_todo
     }
 }

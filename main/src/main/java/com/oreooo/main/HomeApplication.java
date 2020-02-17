@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import org.litepal.LitePal;
+
 public class HomeApplication extends Application {
 
     // ARouter 调试开关
@@ -17,5 +19,6 @@ public class HomeApplication extends Application {
             ARouter.openDebug();
         }
         ARouter.init(HomeApplication.this);
+        LitePal.initialize(this);
     }
 }

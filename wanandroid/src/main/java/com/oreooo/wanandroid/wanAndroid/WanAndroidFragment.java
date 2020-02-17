@@ -32,10 +32,10 @@ import java.util.List;
 
 public class WanAndroidFragment extends BaseFragment implements WanAndroidContract.View {
     public static WanAndroidFragment wanAndroidFragment;
-    WanAndroidContract.Presenter mPresenter;
-    WanAndroidAdapter mAdapter;
+    private WanAndroidContract.Presenter mPresenter;
+    private WanAndroidAdapter mAdapter;
     int ArticlePage = 0;
-    RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
 
     public static WanAndroidFragment getInstance() {
         if (wanAndroidFragment == null) {
@@ -150,7 +150,7 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
 
     @Override
     public int setContentView() {
-        return R.layout.fragment_wanandroid;
+        return R.layout.frag_wanandroid;
     }
 
     @Override

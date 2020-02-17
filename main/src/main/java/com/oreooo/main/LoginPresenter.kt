@@ -16,7 +16,6 @@ class LoginPresenter : LoginContract.Presenter {
 
     override fun login() {
 
-
     }
 
     override fun setView(view: BaseContract.BaseView?) {

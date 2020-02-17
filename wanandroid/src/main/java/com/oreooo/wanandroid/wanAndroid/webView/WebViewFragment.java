@@ -28,6 +28,6 @@ public class WebViewFragment extends BaseFragment {
 
     @Override
     public int setContentView() {
-        return R.layout.fragment_webview;
+        return R.layout.frag_webview;
     }
 }

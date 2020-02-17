@@ -10,17 +10,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.oreooo.todoforstudy.Adapter.DoneFragRVA
-import com.oreooo.library.ListBase.BaseRecyclerAdapter
+import com.oreooo.baselibrary.ListBase.BaseRecyclerAdapter
 import com.oreooo.todolist.LItePalDB.LitePalHelper
 import com.oreooo.todolist.R
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DoneFrag : Fragment() {
-    private lateinit var rV: RecyclerView
     private var mContext: Context? = null
-    private lateinit var timeTxt: TextView
+    private var timeTxt: TextView? = null
     private var mDate: String? = null
+    private var rV:RecyclerView? = null
 
     companion object {
         val instance: DoneFrag by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
@@ -33,20 +33,20 @@ class DoneFrag : Fragment() {
         mContext = activity
         rV = view.findViewById<View>(R.id.recycler_doneFragment) as RecyclerView
         timeTxt = view.findViewById<View>(R.id.txt_time) as TextView
-        rV.layoutManager = LinearLayoutManager(mContext)
+        rV!!.layoutManager = LinearLayoutManager(mContext)
         checkSysTime()
         updateUI()
         return view
     }
 
     fun updateUI() {
-        update(mDate!!)
+//        update(mDate!!)
     }
 
     private fun update(time: String) {
-        rV.adapter = (DoneFragRVA(mContext!!, LitePalHelper.instance.getDoneProjectsByToday(time),
+        rV!!.adapter = (DoneFragRVA(mContext!!, LitePalHelper.instance.getDoneProjectsByToday(time),
                 R.layout.list_item_donefragment, BaseRecyclerAdapter.OnViewHolderClickListener { _, _ -> }))
-        timeTxt.text = time
+        timeTxt!!.text = time
     }
 
     fun checkSysTime() {

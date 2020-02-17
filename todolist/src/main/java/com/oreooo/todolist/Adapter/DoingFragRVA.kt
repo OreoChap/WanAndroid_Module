@@ -12,7 +12,7 @@ import android.widget.CompoundButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.oreooo.todoforstudy.LItePalDB.Project
-import com.example.oreooo.todoforstudy.MainActivity
+import com.example.oreooo.todoforstudy.ToDoAct
 import com.oreooo.todolist.LItePalDB.LitePalHelper
 import com.oreooo.todolist.MessageEvent
 import com.oreooo.todolist.ProjectDialog
@@ -79,8 +79,8 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
             val description = mView.findViewById<View>(R.id.rv_item_description) as TextView
             description.setText(project.thePlan)
             description.setOnLongClickListener(View.OnLongClickListener {
-                val dialog = ProjectDialog.getInstance(context)
-                dialog.showDialog(project, MainActivity.SHOW_DONE_PROJECT)
+                val dialog = ProjectDialog.dialogFactory.makeDialog(context!!)
+                dialog.showDialog(project, ToDoAct.SHOW_DONE_PROJECT)
                 true
             })
             checkedChange(project.done)

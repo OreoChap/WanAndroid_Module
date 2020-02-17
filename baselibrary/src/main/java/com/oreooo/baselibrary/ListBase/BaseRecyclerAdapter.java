@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRecyclerAdapter.BaseViewHolder>{
+public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRecyclerAdapter.BaseViewHolder> {
     private Context mContext;
     private List<T> mData;
     private int mLayoutId;
@@ -25,7 +25,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     private static final int TYPE_NORMAL = 2;  //说明是不带有header和footer的
 
     public BaseRecyclerAdapter(Context context, List<T> list, @IdRes int layoutId,
-                               @Nullable OnViewHolderClickListener listener){
+                               @Nullable OnViewHolderClickListener listener) {
         this.mData = list;
         this.mLayoutId = layoutId;
         this.mContext = context;
@@ -35,10 +35,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(mHeaderView != null && viewType == TYPE_HEADER) {
+        if (mHeaderView != null && viewType == TYPE_HEADER) {
             return new BaseViewHolder(mHeaderView);
         }
-        if(mFooterView != null && viewType == TYPE_FOOTER) {
+        if (mFooterView != null && viewType == TYPE_FOOTER) {
             return new BaseViewHolder(mFooterView);
         }
         return BaseViewHolder.
@@ -50,14 +50,14 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         final int mPosition = position;
         if (getItemViewType(position) == TYPE_NORMAL && mHeaderView != null) {
             bindHolder(holder, mData.get(position - 1), position);
-        } else if (getItemViewType(position) == TYPE_NORMAL && mHeaderView == null){
+        } else if (getItemViewType(position) == TYPE_NORMAL && mHeaderView == null) {
             bindHolder(holder, mData.get(position), position);
         } else if (getItemViewType(position) == TYPE_HEADER && mHeaderView != null) {
             bindHeaderHolder(holder);
         } else if (getItemViewType(position) == TYPE_FOOTER && mFooterView != null) {
             bindFooterHolder(holder);
         }
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
@@ -68,16 +68,20 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     }
 
     public abstract void bindHolder(BaseViewHolder holder, T item, int position);
-    public void bindHeaderHolder(BaseViewHolder holder){}
-    public void bindFooterHolder(BaseViewHolder holder){}
+
+    public void bindHeaderHolder(BaseViewHolder holder) {
+    }
+
+    public void bindFooterHolder(BaseViewHolder holder) {
+    }
 
     @Override
     public int getItemViewType(int position) {
-        if (mHeaderView == null && mFooterView == null){
+        if (mHeaderView == null && mFooterView == null) {
             return TYPE_NORMAL;
-        } else if (position == 0 && mHeaderView != null){
+        } else if (position == 0 && mHeaderView != null) {
             return TYPE_HEADER;
-        } else if (position == getItemCount() - 1 && mFooterView != null){
+        } else if (position == getItemCount() - 1 && mFooterView != null) {
             return TYPE_FOOTER;
         }
         return TYPE_NORMAL;
@@ -85,13 +89,17 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
 
     @Override
     public int getItemCount() {
-        if(mHeaderView == null && mFooterView == null){
+        if (mHeaderView == null && mFooterView == null) {
             return mData.size();
-        }else if(mHeaderView == null || mFooterView == null){
+        } else if (mHeaderView == null || mFooterView == null) {
             return mData.size() + 1;
-        }else {
+        } else {
             return mData.size() + 2;
         }
+    }
+
+    public void setNewData(List<T> newData) {
+        this.mData = newData;
     }
 
     public void setOnViewHolderClickListener(OnViewHolderClickListener listener) {
@@ -105,7 +113,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
 
     public void setFooterView(View footerView) {
         mFooterView = footerView;
-        notifyItemInserted(getItemCount()-1);
+        notifyItemInserted(getItemCount() - 1);
     }
 
     public Context getAdapterContext() {
@@ -116,7 +124,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         void onClick(int position, View view);
     }
 
-    public static class BaseViewHolder extends RecyclerView.ViewHolder{
+    public static class BaseViewHolder extends RecyclerView.ViewHolder {
         private SparseArray<View> mViews;
         private Context mContext;
         private View mView;
@@ -128,7 +136,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         }
 
         private BaseViewHolder(Context context, View itemView,
-                               @Nullable BaseRecyclerAdapter.OnViewHolderClickListener listener){
+                               @Nullable BaseRecyclerAdapter.OnViewHolderClickListener listener) {
             super(itemView);
             mViews = new SparseArray<>();
             this.mContext = context;
@@ -154,7 +162,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
                 view = mView.findViewById(viewId);
                 mViews.put(viewId, view);
             }
-            return (T)view;
+            return (T) view;
         }
     }
 }

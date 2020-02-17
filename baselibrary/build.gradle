@@ -61,4 +61,10 @@ dependencies {
 
     // tencent wcdb
     api 'com.tencent.wcdb:wcdb-android:+'
+
+    // litepal
+    api 'org.litepal.android:kotlin:3.0.0'
+
+    // kotlin
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 }

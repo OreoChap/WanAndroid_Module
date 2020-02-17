@@ -36,6 +36,24 @@ public class ArticleDatas {
     private Long shareDate;
     private String shareUser;
     private int selfVisible;
+    private boolean canEdit;
+    private String descMd;
+
+    public String getDescMd() {
+        return descMd;
+    }
+
+    public void setDescMd(String descMd) {
+        this.descMd = descMd;
+    }
+
+    public boolean isCanEdit() {
+        return canEdit;
+    }
+
+    public void setCanEdit(boolean canEdit) {
+        this.canEdit = canEdit;
+    }
 
     public int getSelfVisible() {
         return selfVisible;

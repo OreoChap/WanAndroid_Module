@@ -22,6 +22,8 @@
         <activity android:name="com.oreooo.wanandroid.wanAndroid.webView.WebViewActivity" />
 
         <activity android:name="com.oreooo.wanandroid.MainAct"/>
+
+        <activity android:name="com.oreooo.wanandroid.search.SearchAct"/>
         
     </application>
 </manifest>

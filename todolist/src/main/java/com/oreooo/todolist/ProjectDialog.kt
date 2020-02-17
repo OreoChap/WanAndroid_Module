@@ -21,14 +21,11 @@ class ProjectDialog private constructor(private val context: Context) {
         mContext = context
     }
 
-    companion object {
-        @Volatile
-        private var instance: ProjectDialog? = null
-
-        fun getInstance(context: Context?) =
-                instance ?: synchronized(this) {
-                    instance ?: ProjectDialog(context!!).also { instance = it }
-                }
+    object dialogFactory {
+        fun makeDialog(context: Context): ProjectDialog {
+            val dialog = ProjectDialog(context)
+            return dialog
+        }
     }
 
     fun showDialog(showDoneProjects: Boolean) {
@@ -41,7 +38,7 @@ class ProjectDialog private constructor(private val context: Context) {
                 .setView(view)
                 .setPositiveButton("取消", null)
                 .setNegativeButton("确定",
-                        DialogInterface.OnClickListener { dialogInterface, i ->
+                        DialogInterface.OnClickListener { dialogInterface, _ ->
                             val descriptionInput = mEdit!!.text.toString()
                             if (descriptionInput.isEmpty()) {
                                 dialogInterface.dismiss()

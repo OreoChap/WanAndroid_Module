@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.oreo.wxarticle">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".Module_WxArticle"
+        android:label="Module_WxArticle"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity
+            android:name=".WxArticleActivity"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/module_WxArticle_name"
+            android:supportsRtl="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".webview.WebViewActivity" />
+    </application>
+</manifest>

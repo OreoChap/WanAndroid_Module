@@ -1,7 +1,7 @@
 package com.oreooo.wanandroid.search;
 
-import com.oreooo.baselibrary.MvpBase.BaseContract;
-import com.oreooo.wanandroid.pojo.Article;
+import com.oreooo.baselibrary.mvp.BaseContract;
+import com.oreooo.baselibrary.pojo.Article;
 
 public interface SearchContract {
     interface Presenter extends BaseContract.BasePresenter {

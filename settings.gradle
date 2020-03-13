@@ -1,1 +1,2 @@
 include ':app', ':baselibrary', ':main', ':wanandroid', ':todolist'
+include ':wxarticle'

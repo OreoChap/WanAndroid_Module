@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.oreooo.moduletest">
+    package="com.oreooo.wanandroid">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name="com.oreooo.main.HomeApplication"
+        android:name="com.oreooo.wanandroid.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,18 +14,18 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
 
-        <activity android:name="com.oreooo.main.LoginAct">
+        <activity android:name="com.oreooo.main.login.LoginAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.oreooo.wanandroid.wanAndroid.webView.WebViewActivity" />
+        <activity android:name=".webview.WebViewActivity" />
 
-        <activity android:name="com.oreooo.wanandroid.MainAct"/>
+        <activity android:name="com.oreooo.wanandroid.WanAndroidActivity" />
 
-        <activity android:name="com.oreooo.wanandroid.search.SearchAct"/>
-        
+        <activity android:name="com.oreooo.wanandroid.search.SearchAct" />
+
     </application>
 </manifest>

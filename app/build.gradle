@@ -1,10 +1,12 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "com.oreooo.moduletest"
+        applicationId "com.oreooo.wanandroid"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -26,11 +28,18 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility = 1.7
+    }
 }
 
 dependencies {
-    api project(':main')
-    api project(':wanandroid')
+    if (isBuildModule.toBoolean()) {
+        implementation project(':baselibrary')
+    } else {
+        implementation project(':main')
+        implementation project(':wanandroid')
+    }
     androidTestImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

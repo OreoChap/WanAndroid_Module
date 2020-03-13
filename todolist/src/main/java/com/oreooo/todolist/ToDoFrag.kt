@@ -2,7 +2,6 @@ package com.oreooo.todolist
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.Menu
@@ -10,9 +9,8 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import com.example.oreooo.todoforstudy.Fragment.DoneFrag
-import com.oreooo.baselibrary.MvpBase.BaseFragment
-import com.oreooo.todolist.Fragment.DoingFrag
-import kotlinx.android.synthetic.main.todo_act.*
+import com.oreooo.baselibrary.mvp.BaseFragment
+import com.oreooo.todolist.fragment.DoingFrag
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -22,7 +20,7 @@ class ToDoFrag : BaseFragment() {
     private val pagers: MutableList<Fragment> = ArrayList<Fragment>()
     private lateinit var doingFragment: DoingFrag
     private lateinit var doneFragment: DoneFrag
-    private lateinit var mDialog:ProjectDialog
+    private lateinit var mDialog: ProjectDialog
 
     companion object {
         val instance: ToDoFrag by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
@@ -38,6 +36,7 @@ class ToDoFrag : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
+        activity
         // TODO 需要找个地方，刷新doneFragment页面的时间显示
 //        doneFragment.checkSysTime()
 //        doneFragment.updateUI()
@@ -57,7 +56,7 @@ class ToDoFrag : BaseFragment() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.menu_item_add_project -> {
-                mDialog =  ProjectDialog.dialogFactory.makeDialog(myContext)
+                mDialog = ProjectDialog.dialogFactory.makeDialog(context!!)
                 mDialog.showDialog(SHOW_DONE_PROJECT)
                 return true
             }
@@ -68,10 +67,11 @@ class ToDoFrag : BaseFragment() {
                 return true
             }
             else -> return super.onOptionsItemSelected(item!!)
-        }    }
+        }
+    }
 
-    override fun init(view: View?, savedInstanceState: Bundle?) {
-        LitePal.initialize(this.myContext.applicationContext)
+    override fun init(view: View, savedInstanceState: Bundle?) {
+        LitePal.initialize(this.context!!.applicationContext)
 
         doingFragment = DoingFrag.instance
         doneFragment = DoneFrag.instance

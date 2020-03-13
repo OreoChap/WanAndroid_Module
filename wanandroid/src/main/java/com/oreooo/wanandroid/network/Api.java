@@ -1,6 +1,6 @@
 package com.oreooo.wanandroid.network;
 
-import com.oreooo.wanandroid.network.Service.WanAndroidService;
+        import com.oreooo.baselibrary.network.Network;
 
 /**
  * @author Oreo https://github.com/OreoChap

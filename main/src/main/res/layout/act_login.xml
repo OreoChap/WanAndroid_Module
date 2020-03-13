@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.oreooo.main.LoginModel" />
+            type="com.oreooo.main.login.LoginModel" />
 
         <variable
             name="en"
@@ -65,6 +65,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:text="跳过"
+            android:onClick="@{model::skipLogin}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

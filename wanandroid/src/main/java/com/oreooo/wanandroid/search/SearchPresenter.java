@@ -2,18 +2,20 @@ package com.oreooo.wanandroid.search;
 
 import android.util.Log;
 
-import com.oreooo.baselibrary.MvpBase.BaseContract;
+import com.oreooo.baselibrary.mvp.BaseContract;
 import com.oreooo.wanandroid.network.Api;
-import com.oreooo.wanandroid.pojo.Article;
+import com.oreooo.baselibrary.pojo.Article;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class SearchPresenter implements SearchContract.Presenter {
 
     private SearchContract.View mView;
+    private CompositeDisposable co = new CompositeDisposable();
 
     @Override
     public void getSearchArticle(int page, String keyword) {
@@ -43,6 +45,11 @@ public class SearchPresenter implements SearchContract.Presenter {
                         Log.i("SearchPresenter", "getSearchArticle: 请求结束");
                     }
                 });
+    }
+
+    @Override
+    public void clearRequest() {
+
     }
 
     @Override

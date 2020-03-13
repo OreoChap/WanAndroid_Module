@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BaseLibrary</string>
+    <string name="WanAndroid_Frag">WanAndroid_Frag</string>
+    <string name="WxArticle_Frag">WxArticle_Frag</string>
 </resources>

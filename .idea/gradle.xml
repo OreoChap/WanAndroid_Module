@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/main" />
             <option value="$PROJECT_DIR$/todolist" />
             <option value="$PROJECT_DIR$/wanandroid" />
+            <option value="$PROJECT_DIR$/wxarticle" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

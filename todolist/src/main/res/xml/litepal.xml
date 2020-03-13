@@ -32,7 +32,7 @@
     	</list>
     -->
     <list>
-        <mapping class="com.oreooo.todolist.LItePalDB.Project"/>
+        <mapping class="com.oreooo.todolist.lItepal.Project"/>
     </list>
 
     <!--

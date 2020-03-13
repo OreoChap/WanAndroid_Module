@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.view.Menu
 import android.view.MenuItem
 import com.example.oreooo.todoforstudy.Fragment.DoneFrag
-import com.oreooo.baselibrary.MvpBase.BaseActivity
-import com.oreooo.todolist.Fragment.DoingFrag
+import com.oreooo.baselibrary.mvp.BaseActivity
+import com.oreooo.todolist.fragment.DoingFrag
 import com.oreooo.todolist.MessageEvent
 import com.oreooo.todolist.ProjectDialog
 import com.oreooo.todolist.R
@@ -25,7 +25,7 @@ class ToDoAct : BaseActivity() {
     private val pagers: MutableList<Fragment> = ArrayList<Fragment>()
     private val doingFragment: DoingFrag = DoingFrag.instance
     private var doneFragment: DoneFrag = DoneFrag.instance
-    private var mDialog =  ProjectDialog.dialogFactory.makeDialog(this)
+    private var mDialog = ProjectDialog.dialogFactory.makeDialog(this)
 
     // EventBus注册，初始化LitePal
     override fun onCreate(savedInstanceState: Bundle?) {

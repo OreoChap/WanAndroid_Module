@@ -35,10 +35,10 @@ android {
 
 dependencies {
     if (isBuildModule.toBoolean()) {
-        implementation project(':baselibrary')
+        implementation project(':lib_baselibrary')
     } else {
         implementation project(':main')
-        implementation project(':wanandroid')
+        implementation project(':module_wanandroid')
     }
     androidTestImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

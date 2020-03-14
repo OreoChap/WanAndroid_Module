@@ -12,7 +12,7 @@ class LoginPresenter : LoginContract.Presenter {
     private lateinit var mView: LoginContract.View
     private val co: CompositeDisposable = CompositeDisposable()
 
-    companion    object {
+    companion object {
         val instance: LoginPresenter by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             LoginPresenter()
         }

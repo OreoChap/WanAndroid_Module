@@ -12,11 +12,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/baselibrary" />
+            <option value="$PROJECT_DIR$/lib_baselibrary" />
             <option value="$PROJECT_DIR$/main" />
-            <option value="$PROJECT_DIR$/todolist" />
-            <option value="$PROJECT_DIR$/wanandroid" />
-            <option value="$PROJECT_DIR$/wxarticle" />
+            <option value="$PROJECT_DIR$/module_search" />
+            <option value="$PROJECT_DIR$/module_todolist" />
+            <option value="$PROJECT_DIR$/module_wanandroid" />
+            <option value="$PROJECT_DIR$/module_wxarticle" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

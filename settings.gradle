@@ -1,2 +1,2 @@
-include ':app', ':baselibrary', ':main', ':wanandroid', ':todolist'
-include ':wxarticle'
+include ':app', ':lib_baselibrary', ':main', ':module_wanandroid', ':module_todolist', ':module_wxarticle'
+include ':module_search'

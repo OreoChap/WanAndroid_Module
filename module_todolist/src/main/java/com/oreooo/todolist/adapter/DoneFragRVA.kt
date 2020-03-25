@@ -3,9 +3,9 @@ package com.example.oreooo.todoforstudy.Adapter
 import android.content.Context
 import android.view.View
 import android.widget.TextView
-import com.example.oreooo.todoforstudy.LItePalDB.Project
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
 import com.oreooo.todolist.R
+import com.oreooo.todolist.lItepal.Project
 
 class DoneFragRVA(val context: Context, private val list: List<Project>, private val layoutId: Int,
                   val listener: OnViewHolderClickListener) :

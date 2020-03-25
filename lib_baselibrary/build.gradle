@@ -79,4 +79,7 @@ dependencies {
 
     // 协程
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+
+    // logger
+    api 'com.orhanobut:logger:2.2.0'
 }

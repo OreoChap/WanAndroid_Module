@@ -11,12 +11,12 @@ import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.oreooo.todoforstudy.LItePalDB.Project
 import com.example.oreooo.todoforstudy.ToDoAct
-import com.oreooo.todolist.lItepal.LitePalHelper
 import com.oreooo.todolist.MessageEvent
 import com.oreooo.todolist.ProjectDialog
 import com.oreooo.todolist.R
+import com.oreooo.todolist.lItepal.LitePalHelper
+import com.oreooo.todolist.lItepal.Project
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
 import java.util.*
@@ -83,8 +83,8 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
                 dialog.showDialog(project, ToDoAct.SHOW_DONE_PROJECT)
                 true
             })
-            checkedChange(project.done)
-            button?.setChecked(project.done)
+            checkedChange(project.isDone)
+            button?.setChecked(project.isDone)
 
             if (isSameTime) {
                 timeTxt?.setVisibility(View.GONE)
@@ -95,7 +95,7 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
         }
 
         override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-            if (mProject!!.done && !isChecked) {
+            if (mProject!!.isDone && !isChecked) {
                 val dialog = AlertDialog.Builder(context)
                 dialog.setTitle("是否更改为未完成")
                         .setNegativeButton("确定") { _, _ ->
@@ -104,14 +104,14 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
                         .setPositiveButton("取消") { _, _ -> buttonView?.setChecked(true) }
                         .setOnCancelListener { buttonView?.setChecked(true) }
                         .show()
-            } else if (!mProject!!.done) {
+            } else if (!mProject!!.isDone) {
                 updateDoneFragmentUI(isChecked)
             }
         }
 
         private fun updateDoneFragmentUI(isDone: Boolean) {
             checkedChange(isDone)
-            mProject?.done = isDone
+            mProject?.isDone = isDone
             LitePalHelper.instance.updateProject(mProject!!)
             EventBus.getDefault().post(MessageEvent.DoneFragmentUpdateUIEvent("Send DoneFragmentUpdateUI Event"))
         }

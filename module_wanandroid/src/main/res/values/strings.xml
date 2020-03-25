@@ -1,5 +1,9 @@
 <resources>
     <string name="module_WanAndroid_name">module_WanAndroid</string>
     <string name="toolbar_main_title">主页</string>
+
+    <!-- 侧拉框选项 -->
     <string name="code_labs">实验室</string>
+    <string name="todo">ToDo</string>
+
 </resources>

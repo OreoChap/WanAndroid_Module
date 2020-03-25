@@ -5,9 +5,9 @@ import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.widget.EditText
-import com.example.oreooo.todoforstudy.LItePalDB.Project
 import com.oreooo.todolist.fragment.DoingFrag
 import com.oreooo.todolist.lItepal.LitePalHelper
+import com.oreooo.todolist.lItepal.Project
 import java.text.SimpleDateFormat
 import java.util.*
 

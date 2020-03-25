@@ -13,4 +13,12 @@ public class RoutePath {
     // WxArticle
     private static final String PREFIX_WXARTICLE = "/wxarticle/";
     public static final String WXARTICLE_FRAGMENT = PREFIX_WXARTICLE + "WxArticleFragment";
+
+    // Search
+    private static final String PREFIX_SEARCH = "/search/";
+    public static final String SEARCH_ACTIVITY = PREFIX_SEARCH + "SearchActivity";
+
+    // ToDo_list
+    private static final String PREFIX_TODO = "/todo/";
+    public static final String TODO_ACTIVITY = PREFIX_TODO + "ToDoActivity";
 }

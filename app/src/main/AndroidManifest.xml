@@ -25,7 +25,11 @@
 
         <activity android:name="com.oreooo.wanandroid.WanAndroidActivity" />
 
-        <activity android:name="com.oreooo.wanandroid.search.SearchAct" />
+        <activity android:name="com.oreo.module_search.SearchAct" />
+
+        <activity android:name="com.oreo.wxarticle.webview.WebViewActivity"/>
+
+        <activity android:name="com.example.oreooo.todoforstudy.ToDoAct"/>
 
     </application>
 </manifest>

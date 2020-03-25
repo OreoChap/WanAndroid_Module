@@ -5,8 +5,10 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.Menu
 import android.view.MenuItem
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.oreooo.todoforstudy.Fragment.DoneFrag
 import com.oreooo.baselibrary.mvp.BaseActivity
+import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.todolist.fragment.DoingFrag
 import com.oreooo.todolist.MessageEvent
 import com.oreooo.todolist.ProjectDialog
@@ -21,6 +23,8 @@ import org.litepal.LitePal
  * @author Oreo https://github.com/OreoChap
  * @date 2019/8/4
  */
+
+@Route(path = RoutePath.TODO_ACTIVITY)
 class ToDoAct : BaseActivity() {
     private val pagers: MutableList<Fragment> = ArrayList<Fragment>()
     private val doingFragment: DoingFrag = DoingFrag.instance
@@ -31,7 +35,7 @@ class ToDoAct : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.todo_act)
-        LitePal.initialize(applicationContext)
+//        LitePal.initialize(applicationContext)
         init()
         EventBus.getDefault().register(this)
     }

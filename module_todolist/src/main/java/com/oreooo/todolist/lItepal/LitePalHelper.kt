@@ -1,7 +1,7 @@
 package com.oreooo.todolist.lItepal
 
-import com.example.oreooo.todoforstudy.LItePalDB.Project
 import org.litepal.LitePal
+import org.litepal.extension.findAll
 import java.util.*
 
 class LitePalHelper {
@@ -9,7 +9,8 @@ class LitePalHelper {
     val allProject: List<Project>
         get() {
             var data: List<Project>
-            data = Arrays.asList<Project>(*LitePal.findAll(Project::class.java).toTypedArray())
+//            data = Arrays.asList<Project>(*LitePal.findAll(Project::class.java).toTypedArray())
+            data = LitePal.findAll<Project>()
             return data
         }
 

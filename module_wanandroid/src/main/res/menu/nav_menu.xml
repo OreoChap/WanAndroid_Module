@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/other">
-        <item android:id="@+id/nav_item_code_labs"
-            android:title="@string/code_labs"
-            android:checkable="true"
-            android:checked="true" />
+        <item
+            android:id="@+id/nav_item_code_labs"
+            android:title="@string/code_labs" />
+
+        <item
+            android:id="@+id/nav_item_todo"
+            android:title="@string/todo" />
     </group>
 </menu>

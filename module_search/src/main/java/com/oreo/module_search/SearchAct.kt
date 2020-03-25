@@ -3,13 +3,16 @@ package com.oreo.module_search
 import android.os.Bundle
 import android.text.Html
 import android.widget.TextView
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
 import com.oreooo.baselibrary.mvp.BaseActivity
 import com.oreooo.baselibrary.pojo.Article
 import com.oreooo.baselibrary.pojo.ArticleDatas
+import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.baselibrary.util.StringUtil
 import kotlinx.android.synthetic.main.act_search.*
 
+@Route(path = RoutePath.SEARCH_ACTIVITY)
 class SearchAct : BaseActivity(), SearchContract.View {
 
     private var mPresenter: SearchContract.Presenter? = null
@@ -44,15 +47,16 @@ class SearchAct : BaseActivity(), SearchContract.View {
 
     override fun showArticleResult(data: Article) {
         if (recycler_search.adapter == null) {
-            var adapter: BaseRecyclerAdapter<ArticleDatas> = object : BaseRecyclerAdapter<ArticleDatas>
-            (this@SearchAct, data.data.datas, R.layout.list_item_article, null) {
+            val adapter: BaseRecyclerAdapter<ArticleDatas> = object : BaseRecyclerAdapter<ArticleDatas>
+            (this, data.data.datas, R.layout.list_item_article, null) {
                 override fun bindHolder(holder: BaseViewHolder?, item: ArticleDatas?, position: Int) {
                     holder?.getView<TextView>(R.id.txt_article_name)?.text =
                             Html.fromHtml("《" + item!!.title + "》")
                 }
             }
+            recycler_search.adapter = adapter
         } else {
-            var adapter = recycler_search.adapter as BaseRecyclerAdapter<ArticleDatas>
+            val adapter = recycler_search.adapter as BaseRecyclerAdapter<ArticleDatas>
             adapter.setNewData(data.data.datas)
             adapter.notifyDataSetChanged()
         }

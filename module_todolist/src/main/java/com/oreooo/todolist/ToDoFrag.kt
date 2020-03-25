@@ -70,7 +70,7 @@ class ToDoFrag : BaseFragment() {
     }
 
     override fun init(view: View, savedInstanceState: Bundle?) {
-        LitePal.initialize(this.context!!.applicationContext)
+//        LitePal.initialize(this.context!!.applicationContext)
 
         doingFragment = DoingFrag.instance
         doneFragment = DoneFrag.instance

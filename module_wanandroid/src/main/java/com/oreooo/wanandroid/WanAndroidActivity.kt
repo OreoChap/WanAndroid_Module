@@ -7,7 +7,7 @@ import android.text.TextUtils
 import android.view.Gravity
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.oreo.module_search.SearchAct
+import com.alibaba.android.arouter.launcher.ARouter
 import com.oreo.wxarticle.WxArticleFragment
 import com.oreooo.baselibrary.mvp.BaseActivity
 import com.oreooo.baselibrary.mvp.BaseFragment
@@ -20,12 +20,10 @@ class WanAndroidActivity : BaseActivity() {
 
     private var frags: HashMap<String, BaseFragment> = HashMap()
     private var currentFragName: String = ""
-//    private lateinit var mBottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_main)
-        //        ARouter.getInstance().inject(this);
         switchFrags(getString(R.string.WanAndroid_Frag), WanAndroidFragment.getInstance())
         initView()
     }
@@ -58,16 +56,12 @@ class WanAndroidActivity : BaseActivity() {
     }
 
     private fun initView() {
-//        mBottomNavigationView = findViewById(R.id.bottom_navigation_view)
-
         setSupportActionBar(findViewById<Toolbar>(R.id.toolbar_main))
         if (supportActionBar != null)
             supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         toolbar_main_search_btn.setOnClickListener {
-            val intent = Intent()
-            intent.setClass(this, SearchAct::class.java)
-            startActivity(intent)
+            ARouter.getInstance().build(RoutePath.SEARCH_ACTIVITY).navigation()
         }
 
         toolbar_main_navigation.setOnClickListener {
@@ -78,27 +72,33 @@ class WanAndroidActivity : BaseActivity() {
             val id = menuItem.itemId
             if (id == R.id.item_bottom_1) {
                 switchFrags(getString(R.string.WanAndroid_Frag), WanAndroidFragment.getInstance())
-//                val frag = (ARouter.getInstance().build(RoutePath.WANDROID_FRAGMENT).navigation()) as BaseFragment
-//                switchFrags(frag)
             } else if (id == R.id.item_bottom_2) {
-//                val frag = (ARouter.getInstance().build(RoutePath.WXARTICLE_FRAGMENT).navigation()) as WxArticleFragment
-
                 switchFrags(getString(R.string.WxArticle_Frag), WxArticleFragment.instance)
             } else if (id == R.id.item_bottom_3) {
-
+//                switchFrags(getString(R.string.ToDo_Frag),ToDoFrag.instance)
             }
             true
         }
 
         bottom_navigation_view.menu.getItem(0).isChecked = true
 
+        setNavMenu()
+    }
+
+    /**
+     *  侧拉框选项：
+     *  1、 codeLab：测试代码用
+     *  2、 todo页面
+     */
+    private fun setNavMenu() {
         view_nav.menu.findItem(R.id.nav_item_code_labs).setOnMenuItemClickListener {
             Toast.makeText(this, "123", Toast.LENGTH_SHORT).show()
             true
         }
 
-//        frags.add(WanAndroidFragment.getInstance())
-//        frags.add(WxArticleFragment.instance)
-
+        view_nav.menu.findItem(R.id.nav_item_todo).setOnMenuItemClickListener {
+            ARouter.getInstance().build(RoutePath.TODO_ACTIVITY).navigation()
+            true
+        }
     }
 }

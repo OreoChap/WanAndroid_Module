@@ -1,5 +1,7 @@
 package com.oreooo.baselibrary.mvp
 
+import android.content.pm.ActivityInfo
+import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.annotation.MenuRes
 import android.support.annotation.StringRes
@@ -11,6 +13,11 @@ import com.oreooo.baselibrary.R
 
 open class BaseActivity : AppCompatActivity() {
     protected var mToolbar: Toolbar? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+    }
 
     protected fun initToolBar(@IdRes toolbarId: Int, @StringRes title: Int) {
         if (toolbarId == 0) return

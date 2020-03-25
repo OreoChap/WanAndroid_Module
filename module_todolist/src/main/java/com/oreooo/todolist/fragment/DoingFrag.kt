@@ -8,10 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.oreooo.todoforstudy.Adapter.DoingFragRVA
-import com.example.oreooo.todoforstudy.LItePalDB.Project
 import com.oreooo.todolist.Interface
-import com.oreooo.todolist.lItepal.LitePalHelper
 import com.oreooo.todolist.R
+import com.oreooo.todolist.lItepal.LitePalHelper
+import com.oreooo.todolist.lItepal.Project
 
 class DoingFrag : Fragment(), Interface.Dialog {
     private lateinit var rV: RecyclerView

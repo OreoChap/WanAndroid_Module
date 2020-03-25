@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -116,8 +117,8 @@ class WxArticleFragment : BaseFragment(), WxArticleContract.View {
                                 }
                             }) {
                         override fun bindHolder(holder: BaseViewHolder?, item: ArticleDatas?, position: Int) {
-                            holder!!.getView<TextView>(R.id.txt_article_name).text = item!!.title
-                            holder.getView<TextView>(R.id.txt_article_super_chapter_name).text = item.superChapterName
+                            holder!!.getView<TextView>(R.id.txt_article_name).text =
+                                    Html.fromHtml("《" + item!!.getTitle() + "》")
                             holder.getView<TextView>(R.id.txt_chapter_name).text = item.chapterName
                             holder.getView<TextView>(R.id.txt_article_author).text = item.author
                             holder.getView<TextView>(R.id.txt_article_nice_date).text = item.niceDate

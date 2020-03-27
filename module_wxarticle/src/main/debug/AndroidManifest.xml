@@ -13,7 +13,6 @@
             android:name=".WxArticleActivity"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/module_WxArticle_name"
-            android:supportsRtl="true"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

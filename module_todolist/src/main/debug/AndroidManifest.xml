@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.oreooo.todolist">
+
+
+    <application
+        android:name=".Module_ToDo"
+        android:label="Module_ToDo"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+        <activity android:name="com.example.oreooo.todoforstudy.ToDoAct"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/module_ToDo_name"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

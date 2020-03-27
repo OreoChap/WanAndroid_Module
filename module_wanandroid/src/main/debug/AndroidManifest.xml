@@ -6,7 +6,6 @@
         android:name=".Module_WanAndroid"
         android:label="@string/module_WanAndroid_name"
         android:icon="@mipmap/ic_launcher"
-        android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         >
         <activity android:name=".WanAndroidActivity">
@@ -15,7 +14,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-
     </application>
 </manifest>

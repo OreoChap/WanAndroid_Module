@@ -18,6 +18,7 @@ import com.oreooo.todolist.R
 import com.oreooo.todolist.lItepal.LitePalHelper
 import com.oreooo.todolist.lItepal.Project
 import org.greenrobot.eventbus.EventBus
+import org.litepal.LitePal
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -99,7 +100,9 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
                 val dialog = AlertDialog.Builder(context)
                 dialog.setTitle("是否更改为未完成")
                         .setNegativeButton("确定") { _, _ ->
-                            updateDoneFragmentUI(isChecked)
+                            mProject!!.isDone = false
+                            updateDoneFragmentUI(false)
+//                            LitePalHelper.instance.updateProject(mProject!!)
                         }
                         .setPositiveButton("取消") { _, _ -> buttonView?.setChecked(true) }
                         .setOnCancelListener { buttonView?.setChecked(true) }

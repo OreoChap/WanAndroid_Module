@@ -17,7 +17,7 @@ class LitePalHelper {
     val notDoneProject: List<Project>
         get() {
             var data: List<Project>
-            data = LitePal.where("done = ?", "false")
+            data = LitePal.where("done=?", "false")
                     .order("doneTime DESC")
                     .find(Project::class.java)
             return data
@@ -37,7 +37,7 @@ class LitePalHelper {
 
     fun getDoneProjectsByToday(doneDate: String): List<Project> {
         var data: List<*>
-        data = LitePal.where("doneDate = ?", doneDate)
+        data = LitePal.where("doneDate=?", doneDate)
                 .order("doneTime")
                 .find(Project::class.java)
         return data

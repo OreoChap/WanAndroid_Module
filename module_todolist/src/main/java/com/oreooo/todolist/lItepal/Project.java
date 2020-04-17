@@ -5,10 +5,10 @@ import org.litepal.crud.LitePalSupport;
 public class Project extends LitePalSupport {
 
     private String addTime;
-    private String thePlan ;
+    private String thePlan;
     private String doneTime;
-    private String doneDate ;
-    private boolean done ;
+    private String doneDate;
+    private boolean done;
 
     public Project() {
 

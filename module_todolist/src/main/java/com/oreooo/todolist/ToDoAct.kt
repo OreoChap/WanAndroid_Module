@@ -26,7 +26,7 @@ import org.litepal.LitePal
 
 @Route(path = RoutePath.TODO_ACTIVITY)
 class ToDoAct : BaseActivity() {
-    private val pagers: MutableList<Fragment> = ArrayList<Fragment>()
+    private val pagers: MutableList<Fragment> = ArrayList()
     private val doingFragment: DoingFrag = DoingFrag.instance
     private var doneFragment: DoneFrag = DoneFrag.instance
     private var mDialog = ProjectDialog.dialogFactory.makeDialog(this)
@@ -35,6 +35,7 @@ class ToDoAct : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.todo_act)
+        SHOW_DONE_PROJECT = true
 //        LitePal.initialize(applicationContext)
         init()
         EventBus.getDefault().register(this)

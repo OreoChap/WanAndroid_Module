@@ -2,13 +2,19 @@ package com.oreooo.todolist.lItepal;
 
 import org.litepal.crud.LitePalSupport;
 
+import java.util.Random;
+
 public class Project extends LitePalSupport {
 
     private String addTime;
     private String thePlan;
     private String doneTime;
     private String doneDate;
-    private boolean done;
+
+    /**
+     *  1为完成，0为未完成
+     */
+    private int done;
 
     public Project() {
 
@@ -19,7 +25,7 @@ public class Project extends LitePalSupport {
         this.thePlan = thePlan;
         this.doneTime = "0";
         this.doneDate = "0";
-        this.done = false;
+        this.done = 0;
     }
 
     public String getAddTime() {
@@ -54,11 +60,11 @@ public class Project extends LitePalSupport {
         this.doneDate = doneDate;
     }
 
-    public boolean isDone() {
+    public int isDone() {
         return done;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(int done) {
         this.done = done;
     }
 }

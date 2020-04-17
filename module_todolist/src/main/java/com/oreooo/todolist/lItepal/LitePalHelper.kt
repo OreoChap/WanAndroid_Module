@@ -16,8 +16,8 @@ class LitePalHelper {
 
     val notDoneProject: List<Project>
         get() {
-            var data: List<Project>
-            data = LitePal.where("done=?", "false")
+            val data: List<Project>
+            data = LitePal.where("done=?", "0")
                     .order("doneTime DESC")
                     .find(Project::class.java)
             return data

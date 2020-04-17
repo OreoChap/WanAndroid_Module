@@ -1,4 +1,4 @@
-package com.example.oreooo.todoforstudy.Adapter
+package com.oreooo.todolist.adapter
 
 import android.content.Context
 import android.view.View

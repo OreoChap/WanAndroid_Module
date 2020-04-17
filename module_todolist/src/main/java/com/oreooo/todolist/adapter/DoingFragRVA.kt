@@ -1,9 +1,10 @@
-package com.example.oreooo.todoforstudy.Adapter
+package com.oreooo.todolist.adapter
 
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Paint
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import com.oreooo.todolist.ProjectDialog
 import com.oreooo.todolist.R
 import com.oreooo.todolist.lItepal.LitePalHelper
 import com.oreooo.todolist.lItepal.Project
+import com.orhanobut.logger.Logger
 import org.greenrobot.eventbus.EventBus
 import org.litepal.LitePal
 import java.text.SimpleDateFormat
@@ -85,7 +87,7 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
                 true
             })
             checkedChange(project.isDone)
-            button?.setChecked(project.isDone)
+            button?.setChecked(project.isDone == 1)
 
             if (isSameTime) {
                 timeTxt?.setVisibility(View.GONE)
@@ -96,32 +98,31 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
         }
 
         override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-            if (mProject!!.isDone && !isChecked) {
+            Log.d("DoingFragRVA", "此时的isChecked= " + isChecked)
+            if (mProject!!.isDone == 1 && !isChecked) {
                 val dialog = AlertDialog.Builder(context)
                 dialog.setTitle("是否更改为未完成")
                         .setNegativeButton("确定") { _, _ ->
-                            mProject!!.isDone = false
-                            updateDoneFragmentUI(false)
-//                            LitePalHelper.instance.updateProject(mProject!!)
+                            updateDoneFragmentUI(0)
                         }
                         .setPositiveButton("取消") { _, _ -> buttonView?.setChecked(true) }
                         .setOnCancelListener { buttonView?.setChecked(true) }
                         .show()
-            } else if (!mProject!!.isDone) {
-                updateDoneFragmentUI(isChecked)
+            } else if (mProject!!.isDone == 0) {
+                updateDoneFragmentUI(1)
             }
         }
 
-        private fun updateDoneFragmentUI(isDone: Boolean) {
+        private fun updateDoneFragmentUI(isDone: Int) {
             checkedChange(isDone)
             mProject?.isDone = isDone
             LitePalHelper.instance.updateProject(mProject!!)
             EventBus.getDefault().post(MessageEvent.DoneFragmentUpdateUIEvent("Send DoneFragmentUpdateUI Event"))
         }
 
-        private fun checkedChange(isDone: Boolean) {
+        private fun checkedChange(isDone: Int) {
             val description = mView.findViewById<View>(R.id.rv_item_description) as TextView
-            if (isDone) {
+            if (isDone == 1) {
                 description.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
                 description.setTextColor(context!!.resources.getColor(R.color.rv_item_gray))
                 checkDate()

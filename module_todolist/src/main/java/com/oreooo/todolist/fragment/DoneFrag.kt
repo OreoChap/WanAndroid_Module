@@ -1,14 +1,14 @@
 package com.example.oreooo.todoforstudy.Fragment
 
-import android.content.DialogInterface
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.TextView
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
 import com.oreooo.todolist.R
@@ -21,6 +21,10 @@ class DoneFrag : Fragment() {
     private var mDate: String = ""
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mDoneTime: TextView
+    private var year: Int = 0
+    private var month: Int = 0
+    private var day: Int = 0
+    private lateinit var dialogView: View
 
     companion object {
         val instance: DoneFrag by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
@@ -33,14 +37,41 @@ class DoneFrag : Fragment() {
         mRecyclerView = view.findViewById(R.id.recycler_doneFragment)
         mDoneTime = view.findViewById(R.id.txt_time)
         mDoneTime.setOnClickListener {
-          val  dialog:AlertDialog = AlertDialog.Builder(context!!)
-                  .setView(LayoutInflater.from(context).inflate(R.layout.dialog_date, container))
-                  .setPositiveButton("OK", object : DialogInterface.OnClickListener {
-                      override fun onClick(dialog: DialogInterface?, which: Int) {
+            val dialogView: View = LayoutInflater.from(context).inflate(R.layout.dialog_date, null)
+            val datePicker = dialogView.findViewById<DatePicker>(R.id.dialog_date_picker)
 
-                      }
-                  })
-                  .show()
+            // datePicker.init 时候，需要注意，month 是从0开始的
+            if (year == 0) {
+                checkSysTime()
+                datePicker.init(mDate.substring(0, 4).toInt(), mDate.substring(5, 7).toInt() - 1, mDate.substring(8).toInt(),
+                        { view, year, monthOfYear, dayOfMonth ->
+                            this.year = year
+                            this.month = monthOfYear + 1
+                            this.day = dayOfMonth
+                            Log.d("DoneFrag", "DATE: " + year + "/" + month + "/" + day)
+                        })
+                this.year = mDate.substring(0, 4).toInt()
+                this.month = mDate.substring(5, 7).toInt()
+                this.day = mDate.substring(8).toInt()
+            } else {
+                datePicker.init(year, month - 1, day,
+                        { view, year, monthOfYear, dayOfMonth ->
+                            this.year = year
+                            this.month = monthOfYear + 1
+                            this.day = dayOfMonth
+                            Log.d("DoneFrag", "DATE: " + year + "/" + month + "/" + day)
+                        })
+            }
+
+            val dialog: AlertDialog = AlertDialog.Builder(context!!)
+                    .setView(dialogView)
+                    .setPositiveButton(android.R.string.ok) { dialog, which ->
+                        mDate = year.toString() + "-" + String.format("%02d", month) + "-" + day.toString()
+                        Log.d("DoneFrag", "日期为：" + mDate)
+                        updateUI()
+                        dialog.dismiss()
+                    }
+                    .show()
         }
         checkSysTime()
         updateUI()

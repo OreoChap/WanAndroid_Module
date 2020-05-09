@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter;
-import com.oreooo.baselibrary.mvp.BaseFragment;
 import com.oreooo.baselibrary.pojo.Article;
 import com.oreooo.baselibrary.route.RoutePath;
 import com.oreooo.wanandroid.GlideImageLoader;
 import com.oreooo.wanandroid.R;
+import com.oreooo.wanandroid.base.BaseFragment;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
 import com.oreooo.wanandroid.webview.WebViewActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -160,6 +160,7 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
         unsubscribe();
         super.onDestroyView();
     }
+
 
 
     @Override

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.oreooo.wanandroid">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="com.oreooo.wanandroid.App"
@@ -10,10 +10,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
 
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
 
-        <activity android:name="com.oreooo.main.login.LoginAct"
+        <activity
+            android:name="com.oreooo.main.login.LoginAct"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,20 +23,25 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".webview.WebViewActivity"
+        <activity
+            android:name=".webview.WebViewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <activity android:name="com.oreooo.wanandroid.WanAndroidActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name="com.oreooo.wanandroid.WanAndroidActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <activity android:name="com.oreo.module_search.SearchAct"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name="com.oreo.module_search.SearchAct"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <activity android:name="com.oreo.wxarticle.webview.WebViewActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name="com.oreo.wxarticle.webview.WebViewActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <activity android:name="com.example.oreooo.todoforstudy.ToDoAct"
-            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name="com.example.oreooo.todoforstudy.ToDoAct"
+            android:theme="@style/Theme.AppCompat.Light" />
 
     </application>
 </manifest>

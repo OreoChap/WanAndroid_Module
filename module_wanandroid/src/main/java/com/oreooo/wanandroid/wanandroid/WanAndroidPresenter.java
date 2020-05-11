@@ -48,28 +48,6 @@ public class WanAndroidPresenter extends BasePresenter<WanAndroidContract.View> 
         addSubscribe(Api.createWanAndroidService().getArticle(curPage).
                 subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<Article>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        Log.d(TAG, "getArticles: 发起请求");
-//                    }
-//
-//                    @Override
-//                    public void onNext(Article data) {
-//                        mView.showArticle(data, isUpdate);
-//                        Log.d(TAG, "getArticles: 请求回调");
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Log.d(TAG, "getArticles: 请求失败" + e.toString());
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        Log.d(TAG, "getArticles: 请求完结");
-//                    }
-//                });
                 .subscribe(new Consumer<Article>() {
                     @Override
                     public void accept(Article article) throws Exception {

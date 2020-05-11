@@ -2,6 +2,8 @@ package com.oreooo.wanandroid.wanandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +27,6 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -147,39 +148,24 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
         }
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NotNull LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        subscribe();
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onDestroyView() {
-        unsubscribe();
-        super.onDestroyView();
-    }
-
-
-
     @Override
     public int setContentView() {
         return R.layout.frag_wanandroid;
     }
 
+    @Nullable
     @Override
-    public void subscribe() {
-        this.mPresenter = WanAndroidPresenter.getInstance();
-        mPresenter.setView(this);
-//        if (mAdapter == null) {
-        mPresenter.getArticles("0", true);
-//            mPresenter.getBanner();
-//        }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setPresenter(WanAndroidPresenter.getInstance());
+        mPresenter = WanAndroidPresenter.getInstance();
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
-    public void unsubscribe() {
-        this.mPresenter = null;
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (mAdapter == null) {
+            mPresenter.getArticles("0", true);
+        }
     }
 }

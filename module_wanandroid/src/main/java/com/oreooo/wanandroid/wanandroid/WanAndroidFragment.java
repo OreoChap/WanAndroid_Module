@@ -37,9 +37,8 @@ import java.util.List;
  */
 
 @Route(path = RoutePath.WANDROID_FRAGMENT)
-public class WanAndroidFragment extends BaseFragment implements WanAndroidContract.View {
+public class WanAndroidFragment extends BaseFragment<WanAndroidPresenter> implements WanAndroidContract.View {
     public static WanAndroidFragment wanAndroidFragment;
-    private WanAndroidContract.Presenter mPresenter;
     private WanAndroidAdapter mAdapter;
     int ArticlePage = 0;
     private RecyclerView mRecyclerView;
@@ -157,7 +156,6 @@ public class WanAndroidFragment extends BaseFragment implements WanAndroidContra
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setPresenter(WanAndroidPresenter.getInstance());
-        mPresenter = WanAndroidPresenter.getInstance();
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

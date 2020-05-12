@@ -4,9 +4,9 @@ import com.oreo.module_search.network.Api
 import com.oreooo.baselibrary.mvp.BaseContract
 import kotlinx.coroutines.*
 
-class SearchPresenter : com.oreo.module_search.SearchContract.Presenter {
+class SearchPresenter : SearchContract.Presenter {
 
-    private var mView: com.oreo.module_search.SearchContract.View? = null
+    private var mView: SearchContract.View? = null
 
     companion object {
         val instance: SearchPresenter by lazy {
@@ -29,7 +29,7 @@ class SearchPresenter : com.oreo.module_search.SearchContract.Presenter {
     }
 
     override fun setView(view: BaseContract.BaseView?) {
-        mView = view as? com.oreo.module_search.SearchContract.View
+        mView = view as? SearchContract.View
     }
 
     override fun clearRequest() {

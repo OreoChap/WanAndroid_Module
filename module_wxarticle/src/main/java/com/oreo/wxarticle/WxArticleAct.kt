@@ -10,7 +10,7 @@ import com.oreooo.baselibrary.mvp.BaseActivity
 import com.oreooo.baselibrary.mvp.BaseFragment
 import kotlinx.android.synthetic.main.act_wxarticle.*
 
-class WxArticleActivity : BaseActivity() {
+class WxArticleAct : BaseActivity() {
     private var frags: MutableList<BaseFragment> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {

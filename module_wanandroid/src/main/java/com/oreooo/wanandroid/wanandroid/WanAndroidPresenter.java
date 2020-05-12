@@ -24,7 +24,6 @@ import io.reactivex.schedulers.Schedulers;
  * @date 2018/12/17
  */
 public class WanAndroidPresenter extends BasePresenter<WanAndroidContract.View> implements WanAndroidContract.Presenter {
-    private static final String TAG = "WanAndroidPresenter";
     private List<BannerDetailData> mDate;
 
     public static WanAndroidPresenter getInstance() {
@@ -35,14 +34,6 @@ public class WanAndroidPresenter extends BasePresenter<WanAndroidContract.View> 
         private static WanAndroidPresenter Instance = new WanAndroidPresenter();
     }
 
-    WanAndroidPresenter() {
-    }
-
-//    @Override
-//    public void setView(BaseContract.BaseView view) {
-//        this.mView = (WanAndroidContract.View) view;
-//    }
-
     @Override
     public void getArticles(String curPage, final boolean isUpdate) {
         addSubscribe(Api.createWanAndroidService().getArticle(curPage).
@@ -52,38 +43,23 @@ public class WanAndroidPresenter extends BasePresenter<WanAndroidContract.View> 
                     @Override
                     public void accept(Article article) throws Exception {
                         mView.showArticle(article, isUpdate);
-                        Log.d(TAG, "getArticles: 请求回调");
+                        Log.d("xyz", "getArticles: 请求回调");
                     }
                 }));
     }
 
     @Override
     public void getBanner() {
-        Api.createWanAndroidService().getBanner()
+        addSubscribe(Api.createWanAndroidService().getBanner()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BannerData>() {
+                .subscribe(new Consumer<BannerData>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
-                        Log.d(TAG, "getBanner: 发起请求");
-                    }
-
-                    @Override
-                    public void onNext(BannerData bannerData) {
+                    public void accept(BannerData bannerData) throws Exception {
                         mDate = bannerData.getData();
                         mView.showBanner(mDate);
-                        Log.d(TAG, "getBanner: 请求回调");
+                        Log.d("xyz", "getBanner: 请求回调");
                     }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d(TAG, "getBanner: 请求失败");
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        Log.d(TAG, "getBanner: 请求完结");
-                    }
-                });
+                }));
     }
 }

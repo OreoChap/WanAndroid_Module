@@ -18,10 +18,14 @@ import com.oreo.wxarticle.pojo.ArticleClassData
 import com.oreo.wxarticle.webview.WebViewActivity
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
 import com.oreooo.baselibrary.mvp.BaseFragment
+import com.oreooo.baselibrary.network.OkHttpClientManager
+import com.oreooo.baselibrary.network.ResultCallback
 import com.oreooo.baselibrary.pojo.Article
 import com.oreooo.baselibrary.pojo.ArticleDatas
 import com.oreooo.baselibrary.route.RoutePath
 import kotlinx.android.synthetic.main.frag_wxarticle.*
+import okhttp3.Request
+import java.lang.Exception
 
 @Route(path = RoutePath.WXARTICLE_FRAGMENT)
 class WxArticleFragment : BaseFragment(), WxArticleContract.View {
@@ -61,8 +65,18 @@ class WxArticleFragment : BaseFragment(), WxArticleContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         subscribe()
-        mPresenter?.articleClassRequest()
-                ?: (Toast.makeText(context, "error: articleClassRequest()", Toast.LENGTH_SHORT)).show()
+//        mPresenter?.articleClassRequest()
+//                ?: (Toast.makeText(context, "error: articleClassRequest()", Toast.LENGTH_SHORT)).show()
+//
+        OkHttpClientManager.getAsync("https://www.wanandroid.com/wxarticle/chapters/json", object : ResultCallback<ArticleClass>() {
+            override fun onError(request: Request, exception: Exception) {
+                (Toast.makeText(context, "error: articleClassRequest()=>" + exception.toString(), Toast.LENGTH_SHORT)).show()
+            }
+
+            override fun onResponse(response: ArticleClass) {
+                classRefresh(response)
+            }
+        })
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 

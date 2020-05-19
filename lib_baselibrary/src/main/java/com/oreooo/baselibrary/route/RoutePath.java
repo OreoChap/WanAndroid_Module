@@ -21,4 +21,8 @@ public class RoutePath {
     // ToDo_list
     private static final String PREFIX_TODO = "/todo/";
     public static final String TODO_ACTIVITY = PREFIX_TODO + "ToDoActivity";
+
+    // User
+    private static final String PREFIX_USER = "/user/";
+    public static final String USER_ACTIVITY = PREFIX_USER + "UserActivity";
 }

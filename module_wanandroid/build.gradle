@@ -45,9 +45,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
-        enabled = true
-    }
 
     viewBinding {
         enabled true
@@ -58,6 +55,7 @@ dependencies {
     api project(':lib_baselibrary')
     api project(':module_todolist')
     api project(':module_search')
+    api project(':module_user')
 
     if (isBuildModule.toBoolean()) {
 

@@ -2,7 +2,8 @@
     <string name="module_WanAndroid_name">module_WanAndroid</string>
     <string name="toolbar_main_title">主页</string>
 
-    <!-- 侧拉框选项 -->
-    <string name="code_labs">实验室</string>
-    <string name="todo">ToDo</string>
+    <!-- 侧拉框选项title -->
+    <string name="nav_code_labs">实验室</string>
+    <string name="nav_todo">ToDo</string>
+    <string name="nav_user">用户</string>
 </resources>

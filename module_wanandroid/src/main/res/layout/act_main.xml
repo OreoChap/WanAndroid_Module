@@ -23,8 +23,8 @@
 
                 <ImageView
                     android:id="@+id/toolbar_main_navigation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/list"
                     android:layout_marginLeft="14dp"
                     android:layout_marginStart="14dp"/>

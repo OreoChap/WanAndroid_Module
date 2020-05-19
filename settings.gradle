@@ -1,2 +1,3 @@
 include ':app', ':lib_baselibrary', ':main', ':module_wanandroid', ':module_todolist', ':module_wxarticle'
 include ':module_search'
+include ':module_user'

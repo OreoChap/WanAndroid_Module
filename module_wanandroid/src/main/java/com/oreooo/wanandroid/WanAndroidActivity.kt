@@ -5,15 +5,19 @@ import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.view.Gravity
+import android.view.MenuItem
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.fasterxml.jackson.databind.ser.Serializers
 import com.oreo.wxarticle.WxArticleFragment
 import com.oreooo.baselibrary.mvp.BaseActivity
 import com.oreooo.baselibrary.mvp.BaseFragment
 import com.oreooo.baselibrary.route.RoutePath
+import com.oreooo.module_user.UserFragment
 import com.oreooo.wanandroid.wanandroid.WanAndroidFragment
 import kotlinx.android.synthetic.main.act_main.*
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 @Route(path = RoutePath.WANANDROID_ACTIVITY)
 class WanAndroidActivity : BaseActivity() {
@@ -68,37 +72,59 @@ class WanAndroidActivity : BaseActivity() {
             drawer_main.openDrawer(Gravity.START)
         }
 
+        // 设置底部框
         bottom_navigation_view.setOnNavigationItemSelectedListener { menuItem ->
-            val id = menuItem.itemId
-            if (id == R.id.item_bottom_1) {
-                switchFrags(getString(R.string.WanAndroid_Frag), WanAndroidFragment.getInstance())
-            } else if (id == R.id.item_bottom_2) {
-                switchFrags(getString(R.string.WxArticle_Frag), WxArticleFragment.instance)
-            } else if (id == R.id.item_bottom_3) {
-//                switchFrags(getString(R.string.ToDo_Frag),ToDoFrag.instance)
-            }
+            setBottomNavMenu(menuItem.itemId)
             true
         }
-
+        // 默认第一项
         bottom_navigation_view.menu.getItem(0).isChecked = true
 
-        setNavMenu()
+        // 设置侧拉框
+        setNavMenu(R.id.nav_item_code_labs, R.id.nav_item_todo, R.id.nav_item_user)
     }
 
     /**
      *  侧拉框选项：
-     *  1、 codeLab：测试代码用
-     *  2、 todo页面
+     *  nav_item_code_labs: codeLab：测试代码用
+     *  nav_item_todo: todo页面
      */
-    private fun setNavMenu() {
-        view_nav.menu.findItem(R.id.nav_item_code_labs).setOnMenuItemClickListener {
-            Toast.makeText(this, "123", Toast.LENGTH_SHORT).show()
-            true
+    private fun setNavMenu(vararg itemId: Int) {
+        itemId.forEach {
+            view_nav.menu.findItem(it).setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.nav_item_code_labs -> Toast.makeText(this, "123", Toast.LENGTH_SHORT).show()
+                    R.id.nav_item_todo -> ARouter.getInstance().build(RoutePath.TODO_ACTIVITY).navigation()
+                    R.id.nav_item_user -> ARouter.getInstance().build(RoutePath.USER_ACTIVITY).navigation()
+                }
+                true
+            }
         }
+    }
 
-        view_nav.menu.findItem(R.id.nav_item_todo).setOnMenuItemClickListener {
-            ARouter.getInstance().build(RoutePath.TODO_ACTIVITY).navigation()
-            true
+    /**
+     *  底部框选项（页面设置）
+     *  item_bottom_1：主页
+     *  item_bottom_2：公众号文章
+     */
+    private fun setBottomNavMenu(itemId: Int) {
+        var frag: BaseFragment? = null
+        var fragName: String? = null
+        when (itemId) {
+            R.id.item_bottom_1 -> {
+                frag = WanAndroidFragment.getInstance()
+                fragName = getString(R.string.WanAndroid_Frag)
+            }
+            R.id.item_bottom_2 -> {
+                frag = WxArticleFragment.instance
+                fragName = getString(R.string.WxArticle_Frag)
+            }
+            R.id.item_bottom_3 -> {
+
+            }
+        }
+        if (frag != null && fragName != null) {
+            switchFrags(fragName, frag)
         }
     }
 }

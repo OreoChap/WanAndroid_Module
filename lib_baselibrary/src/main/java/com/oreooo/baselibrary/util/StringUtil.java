@@ -545,7 +545,6 @@ public class StringUtil {
      * @return
      */
     public static SpannableString changeStrColor(String str, int color, int start, int end) {
-        //TODO [xin] 设置字符串部分字符颜色、背景颜色方法1
         SpannableString spannableString = new SpannableString(str);
         ForegroundColorSpan colorSpan = new ForegroundColorSpan(color);//初始化指定字符颜色
 //        BackgroundColorSpan backSpan = new BackgroundColorSpan(Color.BLACK);//初始化指定字符背景色

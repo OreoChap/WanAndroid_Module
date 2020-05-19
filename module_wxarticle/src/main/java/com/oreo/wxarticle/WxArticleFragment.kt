@@ -147,6 +147,5 @@ class WxArticleFragment : BaseFragment(), WxArticleContract.View {
     }
 
     override fun keywordArticleRefresh(data: Article) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

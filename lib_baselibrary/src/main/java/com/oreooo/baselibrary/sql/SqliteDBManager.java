@@ -225,7 +225,6 @@ public class SqliteDBManager {
 
     }
 
-    // ToDo（xuan）：设置featureKey 的取值规则
     public void insert(String featureKey, String jsonData) {
         boolean inTransaction = false;
         if (!mDB.inTransaction()) {

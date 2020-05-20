@@ -2,9 +2,7 @@ package com.oreooo.wanandroid.wanandroid;
 
 import android.util.Log;
 
-import com.oreooo.baselibrary.mvp.BaseContract;
-import com.oreooo.wanandroid.base.AbstractView;
-import com.oreooo.wanandroid.base.BasePresenter;
+import com.oreooo.baselibrary.newmvp.BasePresenter;
 import com.oreooo.wanandroid.network.Api;
 import com.oreooo.baselibrary.pojo.Article;
 import com.oreooo.wanandroid.pojo.BannerData;
@@ -12,10 +10,7 @@ import com.oreooo.wanandroid.pojo.BannerDetailData;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 

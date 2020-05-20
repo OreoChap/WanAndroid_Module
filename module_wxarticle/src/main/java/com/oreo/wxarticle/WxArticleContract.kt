@@ -1,7 +1,7 @@
 package com.oreo.wxarticle
 
 import com.oreo.wxarticle.pojo.ArticleClass
-import com.oreooo.baselibrary.mvp.BaseContract
+import com.oreooo.baselibrary.mvpbase.BaseContract
 import com.oreooo.baselibrary.pojo.Article
 
 interface WxArticleContract : BaseContract {

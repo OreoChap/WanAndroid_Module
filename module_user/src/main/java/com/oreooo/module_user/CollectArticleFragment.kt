@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
-import com.oreooo.baselibrary.mvp.BaseFragment
+import com.oreooo.baselibrary.mvpbase.StartFragment
 import kotlinx.android.synthetic.main.frag_collect_article.*
 
-class CollectArticleFragment : BaseFragment() {
+class CollectArticleFragment : StartFragment() {
 
     override fun setContentView(): Int {
         return R.layout.frag_collect_article

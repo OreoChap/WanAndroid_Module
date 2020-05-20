@@ -2,12 +2,10 @@ package com.oreooo.wanandroid.wanandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter;
@@ -15,7 +13,7 @@ import com.oreooo.baselibrary.pojo.Article;
 import com.oreooo.baselibrary.route.RoutePath;
 import com.oreooo.wanandroid.GlideImageLoader;
 import com.oreooo.wanandroid.R;
-import com.oreooo.wanandroid.base.BaseFragment;
+import com.oreooo.baselibrary.newmvp.BaseFragment;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
 import com.oreooo.wanandroid.webview.WebViewActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -26,8 +24,6 @@ import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +33,7 @@ import java.util.List;
  */
 
 @Route(path = RoutePath.WANDROID_FRAGMENT)
-public class WanAndroidFragment extends BaseFragment<WanAndroidPresenter> implements WanAndroidContract.View {
+public class WanAndroidFragment extends BaseFragment<WanAndroidContract.Presenter> implements WanAndroidContract.View {
     public static WanAndroidFragment wanAndroidFragment;
     private WanAndroidAdapter mAdapter;
     int ArticlePage = 0;
@@ -152,11 +148,9 @@ public class WanAndroidFragment extends BaseFragment<WanAndroidPresenter> implem
         return R.layout.frag_wanandroid;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setPresenter(WanAndroidPresenter.getInstance());
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public WanAndroidPresenter setPresenter() {
+        return WanAndroidPresenter.getInstance();
     }
 
     @Override

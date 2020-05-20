@@ -1,4 +1,4 @@
-package com.oreooo.baselibrary.mvp
+package com.oreooo.baselibrary.mvpbase
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,7 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-open abstract class BaseFragment : Fragment() {
+/**
+ *  BaseFragment
+ * @author oreo
+ */
+open abstract class StartFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

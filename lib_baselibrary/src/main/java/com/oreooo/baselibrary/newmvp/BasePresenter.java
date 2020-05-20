@@ -1,4 +1,4 @@
-package com.oreooo.wanandroid.base;
+package com.oreooo.baselibrary.newmvp;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;

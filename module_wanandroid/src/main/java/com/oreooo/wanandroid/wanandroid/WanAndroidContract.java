@@ -1,8 +1,8 @@
 package com.oreooo.wanandroid.wanandroid;
 
+import com.oreooo.baselibrary.newmvp.AbstractPresenter;
+import com.oreooo.baselibrary.newmvp.AbstractView;
 import com.oreooo.baselibrary.pojo.Article;
-import com.oreooo.wanandroid.base.AbstractPresenter;
-import com.oreooo.wanandroid.base.AbstractView;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
 
 import java.util.List;

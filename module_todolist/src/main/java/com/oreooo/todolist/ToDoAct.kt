@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.oreooo.todoforstudy.Fragment.DoneFrag
-import com.oreooo.baselibrary.mvp.BaseActivity
+import com.oreooo.baselibrary.mvpbase.StartActivity
 import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.todolist.fragment.DoingFrag
 import com.oreooo.todolist.MessageEvent
@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.todo_act.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import org.litepal.LitePal
 
 /**
  * @author Oreo https://github.com/OreoChap
@@ -25,7 +24,7 @@ import org.litepal.LitePal
  */
 
 @Route(path = RoutePath.TODO_ACTIVITY)
-class ToDoAct : BaseActivity() {
+class ToDoAct : StartActivity() {
     private val pagers: MutableList<Fragment> = ArrayList()
     private val doingFragment: DoingFrag = DoingFrag.instance
     private var doneFragment: DoneFrag = DoneFrag.instance

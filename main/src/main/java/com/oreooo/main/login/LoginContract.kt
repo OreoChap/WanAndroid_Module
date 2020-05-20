@@ -1,6 +1,6 @@
 package com.oreooo.main.login
 
-import com.oreooo.baselibrary.mvp.BaseContract
+import com.oreooo.baselibrary.mvpbase.BaseContract
 import com.oreooo.main.pojo.User
 
 interface LoginContract {

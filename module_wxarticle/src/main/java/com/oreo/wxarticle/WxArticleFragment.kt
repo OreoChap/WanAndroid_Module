@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,7 @@ import com.oreo.wxarticle.pojo.ArticleClass
 import com.oreo.wxarticle.pojo.ArticleClassData
 import com.oreo.wxarticle.webview.WebViewActivity
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
-import com.oreooo.baselibrary.mvp.BaseFragment
+import com.oreooo.baselibrary.mvpbase.StartFragment
 import com.oreooo.baselibrary.network.OkHttpClientManager
 import com.oreooo.baselibrary.network.ResultCallback
 import com.oreooo.baselibrary.pojo.Article
@@ -28,7 +27,7 @@ import okhttp3.Request
 import java.lang.Exception
 
 @Route(path = RoutePath.WXARTICLE_FRAGMENT)
-class WxArticleFragment : BaseFragment(), WxArticleContract.View {
+class WxArticleFragment : StartFragment(), WxArticleContract.View {
 
     private var mPresenter: WxArticleContract.Presenter? = null
 

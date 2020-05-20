@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.oreo.wxarticle.databinding.ActWxarticleBinding
-import com.oreo.wxarticle.pojo.ArticleClassData
-import com.oreooo.baselibrary.list.BaseRecyclerAdapter
-import com.oreooo.baselibrary.mvp.BaseActivity
-import com.oreooo.baselibrary.mvp.BaseFragment
+import com.oreooo.baselibrary.mvpbase.StartActivity
+import com.oreooo.baselibrary.mvpbase.StartFragment
 import kotlinx.android.synthetic.main.act_wxarticle.*
 
-class WxArticleAct : BaseActivity() {
-    private var frags: MutableList<BaseFragment> = ArrayList()
+class WxArticleAct : StartActivity() {
+    private var frags: MutableList<StartFragment> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +23,7 @@ class WxArticleAct : BaseActivity() {
         switchFrags(WxArticleFragment.instance)
     }
 
-    private fun switchFrags(frag: BaseFragment) {
+    private fun switchFrags(frag: StartFragment) {
         val transaction = supportFragmentManager.beginTransaction()
         if (!frags.contains(frag)) {
             frags.add(frag)

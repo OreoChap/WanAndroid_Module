@@ -6,10 +6,10 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.oreooo.baselibrary.mvp.BaseFragment;
+import com.oreooo.baselibrary.mvpbase.StartFragment;
 import com.oreooo.wanandroid.R;
 
-public class WebViewFragment extends BaseFragment {
+public class WebViewFragment extends StartFragment {
 
     public static WebViewFragment getInstance() {
         return WebViewFragmentHolder.Instance;

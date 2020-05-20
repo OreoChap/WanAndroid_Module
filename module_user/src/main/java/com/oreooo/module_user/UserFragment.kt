@@ -5,15 +5,13 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.View
-import com.alibaba.android.arouter.facade.annotation.Route
-import com.oreooo.baselibrary.mvp.BaseFragment
-import com.oreooo.baselibrary.route.RoutePath
+import com.oreooo.baselibrary.mvpbase.StartFragment
 import kotlinx.android.synthetic.main.frag_user.*
 
-class UserFragment : BaseFragment() {
+class UserFragment : StartFragment() {
 
     private lateinit var pagerAdapter: FragmentStatePagerAdapter
-    private val pagerList: MutableList<BaseFragment> = ArrayList()
+    private val pagerList: MutableList<StartFragment> = ArrayList()
 
     override fun setContentView(): Int {
         return R.layout.frag_user

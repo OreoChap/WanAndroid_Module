@@ -1,4 +1,4 @@
-package com.oreooo.baselibrary.mvp
+package com.oreooo.baselibrary.mvpbase
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -11,7 +11,11 @@ import android.view.Menu
 import android.view.View
 import com.oreooo.baselibrary.R
 
-open class BaseActivity : AppCompatActivity() {
+/**
+ *  BaseActivity
+ * @author oreo
+ */
+open class StartActivity : AppCompatActivity() {
     protected var mToolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,14 +9,13 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import com.example.oreooo.todoforstudy.Fragment.DoneFrag
-import com.oreooo.baselibrary.mvp.BaseFragment
+import com.oreooo.baselibrary.mvpbase.StartFragment
 import com.oreooo.todolist.fragment.DoingFrag
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import org.litepal.LitePal
 
-class ToDoFrag : BaseFragment() {
+class ToDoFrag : StartFragment() {
     private val pagers: MutableList<Fragment> = ArrayList<Fragment>()
     private lateinit var doingFragment: DoingFrag
     private lateinit var doneFragment: DoneFrag

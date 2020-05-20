@@ -5,24 +5,20 @@ import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.view.Gravity
-import android.view.MenuItem
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.fasterxml.jackson.databind.ser.Serializers
 import com.oreo.wxarticle.WxArticleFragment
-import com.oreooo.baselibrary.mvp.BaseActivity
-import com.oreooo.baselibrary.mvp.BaseFragment
+import com.oreooo.baselibrary.mvpbase.StartActivity
+import com.oreooo.baselibrary.mvpbase.StartFragment
 import com.oreooo.baselibrary.route.RoutePath
-import com.oreooo.module_user.UserFragment
 import com.oreooo.wanandroid.wanandroid.WanAndroidFragment
 import kotlinx.android.synthetic.main.act_main.*
-import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 @Route(path = RoutePath.WANANDROID_ACTIVITY)
-class WanAndroidActivity : BaseActivity() {
+class WanAndroidActivity : StartActivity() {
 
-    private var frags: HashMap<String, BaseFragment> = HashMap()
+    private var frags: HashMap<String, StartFragment> = HashMap()
     private var currentFragName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +36,7 @@ class WanAndroidActivity : BaseActivity() {
         startActivity(i)
     }
 
-    private fun switchFrags(newFragName: String, newFrag: BaseFragment) {
+    private fun switchFrags(newFragName: String, newFrag: StartFragment) {
         val transaction = supportFragmentManager.beginTransaction()
         if (!TextUtils.isEmpty(currentFragName) && frags.containsKey(currentFragName)) {
             val currentFrag = frags[currentFragName]
@@ -108,7 +104,7 @@ class WanAndroidActivity : BaseActivity() {
      *  item_bottom_2：公众号文章
      */
     private fun setBottomNavMenu(itemId: Int) {
-        var frag: BaseFragment? = null
+        var frag: StartFragment? = null
         var fragName: String? = null
         when (itemId) {
             R.id.item_bottom_1 -> {

@@ -1,6 +1,6 @@
 package com.oreo.module_search
 
-import com.oreooo.baselibrary.mvp.BaseContract
+import com.oreooo.baselibrary.mvpbase.BaseContract
 import com.oreooo.baselibrary.pojo.Article
 
 interface SearchContract {

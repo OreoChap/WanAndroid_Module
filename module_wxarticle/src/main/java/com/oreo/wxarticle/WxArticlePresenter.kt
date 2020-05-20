@@ -1,7 +1,7 @@
 package com.oreo.wxarticle
 
 import com.oreo.wxarticle.network.Api
-import com.oreooo.baselibrary.mvp.BaseContract
+import com.oreooo.baselibrary.mvpbase.BaseContract
 import kotlinx.coroutines.*
 
 class WxArticlePresenter : WxArticleContract.Presenter {

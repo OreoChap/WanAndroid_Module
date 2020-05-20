@@ -1,4 +1,4 @@
-package com.oreooo.wanandroid.base;
+package com.oreooo.baselibrary.newmvp;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,22 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment<T extends AbstractPresenter> extends com.oreooo.baselibrary.mvp.BaseFragment implements AbstractView {
+public abstract class BaseFragment<T extends AbstractPresenter> extends com.oreooo.baselibrary.mvpbase.StartFragment implements AbstractView {
 
     protected T mPresenter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(setContentView(), container, false);
-        return view;
+        mPresenter = setPresenter();
+        return inflater.inflate(setContentView(), container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         init(view, savedInstanceState);
         if (mPresenter != null) {
-            mPresenter.attachView(this);
+            mPresenter.attachView(BaseFragment.this);
         }
         super.onViewCreated(view, savedInstanceState);
     }
@@ -40,7 +40,5 @@ public abstract class BaseFragment<T extends AbstractPresenter> extends com.oreo
 
     public abstract void init(View view, Bundle savedInstanceState);
 
-    public void setPresenter(T presenter) {
-        this.mPresenter = presenter;
-    }
+    public abstract T setPresenter();
 }

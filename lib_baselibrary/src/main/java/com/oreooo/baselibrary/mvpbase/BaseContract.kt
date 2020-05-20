@@ -1,5 +1,9 @@
-package com.oreooo.baselibrary.mvp
+package com.oreooo.baselibrary.mvpbase
 
+/**
+ *  BaseContract
+ * @author oreo
+ */
 interface BaseContract {
     interface BaseView {
         fun subscribe()

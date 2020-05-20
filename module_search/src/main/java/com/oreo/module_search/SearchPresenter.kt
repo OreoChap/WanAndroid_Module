@@ -1,7 +1,7 @@
 package com.oreo.module_search
 
 import com.oreo.module_search.network.Api
-import com.oreooo.baselibrary.mvp.BaseContract
+import com.oreooo.baselibrary.mvpbase.BaseContract
 import kotlinx.coroutines.*
 
 class SearchPresenter : SearchContract.Presenter {

@@ -1,7 +1,7 @@
 package com.oreooo.main.login
 
 import android.util.Log
-import com.oreooo.baselibrary.mvp.BaseContract
+import com.oreooo.baselibrary.mvpbase.BaseContract
 import com.oreooo.main.network.Api
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

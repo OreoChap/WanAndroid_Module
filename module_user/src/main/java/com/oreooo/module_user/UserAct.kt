@@ -20,8 +20,8 @@ class UserAct : BaseAct<UserContract.Presenter>(),UserContract.View {
         }
     }
 
-    override fun collectArticleRefresh() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun collectArticleRefresh(data:List<CollectArticle>) {
+
     }
 
     override fun setPresenter(): UserContract.Presenter {

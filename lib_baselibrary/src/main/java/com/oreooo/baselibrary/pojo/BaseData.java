@@ -1,69 +1,40 @@
 package com.oreooo.baselibrary.pojo;
 
-import java.util.List;
-
 public class BaseData<T> {
-    private String curPage;
-    private List<T> datas;
-    private String offset;
-    private boolean over;
-    private String pageCount;
-    private String size;
-    private String total;
+    private int curPage;
+    private int errorCode;
+    private String errorMsg;
+    private InnerData<T> data;
 
-    public String getCurPage() {
+    public InnerData<T> getData() {
+        return data;
+    }
+
+    public void setData(InnerData<T> data) {
+        this.data = data;
+    }
+
+    public int getCurPage() {
         return curPage;
     }
 
-    public void setCurPage(String curPage) {
+    public void setCurPage(int curPage) {
         this.curPage = curPage;
     }
 
-    public List<T> getDatas() {
-        return datas;
+    public int getErrorCode() {
+        return errorCode;
     }
 
-    public void setDatas(List<T> datas) {
-        this.datas = datas;
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
     }
 
-    public String getOffset() {
-        return offset;
+    public String getErrorMsg() {
+        return errorMsg;
     }
 
-    public void setOffset(String offset) {
-        this.offset = offset;
-    }
-
-    public boolean isOver() {
-        return over;
-    }
-
-    public void setOver(boolean over) {
-        this.over = over;
-    }
-
-    public String getPageCount() {
-        return pageCount;
-    }
-
-    public void setPageCount(String pageCount) {
-        this.pageCount = pageCount;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
 }

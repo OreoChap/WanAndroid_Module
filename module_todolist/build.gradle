@@ -53,7 +53,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // arouter
-    kapt 'com.alibaba:arouter-compiler:1.2.2'
+    kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
 
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

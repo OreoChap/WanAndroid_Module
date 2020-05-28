@@ -47,9 +47,10 @@ android {
 dependencies {
     api project(':lib_baselibrary')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
     // arouter
-    kapt 'com.alibaba:arouter-compiler:1.2.2'
+    kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
     
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

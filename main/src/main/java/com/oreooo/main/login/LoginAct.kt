@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.oreooo.baselibrary.mvpbase.StartActivity
 import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.main.R
-import com.oreooo.main.databinding.ActLoginBinding
+import com.oreooo.main.databinding.LoginBindingImpl
 import com.oreooo.main.pojo.User
 
 class LoginAct : StartActivity(), LoginContract.View {
@@ -20,7 +20,7 @@ class LoginAct : StartActivity(), LoginContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ARouter.getInstance().inject(this)
-        val binding: ActLoginBinding = DataBindingUtil.setContentView(this, R.layout.act_login)
+        val binding: LoginBindingImpl = DataBindingUtil.setContentView(this, R.layout.login)
         binding.lifecycleOwner = this
         binding.model = viewModel
         initView()
@@ -42,17 +42,17 @@ class LoginAct : StartActivity(), LoginContract.View {
     }
 
     override fun loginResult(user: User?) {
-        when(user?.errorCode?:1) {
+        when (user?.errorCode ?: 1) {
             -1 -> {
-                Toast.makeText(this,"登陆失败～",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "登陆失败～", Toast.LENGTH_SHORT).show()
             }
             0 -> {
-                Toast.makeText(this,"成功登陆～",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "成功登陆～", Toast.LENGTH_SHORT).show()
                 ARouter.getInstance().build(RoutePath.WANANDROID_ACTIVITY).navigation()
                 finish()
             }
             1 -> {
-                Toast.makeText(this,"跳过登陆～",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "跳过登陆～", Toast.LENGTH_SHORT).show()
                 ARouter.getInstance().build(RoutePath.WANANDROID_ACTIVITY).navigation()
                 finish()
             }

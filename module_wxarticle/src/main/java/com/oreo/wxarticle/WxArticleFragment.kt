@@ -24,7 +24,6 @@ import com.oreooo.baselibrary.pojo.ArticleDatas
 import com.oreooo.baselibrary.route.RoutePath
 import kotlinx.android.synthetic.main.frag_wxarticle.*
 import okhttp3.Request
-import java.lang.Exception
 
 @Route(path = RoutePath.WXARTICLE_FRAGMENT)
 class WxArticleFragment : StartFragment(), WxArticleContract.View {

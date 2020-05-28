@@ -52,7 +52,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // arouter
-    kapt 'com.alibaba:arouter-compiler:1.2.2'
+    kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {

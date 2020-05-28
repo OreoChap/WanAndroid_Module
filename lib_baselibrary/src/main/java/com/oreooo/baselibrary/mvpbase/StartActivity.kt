@@ -12,7 +12,7 @@ import android.view.View
 import com.oreooo.baselibrary.R
 
 /**
- *  BaseActivity
+ *  StartActivity
  * @author oreo
  */
 open class StartActivity : AppCompatActivity() {

@@ -39,6 +39,7 @@ class UserFragment : StartFragment() {
                 return title
             }
         }
+        UserPresenter.getInstance().getCollectArticle(0)
     }
 
     companion object {

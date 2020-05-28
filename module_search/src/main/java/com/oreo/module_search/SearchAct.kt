@@ -1,5 +1,6 @@
 package com.oreo.module_search
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Html
 import android.widget.TextView
@@ -19,6 +20,10 @@ class SearchAct : StartActivity(), SearchContract.View {
 
     // 页码， 上划加载更多时使用
     private var page = 0
+
+    companion object {
+        lateinit var mContext: Context
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

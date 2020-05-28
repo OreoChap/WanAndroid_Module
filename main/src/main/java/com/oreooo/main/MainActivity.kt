@@ -1,5 +1,6 @@
-package com.oreooo.wanandroid
+package com.oreooo.main
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
@@ -8,22 +9,35 @@ import android.view.Gravity
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.oreo.module_search.SearchAct
+import com.oreo.wxarticle.WxArticleAct
 import com.oreo.wxarticle.WxArticleFragment
+import com.oreooo.baselibrary.IContext
 import com.oreooo.baselibrary.mvpbase.StartActivity
 import com.oreooo.baselibrary.mvpbase.StartFragment
 import com.oreooo.baselibrary.route.RoutePath
+import com.oreooo.module_user.UserAct
+import com.oreooo.wanandroid.wanandroid.WanAndroidAct
 import com.oreooo.wanandroid.wanandroid.WanAndroidFragment
-import kotlinx.android.synthetic.main.act_main.*
+import kotlinx.android.synthetic.main.main.*
 
+/**
+ *  主页
+ */
 @Route(path = RoutePath.WANANDROID_ACTIVITY)
-class WanAndroidActivity : StartActivity() {
+class MainActivity : StartActivity(), IContext {
 
     private var frags: HashMap<String, StartFragment> = HashMap()
     private var currentFragName: String = ""
 
+    companion object {
+        lateinit var mContext: Context
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.act_main)
+        setContentView(R.layout.main)
+        setApplication()
         switchFrags(getString(R.string.WanAndroid_Frag), WanAndroidFragment.getInstance())
         initView()
     }
@@ -122,5 +136,12 @@ class WanAndroidActivity : StartActivity() {
         if (frag != null && fragName != null) {
             switchFrags(fragName, frag)
         }
+    }
+
+    override fun setApplication() {
+        WanAndroidAct.mContext = mContext
+        SearchAct.mContext = mContext
+        UserAct.mContext = mContext
+        WxArticleAct.mContext = mContext
     }
 }

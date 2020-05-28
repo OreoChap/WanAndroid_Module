@@ -1,5 +1,6 @@
 package com.oreo.wxarticle
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,10 @@ import kotlinx.android.synthetic.main.act_wxarticle.*
 
 class WxArticleAct : StartActivity() {
     private var frags: MutableList<StartFragment> = ArrayList()
+
+    companion object {
+        lateinit var mContext: Context
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

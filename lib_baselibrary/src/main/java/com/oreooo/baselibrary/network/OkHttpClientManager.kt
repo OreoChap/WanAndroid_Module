@@ -6,8 +6,6 @@ import com.google.gson.Gson
 import com.google.gson.internal.`$Gson$Types`
 import okhttp3.*
 import java.io.IOException
-import java.lang.Exception
-import java.lang.RuntimeException
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
@@ -43,6 +41,11 @@ object OkHttpClientManager {
                 .url(url)
                 .build()
         deliverResult(callback, request)
+    }
+
+    // Post请求
+    fun postAsync() {
+
     }
 
     private fun deliverResult(callback: ResultCallback<*>, request: Request) {

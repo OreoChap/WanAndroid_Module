@@ -4,6 +4,9 @@ import com.oreo.wxarticle.network.Api
 import com.oreooo.baselibrary.mvpbase.BaseContract
 import kotlinx.coroutines.*
 
+/**
+ *  kotlin Coroutines + retrofit
+ */
 class WxArticlePresenter : WxArticleContract.Presenter {
 
     private var mView: WxArticleContract.View? = null

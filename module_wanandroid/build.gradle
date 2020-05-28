@@ -53,16 +53,6 @@ android {
 
 dependencies {
     api project(':lib_baselibrary')
-    api project(':module_todolist')
-    api project(':module_search')
-    api project(':module_user')
-
-    if (isBuildModule.toBoolean()) {
-
-    } else {
-        api project(':module_wxarticle')
-    }
-
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -79,7 +69,8 @@ dependencies {
     implementation 'android.arch.navigation:navigation-ui:1.0.0'
 
     // arouter
-    kapt 'com.alibaba:arouter-compiler:1.2.2'
+    kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
+
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

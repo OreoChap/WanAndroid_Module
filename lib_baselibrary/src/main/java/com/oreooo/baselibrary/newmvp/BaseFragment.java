@@ -36,9 +36,8 @@ public abstract class BaseFragment<T extends AbstractPresenter> extends com.oreo
         super.onDestroyView();
     }
 
-    public abstract int setContentView();
-
-    public abstract void init(View view, Bundle savedInstanceState);
-
+    /**
+     * 设置presenter
+     */
     public abstract T setPresenter();
 }

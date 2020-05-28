@@ -20,6 +20,12 @@ android {
         }
     }
 
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -33,13 +39,22 @@ android {
 }
 
 dependencies {
-    api project(':lib_baselibrary')
+    api project(':module_todolist')
+    api project(':module_search')
+    api project(':module_user')
+    api project(':module_wanandroid')
+    api project(':module_wxarticle')
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // arouter
+    kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
 }
 repositories {
     mavenCentral()

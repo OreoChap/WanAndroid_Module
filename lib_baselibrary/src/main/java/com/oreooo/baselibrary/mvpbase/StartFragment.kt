@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 /**
- *  BaseFragment
+ *  StartFragment
  * @author oreo
  */
 open abstract class StartFragment : Fragment() {

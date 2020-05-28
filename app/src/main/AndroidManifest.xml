@@ -27,7 +27,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
-            android:name="com.oreooo.wanandroid.WanAndroidActivity"
+            android:name="com.oreooo.main.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity

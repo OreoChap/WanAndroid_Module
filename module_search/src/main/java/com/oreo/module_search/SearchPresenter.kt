@@ -15,13 +15,10 @@ class SearchPresenter : SearchContract.Presenter {
     }
 
     override fun getSearchArticle(page: Int, keyword: String) {
-
         GlobalScope.launch {
-
             val result = async {
                 Api.create().getArticle(page, keyword)
             }
-
             withContext(Dispatchers.Main) {
                 mView!!.showArticleResult(result.await())
             }

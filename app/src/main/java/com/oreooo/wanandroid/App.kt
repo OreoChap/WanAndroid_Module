@@ -2,7 +2,6 @@ package com.oreooo.wanandroid
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
-import com.oreooo.baselibrary.IContext
 import com.oreooo.main.MainActivity
 import org.litepal.LitePal
 
@@ -24,10 +23,6 @@ class App : Application() {
 
     companion object {
         @Volatile
-        private lateinit var instance:App
-
-        fun getApplication():Application {
-            return instance
-        }
+        private lateinit var instance: App
     }
 }

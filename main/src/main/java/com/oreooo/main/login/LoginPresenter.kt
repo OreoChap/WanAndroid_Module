@@ -2,10 +2,15 @@ package com.oreooo.main.login
 
 import android.util.Log
 import com.oreooo.baselibrary.mvpbase.BaseContract
+import com.oreooo.baselibrary.network.Network
+import com.oreooo.baselibrary.network.OkHttpClientManager
+import com.oreooo.baselibrary.network.ResultCallback
 import com.oreooo.main.network.Api
+import com.oreooo.main.pojo.User
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import kotlinx.coroutines.*
+import okhttp3.Request
 
 class LoginPresenter : LoginContract.Presenter {
 
@@ -19,16 +24,29 @@ class LoginPresenter : LoginContract.Presenter {
     }
 
     override fun login(userName: String, password: String) {
-        Log.d("LoginPresenter", "login: 开始了～")
-        GlobalScope.launch {
-            val result = async {
-                Api.create().loginRequest(userName, password)
+//        Log.d("LoginPresenter", "login: 开始了～")
+//        GlobalScope.launch {
+//            val result = async {
+//                Api.create().loginRequest(userName, password)
+//            }
+//
+//            withContext(Dispatchers.Main) {
+//                mView.loginResult(result.await())
+//            }
+//        }
+
+        val map = HashMap<String,String>()
+        map.put("username", userName)
+        map.put("password", password)
+        OkHttpClientManager.postAsync("https://www.wanandroid.com/user/login",map,object :ResultCallback<User>() {
+            override fun onError(request: Request, exception: Exception) {
+                Log.d("aabbcc","loginError")
             }
 
-            withContext(Dispatchers.Main) {
-                mView.loginResult(result.await())
+            override fun onResponse(response: User) {
+                mView.loginResult(response)
             }
-        }
+        })
     }
 
     override fun clearRequest() {

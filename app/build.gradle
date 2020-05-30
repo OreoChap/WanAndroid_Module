@@ -34,9 +34,7 @@ android {
 }
 
 dependencies {
-    if (isBuildModule.toBoolean()) {
-
-    } else {
+    if (!isBuildModule.toBoolean()) {
         implementation project(':main')
     }
     androidTestImplementation 'junit:junit:4.12'

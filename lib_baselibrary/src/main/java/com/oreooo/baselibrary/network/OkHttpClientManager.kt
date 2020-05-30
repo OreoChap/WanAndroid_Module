@@ -8,10 +8,20 @@ import okhttp3.*
 import java.io.IOException
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
+import java.util.concurrent.TimeUnit
 
 object OkHttpClientManager {
     private val mOkHttpClient by lazy {
-        OkHttpClient()
+        //        OkHttpClient.Builder()
+//                .connectTimeout(4000, TimeUnit.MILLISECONDS)
+//                .readTimeout(4000, TimeUnit.MILLISECONDS)
+//                .writeTimeout(4000, TimeUnit.MILLISECONDS)
+//                .build()
+        OkHttpClient().newBuilder().apply {
+            this.connectTimeout(4000, TimeUnit.MILLISECONDS)
+            this.readTimeout(4000, TimeUnit.MILLISECONDS)
+            this.writeTimeout(4000, TimeUnit.MILLISECONDS)
+        }.build()
     }
 
     private val mHandler by lazy {
@@ -44,8 +54,14 @@ object OkHttpClientManager {
     }
 
     // Post请求
-    fun postAsync() {
-
+    fun postAsync(url: String, map: Map<String, String>, callback: ResultCallback<*>) {
+        val formBody = FormBody.Builder().apply {
+            for (key in map.keys) {
+                this.add(key, map[key]!!)
+            }
+        }.build()
+        val request = Request.Builder().url(url).post(formBody).build()
+        deliverResult(callback, request)
     }
 
     private fun deliverResult(callback: ResultCallback<*>, request: Request) {

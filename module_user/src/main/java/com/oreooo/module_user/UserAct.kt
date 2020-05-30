@@ -20,9 +20,7 @@ class UserAct : BaseAct<UserContract.Presenter>(), UserContract.View {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.user_act_container, UserFragment.getInstance())
                 .commit()
-        toolbar_user_back.setOnClickListener {
-            finish()
-        }
+        toolbar_user_back.setOnClickListener { finish() }
     }
 
     override fun collectArticleRefresh(data: List<CollectArticle>) {

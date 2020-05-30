@@ -51,29 +51,6 @@ public class Network {
 
     public Retrofit retrofit(Context context) {
         if (null == mRetrofit) {
-//            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-//                @Override
-//                public void log(String message) {
-//                    //打印retrofit日志
-//                    Log.i("RetrofitLog", "retrofitBack = " + message);
-//                }
-//            });
-//            OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-//            httpClient.addInterceptor(new Interceptor() {
-//                @Override
-//                public Response intercept(Chain chain) throws IOException {
-//                    Request original = chain.request();
-//                    Request request = original.newBuilder()
-//                            .header("Content-Type", "application/json")
-//                            .header("username", getUserName())
-//                            .header("password", getPassWord())
-//                            .method(original.method(), original.body())
-//                            .build();
-//
-//                    return chain.proceed(request);
-//                }
-//            });
-
             OkHttpClient client = new OkHttpClient.Builder()
                     .cookieJar(new PersistentCookieJar(new SetCookieCache(),
                             new SharedPrefsCookiePersistor(context)))
@@ -91,19 +68,4 @@ public class Network {
         }
         return mRetrofit;
     }
-
-//    public class HeaderInterceptor implements Interceptor {
-//        @Override
-//        public Response intercept(Chain chain) throws IOException {
-//            Request request = chain.request()
-//                    .newBuilder()
-//                    .addHeader("appid", "hello")
-//                    .addHeader("deviceplatform", "android")
-//                    .removeHeader("User-Agent")
-//                    .addHeader("User-Agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0")
-//                    .build();
-//            Response response = chain.proceed(request);
-//            return response;
-//        }
-//    }
 }

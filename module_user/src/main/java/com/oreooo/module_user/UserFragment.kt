@@ -31,7 +31,7 @@ class UserFragment : StartFragment() {
             }
 
             override fun getPageTitle(position: Int): CharSequence? {
-                var title: String = ""
+                var title = ""
                 when (position) {
                     0 -> title = "收藏文章"
                     1 -> title = "收藏网站"
@@ -39,7 +39,6 @@ class UserFragment : StartFragment() {
                 return title
             }
         }
-        UserPresenter.getInstance().getCollectArticle(0)
     }
 
     companion object {

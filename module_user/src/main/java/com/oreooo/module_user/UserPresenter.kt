@@ -1,11 +1,14 @@
 package com.oreooo.module_user
 
+import android.util.Log
 import com.oreooo.baselibrary.newmvp.BasePresenter
 import com.oreooo.baselibrary.pojo.BaseData
 import com.oreooo.module_user.network.Api
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
+import java.lang.Exception
+import java.util.ArrayList
 
 class UserPresenter : BasePresenter<UserContract.View>(), UserContract.Presenter {
 
@@ -23,10 +26,13 @@ class UserPresenter : BasePresenter<UserContract.View>(), UserContract.Presenter
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Consumer<BaseData<CollectArticle>> {
-                    override fun accept(data: BaseData<CollectArticle>?) {
-                        val d:List<CollectArticle>  = data!!.data.datas
+                    override fun accept(data: BaseData<CollectArticle>) {
+                        val d:ArrayList<CollectArticle>  = data.data.datas as ArrayList<CollectArticle>
                         mView.collectArticleRefresh(d)
                     }
-                }))
+                }, Consumer<Throwable> {
+                    Log.e("xyz", it.toString())
+                })
+        )
     }
 }

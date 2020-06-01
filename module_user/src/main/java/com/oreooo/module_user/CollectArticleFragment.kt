@@ -5,7 +5,9 @@ import android.view.View
 import android.widget.TextView
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
 import com.oreooo.baselibrary.mvpbase.StartFragment
+import com.oreooo.module_user.UserAct.Companion.mListResource
 import kotlinx.android.synthetic.main.frag_collect_article.*
+import java.util.*
 
 class CollectArticleFragment : StartFragment() {
 
@@ -14,22 +16,11 @@ class CollectArticleFragment : StartFragment() {
     }
 
     override fun init(view: View, savedInstanceState: Bundle?) {
-        val testList = ArrayList<String>()
-        testList.add("1")
-        testList.add("2")
-        testList.add("2")
-        testList.add("2")
-        testList.add("2")
-        testList.add("2")
-        testList.add("2")
-        testList.add("2")
-        testList.add("2")
-
-        collect_article_list.adapter = object : BaseRecyclerAdapter<String>
-        (context, testList, android.R.layout.simple_list_item_1, null) {
-            override fun bindHolder(holder: BaseViewHolder?, item: String?, position: Int) {
+        collect_article_list.adapter = object : BaseRecyclerAdapter<CollectArticle>
+        (context, mListResource, android.R.layout.simple_list_item_1, null) {
+            override fun bindHolder(holder: BaseViewHolder?, item: CollectArticle?, position: Int) {
                 val title = holder!!.getView<TextView>(android.R.id.text1)
-                title.text = item
+                title.text = item?.title?:""
             }
         }
     }

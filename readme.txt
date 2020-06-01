@@ -13,4 +13,7 @@ module_XXX：对应功能模块
 5、优化依赖库；
 
 5/30
-1、完成Post请求；
+1、完成OkHttpClientManager 的Post 请求；
+
+6/1
+1、添加上了User收藏页面的数据

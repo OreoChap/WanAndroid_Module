@@ -21,10 +21,17 @@ class UserAct : BaseAct<UserContract.Presenter>(), UserContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_user)
+
         UserPresenter.getInstance().getCollectArticle(0)
+
         supportFragmentManager.beginTransaction()
                 .replace(R.id.user_act_container, UserFragment.getInstance())
                 .commit()
+        
+        initListener()
+    }
+
+    private fun initListener() {
         toolbar_user_back.setOnClickListener { finish() }
     }
 

@@ -31,12 +31,16 @@ public class WanAndroidAdapter extends BaseRecyclerAdapter<ArticleDatas> {
         ((TextView) holder.getView(R.id.txt_article_name))
                 .setText((Html.fromHtml("《" + item.getTitle() + "》")));
         ((TextView) holder.getView(R.id.txt_article_super_chapter_name))
-                .setText(String.valueOf(item.getSuperChapterName().trim()));
+                .setText(item.getSuperChapterName().trim());
+
+        TextView articleAuthor = (TextView) holder.getView(R.id.txt_article_author);
         if (item.getAuthor() != null && !item.getAuthor().trim().equals("")) {
-            TextView articleAuthor = (TextView) holder.getView(R.id.txt_article_author);
-            articleAuthor.setText(String.valueOf(item.getAuthor().trim()));
+            articleAuthor.setText(item.getAuthor().trim());
             articleAuthor.setVisibility(View.VISIBLE);
+        } else {
+            articleAuthor.setVisibility(View.GONE);
         }
+
         ((TextView) holder.getView(R.id.txt_article_nice_date))
                 .setText(Html.fromHtml("<font color='#008577'>" + "发布时间：" +
                         "</font>" +

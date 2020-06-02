@@ -17,3 +17,6 @@ module_XXX：对应功能模块
 
 6/1
 1、添加上了User收藏页面的数据
+
+6/2
+1、处理recyclerView复用问题

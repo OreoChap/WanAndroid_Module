@@ -60,6 +60,8 @@ dependencies {
 
     // okhttp
     api 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    // persistentcookie
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
     // rxjava2

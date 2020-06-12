@@ -56,8 +56,8 @@ dependencies {
     kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
 
     implementation 'org.greenrobot:eventbus:3.1.1'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     mavenCentral()
 }

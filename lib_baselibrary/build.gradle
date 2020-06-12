@@ -75,7 +75,7 @@ dependencies {
     api 'org.litepal.android:kotlin:3.0.0'
 
     // kotlin
-    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    api rootProject.ext.dependencies["kotlin-reflect"]
 
     // 数据解析
     api 'com.fasterxml.jackson.core:jackson-databind:2.9.4'
@@ -85,7 +85,7 @@ dependencies {
 
     // logger
     api 'com.orhanobut:logger:2.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation rootProject.ext.dependencies["kotlin-stdlib-jdk7"]
 
     // glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'

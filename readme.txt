@@ -20,3 +20,6 @@ module_XXX：对应功能模块
 
 6/2
 1、处理recyclerView复用问题
+
+6/12
+1、尝试使用config.gradle管理依赖

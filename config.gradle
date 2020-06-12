@@ -1,0 +1,7 @@
+ext {
+    dependencies = [
+            "kotlin-reflect"    : "org.jetbrains.kotlin:kotlin-reflect:1.3.72",
+            "kotlin-stdlib-jdk7": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72",
+
+    ]
+}

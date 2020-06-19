@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-
 android {
     compileSdkVersion 29
 
@@ -48,7 +47,7 @@ dependencies {
     // 路由框架ARouter
     api 'com.alibaba:arouter-api:1.5.0'
     kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
     // retrofit2
     api 'com.squareup.retrofit2:retrofit:2.6.0'
@@ -93,7 +92,12 @@ dependencies {
 
     // loading页面
 //    api 'com.kingja.loadsir:loadsir:1.2.0'
+
+    // aspectj
+    implementation 'org.aspectj:aspectjrt:1.9.5'
+
 }
+
 repositories {
     mavenCentral()
 }

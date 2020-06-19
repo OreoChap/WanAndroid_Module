@@ -3,7 +3,7 @@ package com.oreo.wxarticle.webview;
 import android.os.Bundle;
 import android.view.View;
 
-import com.oreo.wxarticle.R;
+import com.oreo.module_wxarticle.R;
 import com.oreooo.baselibrary.mvpbase.StartActivity;
 
 public class WebViewActivity extends StartActivity {

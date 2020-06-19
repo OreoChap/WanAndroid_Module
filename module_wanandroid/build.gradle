@@ -52,7 +52,7 @@ android {
 }
 
 dependencies {
-    api project(':lib_baselibrary')
+    implementation project(':lib_baselibrary')
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -69,7 +69,7 @@ dependencies {
     implementation 'android.arch.navigation:navigation-ui:1.0.0'
 
     // arouter
-    kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
+//    kapt "com.alibaba:arouter-compiler:$alibaba_arouter_compiler_version"
 
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"

@@ -1,5 +1,7 @@
 package com.oreooo.baselibrary.pojo;
 
+import android.content.Intent;
+
 import java.util.List;
 
 /**
@@ -27,6 +29,15 @@ public class ArticleDatas {
     private String publishTime;
     private String superChapterId;
     private String superChapterName;
+    private Integer realSuperChapterId;
+
+    public Integer getRealSuperChapterId() {
+        return realSuperChapterId;
+    }
+
+    public void setRealSuperChapterId(Integer realSuperChapterId) {
+        this.realSuperChapterId = realSuperChapterId;
+    }
 
     // Tag
     private List<ArticleDatasTags> tags;

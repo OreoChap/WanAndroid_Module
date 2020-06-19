@@ -1,4 +1,4 @@
-package com.oreooo.wanandroid
+package com.oreooo.wanandroid_test
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter

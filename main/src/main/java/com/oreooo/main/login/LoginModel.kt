@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.databinding.ObservableFloat
+import android.util.Log
 import android.view.View
 
 class LoginModel : ViewModel() {
@@ -34,6 +35,7 @@ class LoginModel : ViewModel() {
     // 登录按钮的点击事件
     fun loginClickListener(view: View) {
         LoginPresenter.instance.login(name.get()!!, pwd.get()!!)
+        Log.e("xyz", "点击了login按钮")
     }
 
     // 跳过按钮的点击事件

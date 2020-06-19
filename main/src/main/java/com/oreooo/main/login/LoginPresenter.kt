@@ -49,7 +49,7 @@ class LoginPresenter : LoginContract.Presenter {
     }
 
     override fun clearRequest() {
-        co.dispose()
+        co.clear()
     }
 
     override fun skipLogin() {

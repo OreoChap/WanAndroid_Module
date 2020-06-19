@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter;
-import com.oreooo.wanandroid.R;
+import com.oreooo.module_wanandroid.R;
 import com.oreooo.baselibrary.pojo.ArticleDatas;
 
 import java.util.List;

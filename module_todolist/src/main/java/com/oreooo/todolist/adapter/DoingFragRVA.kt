@@ -13,14 +13,12 @@ import android.widget.CompoundButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.oreooo.todoforstudy.ToDoAct
+import com.oreooo.module_todolist.R
 import com.oreooo.todolist.MessageEvent
 import com.oreooo.todolist.ProjectDialog
-import com.oreooo.todolist.R
 import com.oreooo.todolist.lItepal.LitePalHelper
 import com.oreooo.todolist.lItepal.Project
-import com.orhanobut.logger.Logger
 import org.greenrobot.eventbus.EventBus
-import org.litepal.LitePal
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.hujiang.android-aspectjx'
 
 android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "com.oreooo.wanandroid"
+        applicationId "com.oreooo.wanandroid_test"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -28,8 +29,12 @@ android {
     dataBinding {
         enabled = true
     }
+//    compileOptions {
+//        sourceCompatibility = 1.7
+//    }
     compileOptions {
-        sourceCompatibility = 1.7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -42,6 +47,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     mavenCentral()
 }

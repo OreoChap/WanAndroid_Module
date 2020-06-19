@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.oreooo.baselibrary.mvpbase.StartActivity
 import com.oreooo.baselibrary.mvpbase.StartFragment
 import com.oreooo.baselibrary.route.RoutePath
-import com.oreooo.wanandroid.R
+import com.oreooo.module_wanandroid.R
 import kotlinx.android.synthetic.main.wanandroid_main.*
 
 class WanAndroidAct : StartActivity() {

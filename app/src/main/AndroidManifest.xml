@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.oreooo.wanandroid">
+    package="com.oreooo.wanandroid_test">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.oreooo.wanandroid.App"
+        android:name="com.oreooo.wanandroid_test.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".webview.WebViewActivity"
+            android:name="com.oreooo.wanandroid.webview.WebViewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity

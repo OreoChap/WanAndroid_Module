@@ -23,3 +23,7 @@ module_XXX：对应功能模块
 
 6/12
 1、尝试使用config.gradle管理依赖
+
+6/18
+1、使用aspectjx（hujiang）实现快速按键监听
+2、修改包名，依赖

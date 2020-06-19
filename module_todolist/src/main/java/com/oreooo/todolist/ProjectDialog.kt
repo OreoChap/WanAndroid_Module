@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.widget.EditText
+import com.oreooo.module_todolist.R
 import com.oreooo.todolist.fragment.DoingFrag
 import com.oreooo.todolist.lItepal.LitePalHelper
 import com.oreooo.todolist.lItepal.Project

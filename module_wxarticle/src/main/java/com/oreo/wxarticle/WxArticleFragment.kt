@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.oreo.module_wxarticle.R
 import com.oreo.wxarticle.pojo.ArticleClass
 import com.oreo.wxarticle.pojo.ArticleClassData
 import com.oreo.wxarticle.webview.WebViewActivity

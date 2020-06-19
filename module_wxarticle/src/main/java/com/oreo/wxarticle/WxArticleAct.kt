@@ -4,7 +4,8 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import com.oreo.wxarticle.databinding.ActWxarticleBinding
+import com.oreo.module_wxarticle.R
+import com.oreo.module_wxarticle.databinding.ActWxarticleBinding
 import com.oreooo.baselibrary.mvpbase.StartActivity
 import com.oreooo.baselibrary.mvpbase.StartFragment
 import kotlinx.android.synthetic.main.act_wxarticle.*

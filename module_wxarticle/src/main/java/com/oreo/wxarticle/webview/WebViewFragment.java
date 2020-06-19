@@ -6,7 +6,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.oreo.wxarticle.R;
+import com.oreo.module_wxarticle.R;
 import com.oreooo.baselibrary.mvpbase.StartFragment;
 
 public class WebViewFragment extends StartFragment {

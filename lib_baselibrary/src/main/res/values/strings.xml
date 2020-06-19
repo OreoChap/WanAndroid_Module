@@ -3,4 +3,5 @@
     <string name="WanAndroid_Frag">WanAndroidFrag</string>
     <string name="WxArticle_Frag">WxArticleFrag</string>
     <string name="ToDo_Frag">ToDoFrag</string>
+    <item name="aspectj_id" type="id" />
 </resources>

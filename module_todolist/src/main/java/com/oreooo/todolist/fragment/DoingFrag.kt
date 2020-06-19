@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.oreooo.module_todolist.R
 import com.oreooo.todolist.Interface
-import com.oreooo.todolist.R
 import com.oreooo.todolist.adapter.DoingFragRVA
 import com.oreooo.todolist.lItepal.LitePalHelper
 import com.oreooo.todolist.lItepal.Project

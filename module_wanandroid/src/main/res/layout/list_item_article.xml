@@ -16,7 +16,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:hint="AT"
-        android:singleLine="true"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
 

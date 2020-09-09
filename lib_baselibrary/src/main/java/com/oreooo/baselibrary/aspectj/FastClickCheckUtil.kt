@@ -3,6 +3,9 @@ package com.oreooo.baselibrary.aspectj
 import android.view.View
 import com.oreooo.baselibrary.R
 
+/**
+ *  配合AspectJ使用的点击限制器
+ */
 class FastClickCheckUtil {
 
     companion object {

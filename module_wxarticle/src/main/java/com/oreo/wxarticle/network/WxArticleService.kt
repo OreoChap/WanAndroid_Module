@@ -12,13 +12,13 @@ interface WxArticleService {
             : ArticleClass
 
     @GET("wxarticle/list/{id}/{page}/json?k={key}")
-    suspend fun getKeywordArticle(@Path("id") authorId:Int,
-                           @Path("page")articlePage:Int,
-                           @Query("key")keyWord:String)
-            :Article
+    suspend fun getKeywordArticle(@Path("id") authorId: Int,
+                                  @Path("page") articlePage: Int,
+                                  @Query("key") keyWord: String)
+            : Article
 
     @GET("wxarticle/list/{id}/{page}/json")
-    suspend fun getAuthorArticle(@Path("id") authorId:Int,
-                                  @Path("page")articlePage:Int)
-            :Article
+    suspend fun getAuthorArticle(@Path("id") authorId: Int,
+                                 @Path("page") articlePage: Int)
+            : Article
 }

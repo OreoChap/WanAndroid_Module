@@ -25,6 +25,7 @@ class WxArticlePresenter : WxArticleContract.Presenter {
     }
 
     override fun articleClassRequest() {
+        // 协程
         GlobalScope.launch {
             val result = async {
                 Api.create().getArticleClass()
@@ -37,6 +38,7 @@ class WxArticlePresenter : WxArticleContract.Presenter {
     }
 
     override fun keywordArticleRequest(authorId: Int, articlePage: Int, keyWord: String) {
+        // 协程
         GlobalScope.launch {
             val result = async {
                 Api.create().getKeywordArticle(authorId, articlePage, keyWord)

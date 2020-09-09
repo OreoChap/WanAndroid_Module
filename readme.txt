@@ -27,3 +27,10 @@ module_XXX：对应功能模块
 6/18
 1、使用aspectjx（hujiang）实现快速按键监听
 2、修改包名，依赖
+
+9/9
+1、在retrofit中，增加了Observer对错误的处理（try/catch）；
+2、除了1，还可以在service中，使用Single，如UserService；
+3、增加了数据结构"跳表"；
+4、增加了Intent的扩展函数；
+5、优化了说明等。

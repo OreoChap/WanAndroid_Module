@@ -3,8 +3,8 @@ package com.oreooo.wanandroid.wanandroid;
 import android.util.Log;
 
 import com.oreooo.baselibrary.newmvp.BasePresenter;
-import com.oreooo.wanandroid.network.Api;
 import com.oreooo.baselibrary.pojo.Article;
+import com.oreooo.wanandroid.network.Api;
 import com.oreooo.wanandroid.pojo.BannerData;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
 
@@ -37,8 +37,13 @@ public class WanAndroidPresenter extends BasePresenter<WanAndroidContract.View> 
                 .subscribe(new Consumer<Article>() {
                     @Override
                     public void accept(Article article) throws Exception {
-                        mView.showArticle(article, isUpdate);
-                        Log.d("xyz", "getArticles: 请求回调");
+                        try {
+                            mView.showArticle(article, isUpdate);
+                            Log.d("xyz", "getArticles: 请求回调");
+                        } catch (Exception e) {
+                            Log.e("xyz", "getArticles: Exception——" + e);
+                        }
+
                     }
                 }));
     }
@@ -51,9 +56,14 @@ public class WanAndroidPresenter extends BasePresenter<WanAndroidContract.View> 
                 .subscribe(new Consumer<BannerData>() {
                     @Override
                     public void accept(BannerData bannerData) throws Exception {
-                        mDate = bannerData.getData();
-                        mView.showBanner(mDate);
-                        Log.d("xyz", "getBanner: 请求回调");
+                        try {
+                            mDate = bannerData.getData();
+                            mView.showBanner(mDate);
+                            Log.d("xyz", "getBanner: 请求回调");
+                        } catch (Exception e) {
+                            Log.d("xyz", "getBanner: Exception——" + e);
+
+                        }
                     }
                 }));
     }

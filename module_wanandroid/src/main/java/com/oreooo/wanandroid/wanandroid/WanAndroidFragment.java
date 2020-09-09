@@ -26,6 +26,7 @@ import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author Oreo https://github.com/OreoChap
@@ -36,15 +37,28 @@ import java.util.List;
 public class WanAndroidFragment extends BaseFragment<WanAndroidContract.Presenter> implements WanAndroidContract.View {
     public static WanAndroidFragment wanAndroidFragment;
     private WanAndroidAdapter mAdapter;
-    int ArticlePage = 0;
+    int articlePage = 0;
     private RecyclerView mRecyclerView;
+
+    /**
+     *  尝试用 ReentrantLock 替代 synchronized
+     */
+    private final static ReentrantLock lock = new ReentrantLock();
 
     public static WanAndroidFragment getInstance() {
         if (wanAndroidFragment == null) {
-            synchronized (WanAndroidFragment.class) {
+//            synchronized (WanAndroidFragment.class) {
+//                if (wanAndroidFragment == null) {
+//                    wanAndroidFragment = new WanAndroidFragment();
+//                }
+//            }
+            lock.lock();
+            try {
                 if (wanAndroidFragment == null) {
                     wanAndroidFragment = new WanAndroidFragment();
                 }
+            }finally {
+                lock.unlock();
             }
         }
         return wanAndroidFragment;
@@ -56,18 +70,18 @@ public class WanAndroidFragment extends BaseFragment<WanAndroidContract.Presente
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                mPresenter.getArticles(String.valueOf(ArticlePage), true);
+                mPresenter.getArticles(String.valueOf(articlePage), true);
                 refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
             }
         });
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
-                ++ArticlePage;
-                if (mAdapter.getItemCount() - 1 <= 20 * ArticlePage) {
-                    mPresenter.getArticles(String.valueOf(ArticlePage), false);
+                ++articlePage;
+                if (mAdapter.getItemCount() - 1 <= 20 * articlePage) {
+                    mPresenter.getArticles(String.valueOf(articlePage), false);
                 } else {
-                    --ArticlePage;
+                    --articlePage;
                 }
                 refreshlayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
             }
@@ -86,18 +100,15 @@ public class WanAndroidFragment extends BaseFragment<WanAndroidContract.Presente
                         Intent i = new Intent(getActivity(), WebViewActivity.class);
                         i.putExtra("webUrl", mAdapter.getData().get(position - 1).getLink());
                         startActivity(i);
-//                        ARouter.getInstance().build(RoutePath.WEBVIEW_ACTIVITY)
-//                                .withString("webUrl", mAdapter.getData().get(position - 1).getLink())
-//                                .navigation();
                     }
                 });
                 mRecyclerView.setAdapter(mAdapter);
-                ArticlePage = 0;
+                articlePage = 0;
                 mPresenter.getBanner();
             }
         }
         if (mAdapter != null) {
-            if (mAdapter.getItemCount() - 1 <= 20 * ArticlePage && data.getData().getDatas() != null) {
+            if (mAdapter.getItemCount() - 1 <= 20 * articlePage && data.getData().getDatas() != null) {
                 mAdapter.addData(data.getData().getDatas());
                 mAdapter.notifyItemChanged(mAdapter.getData().size());
             }
@@ -129,9 +140,6 @@ public class WanAndroidFragment extends BaseFragment<WanAndroidContract.Presente
                                 Intent i = new Intent(getActivity(), WebViewActivity.class);
                                 i.putExtra("webUrl", list.get(position).getUrl());
                                 startActivity(i);
-//                                ARouter.getInstance().build(RoutePath.WEBVIEW_ACTIVITY)
-//                                        .withString("webUrl", list.get(position).getUrl())
-//                                        .navigation();
                             }
                         })
                         .setBannerAnimation(Transformer.DepthPage)

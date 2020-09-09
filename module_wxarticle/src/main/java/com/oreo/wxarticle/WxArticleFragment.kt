@@ -22,6 +22,7 @@ import com.oreooo.baselibrary.network.OkHttpClientManager
 import com.oreooo.baselibrary.network.ResultCallback
 import com.oreooo.baselibrary.pojo.Article
 import com.oreooo.baselibrary.pojo.ArticleDatas
+import com.oreooo.baselibrary.putExtras
 import com.oreooo.baselibrary.route.RoutePath
 import kotlinx.android.synthetic.main.frag_wxarticle.*
 import okhttp3.Request
@@ -125,7 +126,9 @@ class WxArticleFragment : StartFragment(), WxArticleContract.View {
 //                                            .navigation()
 
                                     val intent = Intent(context, WebViewActivity::class.java)
-                                    intent.putExtra("webUrl", data.data.datas[position].link)
+                                    intent.putExtras(
+                                            "webUrl" to data.data.datas[position].link
+                                    )
                                     startActivity(intent)
                                 }
                             }) {

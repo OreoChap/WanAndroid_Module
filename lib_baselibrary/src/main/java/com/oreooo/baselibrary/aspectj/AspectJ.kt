@@ -10,11 +10,12 @@ import org.aspectj.lang.annotation.Before
 import org.aspectj.lang.annotation.Pointcut
 
 @Aspect
-class AspectjLog {
+class AspectJ {
     companion object {
         val TAG = "TestAspect"
     }
 
+    // 点击限制器
     @Before("execution(* android.app.Activity.on**(..))")
     @Throws(Throwable::class)
     fun onActivityMethodBefore(joinPoint: JoinPoint) {
@@ -34,6 +35,5 @@ class AspectjLog {
         if (!FastClickCheckUtil.isFastClick(target, 2000)) {
             joinPoint.proceed()
         }
-
     }
 }

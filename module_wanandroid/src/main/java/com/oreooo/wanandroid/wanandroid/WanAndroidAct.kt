@@ -4,18 +4,19 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
+import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
 import com.alibaba.android.arouter.launcher.ARouter
-import com.oreooo.baselibrary.mvpbase.StartActivity
-import com.oreooo.baselibrary.mvpbase.StartFragment
+import com.oreooo.baselibrary.mvpbase.BaseActivity
+import com.oreooo.baselibrary.mvpbase.BaseFragment
 import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.module_wanandroid.R
 import kotlinx.android.synthetic.main.wanandroid_main.*
 
-class WanAndroidAct : StartActivity() {
+class WanAndroidAct : BaseActivity() {
 
-    private var frags: HashMap<String, StartFragment> = HashMap()
+    private var frags: HashMap<String, BaseFragment> = HashMap()
     private var currentFragName: String = ""
 
     companion object {
@@ -37,7 +38,7 @@ class WanAndroidAct : StartActivity() {
         }
 
         toolbar_main_search_btn.setOnClickListener {
-            ARouter.getInstance().build(RoutePath.SEARCH_ACTIVITY).navigation()
+//            ARouter.getInstance().build(RoutePath.SEARCH_ACTIVITY).navigation()
         }
 
         toolbar_main_navigation.setOnClickListener {
@@ -66,7 +67,7 @@ class WanAndroidAct : StartActivity() {
         }
     }
 
-    private fun switchFrags(newFragName: String, newFrag: StartFragment) {
+    private fun switchFrags(newFragName: String, newFrag: BaseFragment) {
         val transaction = supportFragmentManager.beginTransaction()
         if (!TextUtils.isEmpty(currentFragName) && frags.containsKey(currentFragName)) {
             val currentFrag = frags[currentFragName]

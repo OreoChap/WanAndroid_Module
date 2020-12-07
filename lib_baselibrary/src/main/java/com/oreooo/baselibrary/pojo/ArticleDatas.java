@@ -1,7 +1,5 @@
 package com.oreooo.baselibrary.pojo;
 
-import android.content.Intent;
-
 import java.util.List;
 
 /**

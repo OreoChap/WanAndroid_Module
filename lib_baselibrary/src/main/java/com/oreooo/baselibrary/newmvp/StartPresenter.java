@@ -3,7 +3,7 @@ package com.oreooo.baselibrary.newmvp;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-public class BasePresenter<T extends AbstractView> implements AbstractPresenter<T> {
+public class StartPresenter<T extends AbstractView> implements AbstractPresenter<T> {
 
     public T mView;
     private CompositeDisposable mCompositeDisposable;

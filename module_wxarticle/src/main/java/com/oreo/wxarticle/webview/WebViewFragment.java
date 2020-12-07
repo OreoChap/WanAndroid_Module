@@ -7,9 +7,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.oreo.module_wxarticle.R;
-import com.oreooo.baselibrary.mvpbase.StartFragment;
+import com.oreooo.baselibrary.mvpbase.BaseFragment;
 
-public class WebViewFragment extends StartFragment {
+public class WebViewFragment extends BaseFragment {
 
     public static WebViewFragment getInstance() {
         return WebViewFragmentHolder.Instance;

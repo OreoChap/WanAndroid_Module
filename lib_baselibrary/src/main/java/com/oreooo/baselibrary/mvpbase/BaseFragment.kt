@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 
 /**
- *  StartFragment
+ *  BaseFragment
+ *   第一版基于契约类设计用的Fragment 的base类
  * @author oreo
  */
-open abstract class StartFragment : Fragment() {
+open abstract class BaseFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

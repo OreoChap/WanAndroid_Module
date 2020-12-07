@@ -14,6 +14,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
+/**
+ *  很久之前的网络请求框架了？
+ */
 public class Net {
     private Retrofit mRetrofit;
     public static String token = "";

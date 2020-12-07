@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.oreooo.baselibrary.mvpbase.StartActivity;
+import com.oreooo.baselibrary.mvpbase.BaseActivity;
 import com.oreooo.baselibrary.route.RoutePath;
 import com.oreooo.module_wanandroid.R;
 
 @Route(path = RoutePath.WEBVIEW_ACTIVITY)
-public class WebViewActivity extends StartActivity {
+public class WebViewActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

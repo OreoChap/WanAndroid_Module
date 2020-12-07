@@ -46,7 +46,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     }
 
     @Override
-    public final void onBindViewHolder(@NonNull BaseRecyclerAdapter.BaseViewHolder holder, int position) {
+    public final void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
         final int mPosition = position;
         if (getItemViewType(position) == TYPE_NORMAL && mHeaderView != null) {
             bindHolder(holder, mData.get(position - 1), position);
@@ -132,7 +132,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         private SparseArray<View> mViews;
         private Context mContext;
         private View mView;
-        private BaseRecyclerAdapter.OnViewHolderClickListener mListener;
+        private OnViewHolderClickListener mListener;
 
         private BaseViewHolder(View itemView) {
             super(itemView);
@@ -140,7 +140,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         }
 
         private BaseViewHolder(Context context, View itemView,
-                               @Nullable BaseRecyclerAdapter.OnViewHolderClickListener listener) {
+                               @Nullable OnViewHolderClickListener listener) {
             super(itemView);
             mViews = new SparseArray<>();
             this.mContext = context;
@@ -149,13 +149,13 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         }
 
         static BaseViewHolder createViewHolder(Context context, View itemView,
-                                               @Nullable BaseRecyclerAdapter.OnViewHolderClickListener listener) {
+                                               @Nullable OnViewHolderClickListener listener) {
             return new BaseViewHolder(context, itemView, listener);
         }
 
         static BaseViewHolder createViewHolder
                 (Context context, ViewGroup parent, int layoutId,
-                 @Nullable BaseRecyclerAdapter.OnViewHolderClickListener listener) {
+                 @Nullable OnViewHolderClickListener listener) {
             return new BaseViewHolder(context, LayoutInflater.from(context).inflate
                     (layoutId, parent, false), listener);
         }

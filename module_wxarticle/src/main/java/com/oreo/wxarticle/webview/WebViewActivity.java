@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.oreo.module_wxarticle.R;
-import com.oreooo.baselibrary.mvpbase.StartActivity;
+import com.oreooo.baselibrary.mvpbase.BaseActivity;
 
-public class WebViewActivity extends StartActivity {
+public class WebViewActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

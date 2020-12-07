@@ -1,16 +1,15 @@
 package com.oreooo.module_user
 
 import android.util.Log
-import com.oreooo.baselibrary.newmvp.BasePresenter
+import com.oreooo.baselibrary.newmvp.StartPresenter
 import com.oreooo.baselibrary.pojo.BaseData
 import com.oreooo.module_user.network.Api
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
-import java.lang.Exception
 import java.util.ArrayList
 
-class UserPresenter : BasePresenter<UserContract.View>(), UserContract.Presenter {
+class UserPresenter : StartPresenter<UserContract.View>(), UserContract.Presenter {
 
     companion object {
         @Volatile

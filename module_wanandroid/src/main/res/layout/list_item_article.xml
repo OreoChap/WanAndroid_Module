@@ -85,10 +85,10 @@
     <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ic_favorite_border"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/txt_chapter_name" />
+        app:layout_constraintTop_toTopOf="@id/txt_article_nice_date" />
 </android.support.constraint.ConstraintLayout>

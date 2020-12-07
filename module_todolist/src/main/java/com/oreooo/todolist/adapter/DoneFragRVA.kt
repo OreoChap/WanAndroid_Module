@@ -7,7 +7,7 @@ import com.oreooo.module_todolist.R
 import com.oreooo.todolist.lItepal.Project
 
 class DoneFragRVA(val context: Context, private val list: List<Project>, private val layoutId: Int,
-                  val listener: OnViewHolderClickListener) :
+                  val listener: BaseRecyclerAdapter.OnViewHolderClickListener) :
         BaseRecyclerAdapter<Project>(context, list, layoutId, listener) {
 
     override fun bindHolder(holder: BaseViewHolder, item: Project, position: Int) {

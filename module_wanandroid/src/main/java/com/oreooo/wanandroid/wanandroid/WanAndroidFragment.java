@@ -13,7 +13,7 @@ import com.oreooo.baselibrary.pojo.Article;
 import com.oreooo.baselibrary.route.RoutePath;
 import com.oreooo.module_wanandroid.R;
 import com.oreooo.wanandroid.GlideImageLoader;
-import com.oreooo.baselibrary.newmvp.BaseFragment;
+import com.oreooo.baselibrary.newmvp.StartFragment;
 import com.oreooo.wanandroid.pojo.BannerDetailData;
 import com.oreooo.wanandroid.webview.WebViewActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -34,7 +34,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 
 @Route(path = RoutePath.WANDROID_FRAGMENT)
-public class WanAndroidFragment extends BaseFragment<WanAndroidContract.Presenter> implements WanAndroidContract.View {
+public class WanAndroidFragment extends StartFragment<WanAndroidContract.Presenter> implements WanAndroidContract.View {
     public static WanAndroidFragment wanAndroidFragment;
     private WanAndroidAdapter mAdapter;
     int articlePage = 0;

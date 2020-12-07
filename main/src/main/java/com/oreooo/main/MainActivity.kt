@@ -13,8 +13,8 @@ import com.oreo.module_search.SearchAct
 import com.oreo.wxarticle.WxArticleAct
 import com.oreo.wxarticle.WxArticleFragment
 import com.oreooo.baselibrary.IContext
-import com.oreooo.baselibrary.mvpbase.StartActivity
-import com.oreooo.baselibrary.mvpbase.StartFragment
+import com.oreooo.baselibrary.mvpbase.BaseActivity
+import com.oreooo.baselibrary.mvpbase.BaseFragment
 import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.module_user.UserAct
 import com.oreooo.wanandroid.wanandroid.WanAndroidAct
@@ -25,9 +25,9 @@ import kotlinx.android.synthetic.main.main.*
  *  主页
  */
 @Route(path = RoutePath.WANANDROID_ACTIVITY)
-class MainActivity : StartActivity(), IContext {
+class MainActivity : BaseActivity(), IContext {
 
-    private var frags: HashMap<String, StartFragment> = HashMap()
+    private var frags: HashMap<String, BaseFragment> = HashMap()
     private var currentFragName: String = ""
 
     companion object {
@@ -50,7 +50,7 @@ class MainActivity : StartActivity(), IContext {
         startActivity(i)
     }
 
-    private fun switchFrags(newFragName: String, newFrag: StartFragment) {
+    private fun switchFrags(newFragName: String, newFrag: BaseFragment) {
         val transaction = supportFragmentManager.beginTransaction()
         if (!TextUtils.isEmpty(currentFragName) && frags.containsKey(currentFragName)) {
             val currentFrag = frags[currentFragName]
@@ -118,7 +118,7 @@ class MainActivity : StartActivity(), IContext {
      *  item_bottom_2：公众号文章
      */
     private fun setBottomNavMenu(itemId: Int) {
-        var frag: StartFragment? = null
+        var frag: BaseFragment? = null
         var fragName: String? = null
         when (itemId) {
             R.id.item_bottom_1 -> {

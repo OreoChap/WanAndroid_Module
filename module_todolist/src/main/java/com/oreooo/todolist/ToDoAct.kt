@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.oreooo.todoforstudy.Fragment.DoneFrag
-import com.oreooo.baselibrary.mvpbase.StartActivity
+import com.oreooo.baselibrary.mvpbase.BaseActivity
 import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.module_todolist.R
 import com.oreooo.todolist.fragment.DoingFrag
@@ -24,7 +24,7 @@ import org.greenrobot.eventbus.ThreadMode
  */
 
 @Route(path = RoutePath.TODO_ACTIVITY)
-class ToDoAct : StartActivity() {
+class ToDoAct : BaseActivity() {
     private val pagers: MutableList<Fragment> = ArrayList()
     private val doingFragment: DoingFrag = DoingFrag.instance
     private var doneFragment: DoneFrag = DoneFrag.instance

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.oreooo.wanandroid">
+    package="com.oreooo.module_wanandroid">
 
     <application
-        android:name=".Module_WanAndroid"
+        android:name="com.oreooo.wanandroid.Module_WanAndroid"
         android:label="@string/module_WanAndroid_name"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         >
-        <activity android:name=".wanandroid.WanAndroidAct">
+        <activity android:name="com.oreooo.wanandroid.wanandroid.WanAndroidAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

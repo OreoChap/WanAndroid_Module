@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.widget.Toast
 
 import com.alibaba.android.arouter.launcher.ARouter
-import com.oreooo.baselibrary.mvpbase.StartActivity
+import com.oreooo.baselibrary.mvpbase.BaseActivity
 import com.oreooo.baselibrary.route.RoutePath
 import com.oreooo.main.R
 import com.oreooo.main.databinding.LoginBindingImpl
 import com.oreooo.main.pojo.User
 
-class LoginAct : StartActivity(), LoginContract.View {
+class LoginAct : BaseActivity(), LoginContract.View {
 
     private val viewModel by lazy { ViewModelProviders.of(this).get(LoginModel::class.java) }
     private var mPresenter: LoginContract.Presenter? = null

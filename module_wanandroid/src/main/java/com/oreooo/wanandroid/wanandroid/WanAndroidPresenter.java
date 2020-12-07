@@ -2,7 +2,7 @@ package com.oreooo.wanandroid.wanandroid;
 
 import android.util.Log;
 
-import com.oreooo.baselibrary.newmvp.BasePresenter;
+import com.oreooo.baselibrary.newmvp.StartPresenter;
 import com.oreooo.baselibrary.pojo.Article;
 import com.oreooo.wanandroid.network.Api;
 import com.oreooo.wanandroid.pojo.BannerData;
@@ -18,7 +18,7 @@ import io.reactivex.schedulers.Schedulers;
  * @author Oreo https://github.com/OreoChap
  * @date 2018/12/17
  */
-public class WanAndroidPresenter extends BasePresenter<WanAndroidContract.View> implements WanAndroidContract.Presenter {
+public class WanAndroidPresenter extends StartPresenter<WanAndroidContract.View> implements WanAndroidContract.Presenter {
     private List<BannerDetailData> mDate;
 
     public static WanAndroidPresenter getInstance() {

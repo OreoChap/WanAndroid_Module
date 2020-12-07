@@ -3,13 +3,13 @@ package com.oreooo.module_user
 import android.content.Context
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.oreooo.baselibrary.newmvp.BaseAct
+import com.oreooo.baselibrary.newmvp.StartActivity
 import com.oreooo.baselibrary.route.RoutePath
 import kotlinx.android.synthetic.main.act_user.*
 import kotlinx.android.synthetic.main.frag_collect_article.*
 
 @Route(path = RoutePath.USER_ACTIVITY)
-class UserAct : BaseAct<UserContract.Presenter>(), UserContract.View {
+class UserAct : StartActivity<UserContract.Presenter>(), UserContract.View {
 
     companion object {
         lateinit var mContext: Context

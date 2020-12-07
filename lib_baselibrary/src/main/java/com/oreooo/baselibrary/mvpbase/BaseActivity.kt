@@ -12,10 +12,11 @@ import android.view.View
 import com.oreooo.baselibrary.R
 
 /**
- *  StartActivity
+ *  BaseActivity
+ *   第一版基于契约类设计用的Activity 的base类
  * @author oreo
  */
-open class StartActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
     protected var mToolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

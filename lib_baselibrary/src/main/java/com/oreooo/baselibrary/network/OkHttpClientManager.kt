@@ -12,11 +12,6 @@ import java.util.concurrent.TimeUnit
 
 object OkHttpClientManager {
     private val mOkHttpClient by lazy {
-//        OkHttpClient.Builder()
-//                .connectTimeout(4000, TimeUnit.MILLISECONDS)
-//                .readTimeout(4000, TimeUnit.MILLISECONDS)
-//                .writeTimeout(4000, TimeUnit.MILLISECONDS)
-//                .build()
         OkHttpClient().newBuilder().apply {
             this.connectTimeout(4000, TimeUnit.MILLISECONDS)
             this.readTimeout(4000, TimeUnit.MILLISECONDS)

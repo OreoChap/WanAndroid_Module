@@ -6,7 +6,7 @@ import android.text.Html
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
-import com.oreooo.baselibrary.mvpbase.StartActivity
+import com.oreooo.baselibrary.mvpbase.BaseActivity
 import com.oreooo.baselibrary.pojo.Article
 import com.oreooo.baselibrary.pojo.ArticleDatas
 import com.oreooo.baselibrary.route.RoutePath
@@ -14,7 +14,7 @@ import com.oreooo.baselibrary.util.StringUtil
 import kotlinx.android.synthetic.main.act_search.*
 
 @Route(path = RoutePath.SEARCH_ACTIVITY)
-class SearchAct : StartActivity(), SearchContract.View {
+class SearchAct : BaseActivity(), SearchContract.View {
 
     private var mPresenter: SearchContract.Presenter? = null
 

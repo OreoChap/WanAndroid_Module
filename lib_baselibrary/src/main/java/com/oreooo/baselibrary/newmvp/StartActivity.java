@@ -2,11 +2,12 @@ package com.oreooo.baselibrary.newmvp;
 
 import android.os.Bundle;
 
-import com.oreooo.baselibrary.mvpbase.StartActivity;
+import com.oreooo.baselibrary.mvpbase.BaseActivity;
 
 import org.jetbrains.annotations.Nullable;
 
-public abstract class BaseAct<T extends AbstractPresenter> extends StartActivity implements AbstractView {
+public abstract class StartActivity<T extends AbstractPresenter>
+        extends BaseActivity implements AbstractView {
 
     protected T mPresenter;
 

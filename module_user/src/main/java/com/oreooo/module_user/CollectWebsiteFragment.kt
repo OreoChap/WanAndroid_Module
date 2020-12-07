@@ -2,9 +2,9 @@ package com.oreooo.module_user
 
 import android.os.Bundle
 import android.view.View
-import com.oreooo.baselibrary.mvpbase.StartFragment
+import com.oreooo.baselibrary.mvpbase.BaseFragment
 
-class CollectWebsiteFragment:StartFragment() {
+class CollectWebsiteFragment:BaseFragment() {
     override fun setContentView(): Int {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

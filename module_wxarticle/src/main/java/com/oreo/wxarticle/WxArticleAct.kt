@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import com.oreo.module_wxarticle.R
 import com.oreo.module_wxarticle.databinding.ActWxarticleBinding
-import com.oreooo.baselibrary.mvpbase.StartActivity
-import com.oreooo.baselibrary.mvpbase.StartFragment
+import com.oreooo.baselibrary.mvpbase.BaseActivity
+import com.oreooo.baselibrary.mvpbase.BaseFragment
 import kotlinx.android.synthetic.main.act_wxarticle.*
 
-class WxArticleAct : StartActivity() {
-    private var frags: MutableList<StartFragment> = ArrayList()
+class WxArticleAct : BaseActivity() {
+    private var frags: MutableList<BaseFragment> = ArrayList()
 
     companion object {
         lateinit var mContext: Context
@@ -29,7 +29,7 @@ class WxArticleAct : StartActivity() {
         switchFrags(WxArticleFragment.instance)
     }
 
-    private fun switchFrags(frag: StartFragment) {
+    private fun switchFrags(frag: BaseFragment) {
         val transaction = supportFragmentManager.beginTransaction()
         if (!frags.contains(frag)) {
             frags.add(frag)

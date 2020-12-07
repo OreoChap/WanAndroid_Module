@@ -17,7 +17,7 @@ import com.oreo.wxarticle.pojo.ArticleClass
 import com.oreo.wxarticle.pojo.ArticleClassData
 import com.oreo.wxarticle.webview.WebViewActivity
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter
-import com.oreooo.baselibrary.mvpbase.StartFragment
+import com.oreooo.baselibrary.mvpbase.BaseFragment
 import com.oreooo.baselibrary.network.OkHttpClientManager
 import com.oreooo.baselibrary.network.ResultCallback
 import com.oreooo.baselibrary.pojo.Article
@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.frag_wxarticle.*
 import okhttp3.Request
 
 @Route(path = RoutePath.WXARTICLE_FRAGMENT)
-class WxArticleFragment : StartFragment(), WxArticleContract.View {
+class WxArticleFragment : BaseFragment(), WxArticleContract.View {
 
     private var mPresenter: WxArticleContract.Presenter? = null
 
@@ -107,7 +107,7 @@ class WxArticleFragment : StartFragment(), WxArticleContract.View {
                 mPresenter!!.authorArticleRequest(clazz.id, articlePage)
             }
         }) {
-            override fun bindHolder(holder: BaseViewHolder?, item: ArticleClassData?, position: Int) {
+            override fun bindHolder(holder: BaseRecyclerAdapter.BaseViewHolder?, item: ArticleClassData?, position: Int) {
                 holder?.getView<TextView>(R.id.article_class_tv)?.text = item?.name
             }
         }

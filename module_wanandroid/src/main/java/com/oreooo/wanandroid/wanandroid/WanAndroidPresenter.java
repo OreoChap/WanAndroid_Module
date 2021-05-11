@@ -31,6 +31,7 @@ public class WanAndroidPresenter extends StartPresenter<WanAndroidContract.View>
 
     @Override
     public void getArticles(String curPage, final boolean isUpdate) {
+        Log.d("xyz", "getArticles: 开始请求");
         addSubscribe(Api.createWanAndroidService().getArticle(curPage).
                 subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -38,8 +39,8 @@ public class WanAndroidPresenter extends StartPresenter<WanAndroidContract.View>
                     @Override
                     public void accept(Article article) throws Exception {
                         try {
-                            mView.showArticle(article, isUpdate);
                             Log.d("xyz", "getArticles: 请求回调");
+                            mView.showArticle(article, isUpdate);
                         } catch (Exception e) {
                             Log.e("xyz", "getArticles: Exception——" + e);
                         }

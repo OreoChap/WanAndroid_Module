@@ -53,8 +53,8 @@ class MainActivity : BaseActivity(), IContext {
     private fun switchFrags(newFragName: String, newFrag: BaseFragment) {
         val transaction = supportFragmentManager.beginTransaction()
         if (!TextUtils.isEmpty(currentFragName) && frags.containsKey(currentFragName)) {
-            val currentFrag = frags[currentFragName]
-            transaction.hide(currentFrag!!)
+            val currentFrag = frags[currentFragName]!!
+            transaction.hide(currentFrag)
             if (!frags.containsKey(newFragName)) {
                 frags[newFragName] = newFrag
                 transaction.add(R.id.main_container, newFrag)

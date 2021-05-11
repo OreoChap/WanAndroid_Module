@@ -35,6 +35,9 @@ class App : Application() {
         private var isAppForeground: Boolean = false
     }
 
+    /**
+     *  App 前后台记录
+     */
     private val activityLifecycleCallbacks: ActivityLifecycleCallbacks = object : ActivityLifecycleCallbacks {
         override fun onActivityPaused(activity: Activity) {
         }

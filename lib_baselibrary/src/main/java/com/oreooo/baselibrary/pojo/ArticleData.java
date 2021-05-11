@@ -1,5 +1,7 @@
 package com.oreooo.baselibrary.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  * @date 2019/4/29
  */
 public class ArticleData {
-    private String curPage;
+    @SerializedName("curPage") private String page;
     private List<ArticleDatas> datas;
     private String offset;
     private boolean over;
@@ -15,12 +17,12 @@ public class ArticleData {
     private String size;
     private String total;
 
-    public String getCurPage() {
-        return curPage;
+    public String getPage() {
+        return page;
     }
 
-    public void setCurPage(String curPage) {
-        this.curPage = curPage;
+    public void setPage(String page) {
+        this.page = page;
     }
 
     public List<ArticleDatas> getDatas() {

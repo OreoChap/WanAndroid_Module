@@ -15,7 +15,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
- *  很久之前的网络请求框架了？
+ *  以前BM的网络框架
  */
 public class Net {
     private Retrofit mRetrofit;
@@ -44,21 +44,22 @@ public class Net {
         });
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.addInterceptor(new Interceptor() {
-                                      @Override
-                                      public Response intercept(Chain chain) throws IOException {
-                                          Request original = chain.request();
-                                          Request request = original.newBuilder()
-                                                  .header("token", token)
-                                                  .header("Content-Type","application/json")
-                                                  .method(original.method(), original.body())
-                                                  .build();
-
-                                          return chain.proceed(request);
-                                      }
-                                  });
         Log.i("netWorkLog","token = "+ token);
+
         OkHttpClient client = httpClient.addInterceptor(loggingInterceptor)
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request original = chain.request();
+                        Request request = original.newBuilder()
+                                .header("token", token)
+                                .header("Content-Type","application/json")
+                                .method(original.method(), original.body())
+                                .build();
+
+                        return chain.proceed(request);
+                    }
+                })
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)

@@ -132,12 +132,16 @@ class WxArticleFragment : BaseFragment(), WxArticleContract.View {
                                     startActivity(intent)
                                 }
                             }) {
-                        override fun bindHolder(holder: BaseViewHolder?, item: ArticleDatas?, position: Int) {
-                            holder!!.getView<TextView>(R.id.txt_article_name).text =
-                                    Html.fromHtml("《" + item!!.getTitle() + "》")
-                            holder.getView<TextView>(R.id.txt_chapter_name).text = item.chapterName
-                            holder.getView<TextView>(R.id.txt_article_author).text = item.author
-                            holder.getView<TextView>(R.id.txt_article_nice_date).text = item.niceDate
+                        override fun bindHolder(holder: BaseViewHolder, item: ArticleDatas?, position: Int) {
+                            holder.run {
+                                item?.let {
+                                    getView<TextView>(R.id.txt_article_name).text =
+                                            Html.fromHtml("《" + it.getTitle() + "》")
+                                    getView<TextView>(R.id.txt_chapter_name).text = it.chapterName
+                                    getView<TextView>(R.id.txt_article_author).text = it.author
+                                    getView<TextView>(R.id.txt_article_nice_date).text = it.niceDate
+                                }
+                            }
                         }
                     }
             list_article.adapter = articleListAdapter

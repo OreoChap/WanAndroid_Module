@@ -45,15 +45,13 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
 
     override fun onBindViewHolder(viewHolder: RVHolder, position: Int) {
         val project = items?.get(position) ?: return
-        if (position > 0) {
+        with(viewHolder) {
             val first = items?.get(position - 1)
-            if (first?.addTime == project.addTime) {
-                viewHolder.bindViewHolder(project, true)
+            if (position > 0 && first?.addTime == project.addTime) {
+                bindViewHolder(project, true)
             } else {
-                viewHolder.bindViewHolder(project, false)
+                bindViewHolder(project, false)
             }
-        } else {
-            viewHolder.bindViewHolder(project, false)
         }
     }
 
@@ -76,23 +74,25 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
 
         fun bindViewHolder(project: Project, isSameTime: Boolean) {
             mProject = project
-            timeTxt?.setText(project.addTime)
-            val description = mView.findViewById<View>(R.id.rv_item_description) as TextView
-            description.setText(project.thePlan)
-            description.setOnLongClickListener(View.OnLongClickListener {
-                val dialog = ProjectDialog.dialogFactory.makeDialog(context!!)
-                dialog.showDialog(project, ToDoAct.SHOW_DONE_PROJECT)
-                true
-            })
-            checkedChange(project.isDone)
-            button?.setChecked(project.isDone == 1)
+            with(project) {
+                timeTxt?.setText(addTime)
+                val description = mView.findViewById<View>(R.id.rv_item_description) as TextView
+                description.setText(thePlan)
+                description.setOnLongClickListener(View.OnLongClickListener {
+                    val dialog = ProjectDialog.dialogFactory.makeDialog(context!!)
+                    dialog.showDialog(project, ToDoAct.SHOW_DONE_PROJECT)
+                    true
+                })
+                checkedChange(isDone)
+                button?.setChecked(isDone == 1)
 
-            if (isSameTime) {
-                timeTxt?.setVisibility(View.GONE)
-            } else {
-                timeTxt?.setVisibility(View.VISIBLE)
+                if (isSameTime) {
+                    timeTxt?.setVisibility(View.GONE)
+                } else {
+                    timeTxt?.setVisibility(View.VISIBLE)
+                }
+                button?.setOnCheckedChangeListener(this@RVHolder)
             }
-            button?.setOnCheckedChangeListener(this)
         }
 
         override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
@@ -120,17 +120,19 @@ class DoingFragRVA(var list: List<Project>) : RecyclerView.Adapter<DoingFragRVA.
 
         private fun checkedChange(isDone: Int) {
             val description = mView.findViewById<View>(R.id.rv_item_description) as TextView
-            if (isDone == 1) {
-                description.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
-                description.setTextColor(context!!.resources.getColor(R.color.rv_item_gray))
-                checkDate()
-                mProject?.doneTime = doneTimeStr
-                mProject?.doneDate = doneDateStr
-            } else {
-                description.paint.flags = 0
-                description.setTextColor((context!!.resources).getColor(R.color.rv_item_black))
-                mProject?.doneTime = "0"
-                mProject?.doneDate = "0"
+            mProject?.let {
+                if (isDone == 1) {
+                    description.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
+                    description.setTextColor(context!!.resources.getColor(R.color.rv_item_gray))
+                    checkDate()
+                    it.doneTime = doneTimeStr
+                    it.doneDate = doneDateStr
+                } else {
+                    description.paint.flags = 0
+                    description.setTextColor((context!!.resources).getColor(R.color.rv_item_black))
+                    it.doneTime = "0"
+                    it.doneDate = "0"
+                }
             }
         }
 

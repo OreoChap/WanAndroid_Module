@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
  */
 class WxArticlePresenter : WxArticleContract.Presenter {
 
-    private var mView: WxArticleContract.View? = null
+    private lateinit var mView: WxArticleContract.View
 
     companion object {
         val instance: WxArticlePresenter by lazy {
@@ -18,7 +18,7 @@ class WxArticlePresenter : WxArticleContract.Presenter {
     }
 
     override fun setView(view: BaseContract.BaseView?) {
-        mView = view as? WxArticleContract.View
+        mView = view as WxArticleContract.View
     }
 
     override fun clearRequest() {
@@ -26,13 +26,13 @@ class WxArticlePresenter : WxArticleContract.Presenter {
 
     override fun articleClassRequest() {
         // 协程
-        GlobalScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val result = async {
                 Api.create().getArticleClass()
             }
             // 主线程中运行
             withContext(Dispatchers.Main) {
-                mView!!.classRefresh(result.await())
+                mView.classRefresh(result.await())
             }
         }
     }
@@ -44,7 +44,7 @@ class WxArticlePresenter : WxArticleContract.Presenter {
                 Api.create().getKeywordArticle(authorId, articlePage, keyWord)
             }
             withContext(Dispatchers.Main) {
-                mView!!.keywordArticleRefresh(result.await())
+                mView.keywordArticleRefresh(result.await())
             }
         }
     }
@@ -55,7 +55,7 @@ class WxArticlePresenter : WxArticleContract.Presenter {
                 Api.create().getAuthorArticle(authorId, articlePage)
             }
             withContext(Dispatchers.Main) {
-                mView!!.AuthorArticleRefresh(result.await())
+                mView.AuthorArticleRefresh(result.await())
             }
         }
     }

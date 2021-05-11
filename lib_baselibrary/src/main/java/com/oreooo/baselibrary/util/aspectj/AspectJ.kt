@@ -53,6 +53,5 @@ import org.aspectj.lang.reflect.MethodSignature
         if (!FastClickCheckUtil.isFastClick(target, interval)) {
             joinPoint.proceed()
         }
-        Log.i(TAG, "点击了一个按钮: $target")
     }
 }

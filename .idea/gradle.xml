@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_baselibrary" />
             <option value="$PROJECT_DIR$/main" />
+            <option value="$PROJECT_DIR$/main_api" />
             <option value="$PROJECT_DIR$/module_search" />
             <option value="$PROJECT_DIR$/module_todolist" />
             <option value="$PROJECT_DIR$/module_user" />

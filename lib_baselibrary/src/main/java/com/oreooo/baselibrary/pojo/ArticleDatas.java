@@ -28,6 +28,15 @@ public class ArticleDatas {
     private String superChapterId;
     private String superChapterName;
     private Integer realSuperChapterId;
+    private String host;
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
 
     public Integer getRealSuperChapterId() {
         return realSuperChapterId;

@@ -17,11 +17,11 @@ public class ArticleData {
     private String size;
     private String total;
 
-    public String getPage() {
+    public String getCurPage() {
         return page;
     }
 
-    public void setPage(String page) {
+    public void setCurPage(String page) {
         this.page = page;
     }
 

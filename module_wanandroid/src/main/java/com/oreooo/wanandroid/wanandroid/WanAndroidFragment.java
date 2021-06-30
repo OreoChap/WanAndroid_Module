@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.oreooo.baselibrary.list.BaseRecyclerAdapter;
 import com.oreooo.baselibrary.pojo.Article;
 import com.oreooo.baselibrary.route.RoutePath;
+import com.oreooo.main.services.LoginServiceApi;
 import com.oreooo.module_wanandroid.R;
 import com.oreooo.wanandroid.GlideImageLoader;
 import com.oreooo.baselibrary.newmvp.StartFragment;
@@ -41,7 +44,7 @@ public class WanAndroidFragment extends StartFragment<WanAndroidContract.Present
     private RecyclerView mRecyclerView;
 
     /**
-     *  尝试用 ReentrantLock 替代 synchronized
+     * 尝试用 ReentrantLock 替代 synchronized
      */
     private final static ReentrantLock lock = new ReentrantLock();
 
@@ -57,7 +60,7 @@ public class WanAndroidFragment extends StartFragment<WanAndroidContract.Present
                 if (wanAndroidFragment == null) {
                     wanAndroidFragment = new WanAndroidFragment();
                 }
-            }finally {
+            } finally {
                 lock.unlock();
             }
         }
@@ -86,6 +89,14 @@ public class WanAndroidFragment extends StartFragment<WanAndroidContract.Present
                 refreshlayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
             }
         });
+
+        try {
+            LoginServiceApi api = ARouter.getInstance().navigation(LoginServiceApi.class);
+
+            Log.e("xyz", api.getUserId() + "");
+        }catch (Exception e) {
+            Log.e("xyz", e.toString() );
+        }
     }
 
     @Override

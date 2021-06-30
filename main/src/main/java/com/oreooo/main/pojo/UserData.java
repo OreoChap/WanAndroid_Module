@@ -7,6 +7,7 @@ public class UserData {
     private boolean admin;
     private List<String> chapterTops;
     private List<String> collectIds;
+    private int coinCount;
     private String email;
     private String icon;
     private int id;
@@ -19,6 +20,14 @@ public class UserData {
 
     public UserData() {
 
+    }
+
+    public int getCoinCount() {
+        return coinCount;
+    }
+
+    public void setCoinCount(int coinCount) {
+        this.coinCount = coinCount;
     }
 
     public boolean isAdmin() {

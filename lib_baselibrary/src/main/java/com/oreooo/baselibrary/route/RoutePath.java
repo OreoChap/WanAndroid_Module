@@ -25,4 +25,8 @@ public class RoutePath {
     // User
     private static final String PREFIX_USER = "/user/";
     public static final String USER_ACTIVITY = PREFIX_USER + "UserActivity";
+
+    // Api
+    private static final String PREFIX_API = "/api/";
+    public static final String API_LOGIN = PREFIX_API + "LoginModel";
 }
